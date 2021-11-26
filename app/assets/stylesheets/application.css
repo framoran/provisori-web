@@ -13,3 +13,46 @@
  *= require_tree .
  *= require_self
  */
+
+ /****************** Grid system with the flexbox ***********************/
+.grid-systems{
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 0;
+
+ }
+
+
+/* Mobile */
+.grid-system{
+
+  padding: 0.7rem;
+  width: 50%;
+
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+
+ .grid-system{
+
+   padding: 0.7rem;
+   width:33%;
+
+ }
+
+}
+
+/* Desktop */
+@media only screen and (min-width: 1024px) {
+
+  .grid-system{
+
+     padding: 0.7rem;
+     width: 25%;
+
+  }
+
+}
