@@ -1,0 +1,103 @@
+<%= form_for(article) do |form| %>
+  <% if article.errors.any? %>
+    <%= render partial: 'model_errors', locals: { model: article } %>
+  <% end %>
+
+  <div class="half-page">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <span class="title is-4" contenteditable="true">Titre...</span><br>
+            <p class="subtitle is-6">Thomas Pfefferlé</p>
+          </div>
+        </div>
+
+        <span contenteditable="true"> Texte ...
+        <br>
+        </span>
+
+        <div id="new_elements">
+
+          <div id="childElement"></div>
+
+        </div>
+        <br>
+
+        <div class="mt-3">
+          <button id="add" type="button" class="button is-black">+ Ajouter paragraphe</button>
+        </div>
+
+        <div class="mt-3">
+          <button id="add-titre" type="button" class="button is-black">+ Ajouter titre</button>
+        </div>
+
+        <hr>
+
+        <div class="is-flex is-justify-content-space-between	">
+
+          <div class="control mt-3">
+            <%= form.submit class: 'button is-primary' %>
+          </div>
+
+          <div class="mt-3 ml-5">
+            <%= link_to 'Annuler', root_path, class: 'button is-info' %>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    let paragraph_n = 1;
+
+    document.getElementById('add').onclick = function(){
+
+      const childElement = document.getElementById("childElement")
+
+      var comment_p = document.createElement("p");
+      comment_p.contentEditable  = "true";
+      comment_p.className = "mt-5 text"+paragraph_n;
+      comment_p.appendChild(document.createTextNode("texte ..."));
+
+
+      let parentDiv = document.getElementById("childElement").parentNode
+
+      parentDiv.insertBefore(comment_p, childElement);
+
+    }
+
+    document.getElementById('add-titre').onclick = function(){
+
+      const childElement = document.getElementById("childElement")
+
+      var comment_p = document.createElement("p");
+      comment_p.contentEditable  = "true";
+      comment_p.className = "mt-5 title text"+paragraph_n;
+      comment_p.appendChild(document.createTextNode("Texte ..."));
+
+
+      let parentDiv = document.getElementById("childElement").parentNode
+
+      parentDiv.insertBefore(comment_p, childElement);
+
+    }
+
+  </script>
+
+<% end %>

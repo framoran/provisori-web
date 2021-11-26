@@ -3,7 +3,7 @@
 <div class="grid-systems">
 
   <% @articles.each do |article| %>
-      <div class="col-md-4">
+      <div>
         <%= render partial: 'articles', locals: { article: article } %>
       </div>
     <% end %>

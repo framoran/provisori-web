@@ -14,6 +14,52 @@
  *= require_self
  */
 
+
+ /************************ General Format *********************************/
+
+ .time{
+
+   font-size: 0.9rem;
+   color: #A8A8A8
+
+ }
+
+ .title{
+   font-size:1.6rem;
+ }
+
+ .half-page{
+
+   width: 350px;
+
+ }
+
+ /* Tablet */
+ @media only screen and (min-width: 768px) {
+
+   .half-page{
+
+     width: 500px;
+
+   }
+
+ }
+
+ /* Desktop */
+ @media only screen and (min-width: 1024px) {
+
+
+ }
+
+
+ /*********************** Forms elements **********************************/
+
+ .text_area{
+
+   height: 300px;
+
+ }
+
  /****************** Grid system with the flexbox ***********************/
 .grid-systems{
 
@@ -21,25 +67,33 @@
     flex-flow: row wrap;
     justify-content: space-around;
     margin: 0;
+    padding:0;
+    width: 100%
 
  }
 
 
-/* Mobile */
 .grid-system{
 
-  padding: 0.7rem;
-  width: 50%;
+   margin: 0.5rem;
+   width: 200px;
 
-}
+ }
+
+.grid-system-card{
+
+   height: 500px;
+
+ }
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
 
  .grid-system{
 
-   padding: 0.7rem;
-   width:33%;
+   width: 300px;
+
+   margin: 0.7rem;
 
  }
 
@@ -50,8 +104,7 @@
 
   .grid-system{
 
-     padding: 0.7rem;
-     width: 25%;
+    margin: 1.2rem;
 
   }
 

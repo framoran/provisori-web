@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+
   root to: 'home#index'
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/login'
-  get 'sessions/welcome'
-  get 'users/new'
-  get 'users/create'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+
+  resources :sessions
+  resources :users
+
+  resources :articles do
+    resources :comments, only: [:new, :create]
+  end
+
 end
