@@ -17,13 +17,18 @@
               <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
             </figure>
           </div>
-          <div class="media-content">
-            <span class="title is-4" contenteditable="true">Titre...</span><br>
+          <div class="media-content"><br>
+            <label id="article[title]" ></label>
+            <input class="title is-4" name="article[title]" placeholder="Titre..."></input>
             <p class="subtitle is-6">Thomas Pfefferlé</p>
           </div>
         </div>
 
-        <span contenteditable="true"> Texte ...
+        <div class="media-content"><br>
+          <label id="article[body]" ></label>
+          <textarea name="article[body]"> Texte ... </textarea>
+        </div>
+
         <br>
         </span>
 
@@ -34,12 +39,32 @@
         </div>
         <br>
 
-        <div class="mt-3">
-          <button id="add" type="button" class="button is-black">+ Ajouter paragraphe</button>
+        <div class="ml-3">
+          <i class="fas fa-tools fa-2x"></i>
         </div>
 
-        <div class="mt-3">
-          <button id="add-titre" type="button" class="button is-black">+ Ajouter titre</button>
+        <div class="is-flex is-justify-content-start-flex">
+
+          <div class="mt-3 ml-3">
+            <button id="add" type="button" class="button is-black">+ Ajouter paragraphe</button>
+          </div>
+
+          <div class="mt-3  ml-3">
+            <button id="add-titre" type="button" class="button is-black">+ Ajouter titre</button>
+          </div>
+
+        </div>
+
+        <div class="is-flex is-justify-content-space-flex">
+
+          <div class="mt-3  ml-3">
+            <button id="add" type="button" class="button is-black">+ Ajouter image</button>
+          </div>
+
+          <div class="mt-3  ml-3">
+            <button id="add-titre" type="button" class="button is-black">+ Ajouter video</button>
+          </div>
+
         </div>
 
         <hr>
@@ -64,37 +89,58 @@
 
   <script>
 
-    let paragraph_n = 1;
+    let body_n = 1;
+    let title_n = 1;
 
     document.getElementById('add').onclick = function(){
 
-      const childElement = document.getElementById("childElement")
+      body_n ++;
 
-      var comment_p = document.createElement("p");
-      comment_p.contentEditable  = "true";
-      comment_p.className = "mt-5 text"+paragraph_n;
-      comment_p.appendChild(document.createTextNode("texte ..."));
+      const childElement = document.getElementById("childElement");
 
+      const div = document.createElement("div");
+      div.className = "media-content";
+
+      var label = document.createElement("label");
+      label.id  = "article[body"+body_n+"]";
+
+      var body = document.createElement("textarea");
+      body.name  = "article[body"+body_n+"]";
+      body.className = "mt-5 text"+body_n;
+      body.appendChild(document.createTextNode("texte ..."));
+
+      div.appendChild(label);
+      div.appendChild(body);
 
       let parentDiv = document.getElementById("childElement").parentNode
 
-      parentDiv.insertBefore(comment_p, childElement);
+      parentDiv.insertBefore(div, childElement);
 
     }
 
     document.getElementById('add-titre').onclick = function(){
 
+      title_n ++;
+
       const childElement = document.getElementById("childElement")
 
-      var comment_p = document.createElement("p");
-      comment_p.contentEditable  = "true";
-      comment_p.className = "mt-5 title text"+paragraph_n;
-      comment_p.appendChild(document.createTextNode("Texte ..."));
+      const div = document.createElement("div");
+      div.className = "media-content";
 
+      var label = document.createElement("label");
+      label.id  = "article[body"+body_n+"]";
+
+      var title = document.createElement("input");
+      title.placeholder  = "Titre...";
+      title.name  = "article[title"+title_n+"]";
+      title.className = "mt-5";
+      title.appendChild(document.createTextNode("Texte ..."));
+      div.appendChild(label);
+      div.appendChild(title);
 
       let parentDiv = document.getElementById("childElement").parentNode
 
-      parentDiv.insertBefore(comment_p, childElement);
+      parentDiv.insertBefore(div, childElement);
 
     }
 
