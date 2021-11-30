@@ -6,6 +6,12 @@ class ArticlesController < ApplicationController
 
   end
 
+  def index_unpublished
+
+    @article = Article.find_by(published: true)
+
+  end
+
   def new
 
     @article = Article.new
