@@ -3,234 +3,39 @@
     <%= render partial: 'model_errors', locals: { model: article } %>
   <% end %>
 
-  <div class="half-page">
-    <div class="card">
-      <div class="card-image">
-        <figure class="image is-4by3">
-          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-        </figure>
+  <div class="box">
+
+    <h1 class="title"> <i class="fas fa-tools fa-2x"></i> Créer un nouvel article </h1>
+
+    <div class="media-content"><br>
+      <label class="label" id="article[title]">Veuillez entrer le titre de l'article</label>
+      <input class="title is-4 input" name="article[title]" placeholder="Titre..."></input>
+    </div>
+
+    <div class="media-content"><br>
+      <label class="label" id="article[page]">Veuillez entrer la page de l'article</label>
+
+      <div class="select">
+        <select name="article[view]">
+          <option>Artistes</option>
+          <option>Like a boss</option>
+          <option>Fort/e tu seras</option>
+        </select>
       </div>
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <figure class="image is-48x48">
-              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="media-content"><br>
-            <label id="article[title]" ></label>
-            <input class="title is-4" name="article[title]" placeholder="Titre..."></input>
-            <p class="subtitle is-6">Thomas Pfefferlé</p>
-          </div>
-        </div>
+    </div>
 
-        <div class="media-content"><br>
-          <label id="article[body]" ></label>
-          <textarea name="article[body]"> Texte ... </textarea>
-        </div>
+    <div class="is-flex is-justify-content-space-between	">
 
-        <br>
-        </span>
+      <div class="control mt-3">
+        <%= form.submit "Créer l'article", class: 'button is-primary' %>
+      </div>
 
-        <div id="new_elements">
-
-          <div id="childElement"></div>
-
-        </div>
-        <br>
-
-        <div class="ml-3">
-          <i class="fas fa-tools fa-2x"></i>
-        </div>
-
-        <div class="is-flex is-justify-content-start-flex">
-
-          <div class="mt-3 ml-3">
-            <button id="add" type="button" class="button is-black">+ Ajouter paragraphe</button>
-          </div>
-
-          <div class="mt-3  ml-3">
-            <button id="add-titre" type="button" class="button is-black">+ Ajouter titre</button>
-          </div>
-
-        </div>
-
-        <div class="is-flex is-justify-content-start-flex">
-
-          <div class="mt-3 ml-3">
-            <button id="add-subtitle" type="button" class="button is-black">+ Ajouter un sous-tittre</button>
-          </div>
-
-        </div>
-
-        <div class="is-flex is-justify-content-space-flex">
-
-          <div class="mt-3  ml-3">
-            <button id="add" type="button" class="button is-black">+ Ajouter image</button>
-          </div>
-
-          <div class="mt-3  ml-3">
-            <button id="add-titre" type="button" class="button is-black">+ Ajouter video</button>
-          </div>
-
-        </div>
-
-        <hr>
-
-        <div class="is-flex is-justify-content-space-between	">
-
-          <div class="control mt-3">
-            <%= form.submit class: 'button is-primary' %>
-          </div>
-
-          <div class="mt-3 ml-5">
-            <%= link_to 'Annuler', root_path, class: 'button is-info' %>
-          </div>
-
-        </div>
-
+      <div class="mt-3 ml-5">
+        <%= link_to 'Annuler', root_path, class: 'button is-info' %>
       </div>
 
     </div>
 
   </div>
-
-  <script>
-
-    let body_n = 1;
-    let title_n = 1;
-    let subtitle_n = 1;
-
-    document.getElementById('add').onclick = function(){
-
-      body_n ++;
-
-      const childElement = document.getElementById("childElement");
-
-      const div = document.createElement("div");
-      div.className = "media-content";
-
-      var label = document.createElement("label");
-      label.id  = "article[body"+body_n+"]";
-
-      var body = document.createElement("textarea");
-      body.name  = "article[body"+body_n+"]";
-      body.className = "mt-5 text"+body_n;
-      body.appendChild(document.createTextNode("texte ..."));
-
-      div.appendChild(label);
-      div.appendChild(body);
-
-      let parentDiv = document.getElementById("childElement").parentNode;
-
-      parentDiv.insertBefore(div, childElement);
-
-    }
-
-    document.getElementById('add-titre').onclick = function(){
-
-      title_n ++;
-
-      const childElement = document.getElementById("childElement")
-
-      const div = document.createElement("div");
-      div.className = "media-content";
-
-      var label = document.createElement("label");
-      label.id  = "article[body"+body_n+"]";
-
-      var title = document.createElement("input");
-      title.placeholder  = "Titre...";
-      title.name  = "article[title"+title_n+"]";
-      title.className = "mt-5 title";
-      title.appendChild(document.createTextNode("Texte ..."));
-      div.appendChild(label);
-      div.appendChild(title);
-
-      let parentDiv = document.getElementById("childElement").parentNode;
-
-      parentDiv.insertBefore(div, childElement);
-
-    }
-
-    document.getElementById('add-subtitle').onclick = function(){
-
-      subtitle_n ++;
-
-      const childElement = document.getElementById("childElement")
-
-      const div = document.createElement("div");
-      div.className = "media-content";
-
-      var label = document.createElement("label");
-      label.id  = "article[body"+subtitle_n+"]";
-
-      var title = document.createElement("input");
-      title.placeholder  = "Sous-titre...";
-      title.name  = "article[title"+subtitle_n+"]";
-      title.className = "mt-5 subtitle";
-      title.appendChild(document.createTextNode("Texte ..."));
-      div.appendChild(label);
-      div.appendChild(title);
-
-      let parentDiv = document.getElementById("childElement").parentNode;
-
-      parentDiv.insertBefore(div, childElement);
-
-    }
-
-    document.getElementById('add-subtitle').onclick = function(){
-
-      image_n ++;
-
-      const childElement = document.getElementById("childElement")
-
-      const div = document.createElement("div");
-      div.className = "media-content";
-
-      var label = document.createElement("label");
-      label.id  = "article[body"+subtitle_n+"]";
-
-      var title = document.createElement("input");
-      title.placeholder  = "Sous-titre...";
-      title.name  = "article[title"+subtitle_n+"]";
-      title.className = "mt-5 subtitle";
-      title.appendChild(document.createTextNode("Texte ..."));
-      div.appendChild(label);
-      div.appendChild(title);
-
-      let parentDiv = document.getElementById("childElement").parentNode;
-
-      parentDiv.insertBefore(div, childElement);
-
-    }
-
-    document.getElementById('add-subtitle').onclick = function(){
-
-      subtitle_n ++;
-
-      const childElement = document.getElementById("childElement")
-
-      const div = document.createElement("div");
-      div.className = "media-content";
-
-      var label = document.createElement("label");
-      label.id  = "article[body"+subtitle_n+"]";
-
-      var title = document.createElement("input");
-      title.placeholder  = "Sous-titre...";
-      title.name  = "article[title"+subtitle_n+"]";
-      title.className = "mt-5 subtitle";
-      title.appendChild(document.createTextNode("Texte ..."));
-      div.appendChild(label);
-      div.appendChild(title);
-
-      let parentDiv = document.getElementById("childElement").parentNode;
-
-      parentDiv.insertBefore(div, childElement);
-
-    }
-
-  </script>
 
 <% end %>

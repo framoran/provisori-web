@@ -2,23 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-@import "font-awesome";
-
-/************************* Elements from forms ***********************************/
-label{
-  visibility: hidden;
-}
-
-textarea {
-    border: none;
-    outline: none;
-    height:200px;
-    width: 100%;
-}
-
-input {
-    border: none;
-    outline: none;
-    width: 100%;
-    font-size: 1.6rem;
+.box{
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 1.6rem;
 }

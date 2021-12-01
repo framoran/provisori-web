@@ -1,0 +1,411 @@
+<%= form_for(article) do |form| %>
+  <% if article.errors.any? %>
+    <%= render partial: 'model_errors', locals: { model: article } %>
+  <% end %>
+
+  <div class="half-page">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content"><br>
+            <label id="article[title]" ></label>
+            <input class="title is-4" name="article[title]" placeholder="Titre..."></input>
+            <p class="subtitle is-6">Thomas Pfefferlé</p>
+          </div>
+        </div>
+
+        <div class="media-content"><br>
+          <label id="article[body]" ></label>
+          <textarea name="article[body]"> Texte ... </textarea>
+        </div>
+
+        <br>
+        </span>
+
+        <div id="new_elements">
+
+          <div id="childElement"></div>
+
+        </div>
+        <br>
+
+        <div class="ml-3">
+          <i class="fas fa-tools fa-2x"></i>
+        </div>
+
+        <div class="is-flex is-justify-content-start-flex">
+
+          <div class="mt-3 ml-3">
+            <button id="add" type="button" class="button is-black">+ Ajouter paragraphe</button>
+          </div>
+
+          <div class="mt-3  ml-3">
+            <button id="add-titre" type="button" class="button is-black">+ Ajouter titre</button>
+          </div>
+
+        </div>
+
+        <div class="is-flex is-justify-content-start-flex">
+
+          <div class="mt-3 ml-3">
+            <button id="add-subtitle" type="button" class="button is-black">+ Ajouter un sous-titre</button>
+          </div>
+
+        </div>
+
+        <div class="is-flex is-justify-content-space-flex">
+
+          <div class="mt-3  ml-3">
+            <button id="add-image" type="button" class="button is-black">+ Ajouter image</button>
+          </div>
+
+          <div class="mt-3  ml-3">
+            <button id="add-video" type="button" class="button is-black">+ Ajouter video</button>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <div class="is-flex is-justify-content-space-between	">
+
+          <div class="mt-3 ml-5">
+            <%= link_to 'Annuler', root_path, class: 'button is-info' %>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    // DECLARE VARIABLES
+    body_n = 1;
+    title_n = 1;
+    subtitle_n = 1;
+
+    document.getElementById('add').onclick = function(){
+
+      body_n ++;
+
+      const childElement = document.getElementById("childElement");
+
+      const div = document.createElement("div");
+      div.className = "media-content";
+      div.action = "/articles";
+      div.method = "post";
+
+      var hidden_input_type = document.createElement("input");
+      hidden_input_type.name="type";
+      hidden_input_type.type="hidden";
+      hidden_input_type.value="body";
+
+      var label = document.createElement("label");
+      label.id  = "article[body]";
+
+      var body = document.createElement("textarea");
+      body.name  = "article[body]";
+      body.className = "mt-5 body";
+      body.appendChild(document.createTextNode("texte ..."));
+
+      div.appendChild(hidden_input_type);
+      div.appendChild(label);
+      div.appendChild(body);
+
+      var save_btn = document.createElement("button");
+      save_btn.textContent = "Sauvegarder";
+      save_btn.onclick = function(){
+        save_btn.className = "button is-primary";
+        save_btn.textContent = "Sauvegardé";
+      };
+      save_btn.className = "button is-danger";
+      div.appendChild(save_btn);
+
+      let parentDiv = document.getElementById("childElement").parentNode;
+
+      parentDiv.insertBefore(div, childElement);
+
+    }
+
+    document.getElementById('add-titre').onclick = function(){
+
+      title_n ++;
+
+      const childElement = document.getElementById("childElement")
+
+      const form= document.createElement("form");
+      form.className = "media-content";
+      form.action = "/articles";
+      form.method = "post";
+
+      var hidden_input = document.createElement("input");
+      hidden_input.name="authenticity_token";
+      hidden_input.type="hidden";
+      hidden_input.value="<%= form_authenticity_token  %>";
+
+      var label = document.createElement("label");
+      label.id  = "article[title]";
+
+      var title = document.createElement("input");
+      title.placeholder  = "Titre...";
+      title.name  = "article[title]";
+      title.className = "mt-5 title";
+      title.appendChild(document.createTextNode("Texte ..."));
+
+      form.appendChild(hidden_input);
+      form.appendChild(label);
+      form.appendChild(title);
+
+      var save_btn = document.createElement("button");
+      save_btn.textContent = "Sauvegarder";
+      save_btn.className = "button is-danger";
+      save_btn.onclick = function(){
+        save_btn.className = "button is-primary";
+        save_btn.textContent = "Sauvegardé";
+      };
+      form.appendChild(save_btn);
+
+      let parentForm = document.getElementById("childElement").parentNode;
+
+      parentForm.insertBefore(form, childElement);
+
+    }
+
+    document.getElementById('add-subtitle').onclick = function(){
+
+      const childElement = document.getElementById("childElement");
+
+      const form= document.createElement("form");
+      form.className = "media-content";
+      form.action = "/articles";
+      form.method = "post";
+
+      var hidden_input = document.createElement("input");
+      hidden_input.name="authenticity_token";
+      hidden_input.type="hidden";
+      hidden_input.value="<%= form_authenticity_token  %>";
+
+      var label = document.createElement("label");
+      label.id  = "article[subtitle]";
+
+      var title = document.createElement("input");
+      title.placeholder  = "Sous-titre...";
+      title.name  = "article[subtitle]";
+      title.className = "mt-5 subtitle";
+      title.appendChild(document.createTextNode("Texte ..."));
+
+      form.appendChild(hidden_input);
+      form.appendChild(label);
+      form.appendChild(title);
+
+      var save_btn = document.createElement("button");
+      save_btn.textContent = "Sauvegarder";
+      save_btn.className = "button is-danger";
+      save_btn.onclick = function(){
+        save_btn.className = "button is-primary";
+        save_btn.textContent = "Sauvegardé";
+      };
+      form.appendChild(save_btn);
+
+      let parentForm = document.getElementById("childElement").parentNode;
+
+      parentForm.insertBefore(form, childElement);
+
+    }
+
+    document.getElementById('add-subtitle').onclick = function(){
+
+      image_n ++;
+
+      const childElement = document.getElementById("childElement")
+
+      const form= document.createElement("form");
+      form.className = "media-content";7
+      form.action = "/articles";
+      form.method = "post";
+
+      var hidden_input = document.createElement("input");
+      hidden_input.name="authenticity_token";
+      hidden_input.type="hidden";
+      hidden_input.value="<%= form_authenticity_token  %>";
+
+      var label = document.createElement("label");
+      label.id  = "article[body"+subtitle_n+"]";
+
+      var title = document.createElement("input");
+      title.placeholder  = "Sous-titre...";
+      title.name  = "article[title"+subtitle_n+"]";
+      title.className = "mt-5 subtitle";
+      title.appendChild(document.createTextNode("Texte ..."));
+
+      form.appendChild(hidden_input);
+      form.appendChild(label);
+      form.appendChild(title);
+
+      var save_btn = document.createElement("button");
+      save_btn.textContent = "Sauvegarder";
+      save_btn.className = "button is-danger";
+      save_btn.onclick = function(){
+        save_btn.className = "button is-primary";
+        save_btn.textContent = "Sauvegardé";
+      };
+      form.appendChild(save_btn);
+
+      let parentForm = document.getElementById("childElement").parentNode;
+
+      parentForm.insertBefore(form, childElement);
+
+    }
+
+    document.getElementById('add-subtitle').onclick = function(){
+
+      subtitle_n ++;
+
+      const childElement = document.getElementById("childElement")
+
+      const form= document.createElement("form");
+      form.className = "media-content";
+      form.action = "/articles";
+      form.method = "post";
+
+      var hidden_input = document.createElement("input");
+      hidden_input.name="authenticity_token";
+      hidden_input.type="hidden";
+      hidden_input.value="<%= form_authenticity_token  %>";
+
+      var label = document.createElement("label");
+      label.id  = "article[body"+subtitle_n+"]";
+
+      var title = document.createElement("input");
+      title.placeholder  = "Sous-titre...";
+      title.name  = "article[title"+subtitle_n+"]";
+      title.className = "mt-5 subtitle";
+      title.appendChild(document.createTextNode("Texte ..."));
+
+      form.appendChild(hidden_input);
+      form.appendChild(label);
+      form.appendChild(title);
+
+      var save_btn = document.createElement("button");
+      save_btn.textContent = "Sauvegarder";
+      save_btn.className = "button is-danger";
+      save_btn.onclick = function(){
+        save_btn.className = "button is-primary";
+        save_btn.textContent = "Sauvegardé";
+      };
+
+      form.appendChild(save_btn);
+
+      let parentForm = document.getElementById("childElement").parentNode;
+
+      parentForm.insertBefore(form, childElement);
+
+    }
+
+    document.getElementById('add-video').onclick = function(){
+
+      subtitle_n ++;
+
+      const childElement = document.getElementById("childElement")
+
+      const form= document.createElement("form");
+      form.className = "media-content";
+      form.action = "/articles";
+      form.method = "post";
+
+      var hidden_input = document.createElement("input");
+      hidden_input.name="authenticity_token";
+      hidden_input.type="hidden";
+      hidden_input.value="<%= form_authenticity_token  %>";
+
+      var label = document.createElement("label");
+      label.id  = "article[body"+subtitle_n+"]";
+
+      var title = document.createElement("input");
+      title.placeholder  = "Sous-titre...";
+      title.name  = "article[title"+subtitle_n+"]";
+      title.className = "mt-5 subtitle";
+      title.appendChild(document.createTextNode("Texte ..."));
+
+      form.appendChild(hidden_input);
+      form.appendChild(label);
+      form.appendChild(title);
+
+      var save_btn = document.createElement("button");
+      save_btn.textContent = "Sauvegarder";
+      save_btn.className = "button is-danger";
+      save_btn.onclick = function(){
+        save_btn.className = "button is-primary";
+        save_btn.textContent = "Sauvegardé";
+      };
+
+      form.appendChild(save_btn);
+
+      let parentForm = document.getElementById("childElement").parentNode;
+
+      parentForm.insertBefore(form, childElement);
+
+    }
+
+    document.getElementById('add-image').onclick = function(){
+
+      subtitle_n ++;
+
+      const childElement = document.getElementById("childElement")
+
+      const form= document.createElement("form");
+      form.className = "media-content";
+      form.action = "/articles";
+      form.method = "post";
+
+      var hidden_input = document.createElement("input");
+      hidden_input.name="authenticity_token";
+      hidden_input.type="hidden";
+      hidden_input.value="<%= form_authenticity_token  %>";
+
+      var label = document.createElement("label");
+      label.id  = "article[body"+subtitle_n+"]";
+
+      var title = document.createElement("input");
+      title.placeholder  = "Sous-titre...";
+      title.name  = "article[title"+subtitle_n+"]";
+      title.className = "mt-5 subtitle";
+      title.appendChild(document.createTextNode("Texte ..."));
+
+      form.appendChild(hidden_input);
+      form.appendChild(label);
+      form.appendChild(title);
+
+      var save_btn = document.createElement("button");
+      save_btn.textContent = "Sauvegarder";
+      save_btn.className = "button is-danger";
+      save_btn.onclick = function(){
+        save_btn.className = "button is-primary";
+        save_btn.textContent = "Sauvegardé";
+      };
+
+      form.appendChild(save_btn);
+
+      let parentForm = document.getElementById("childElement").parentNode;
+
+      parentForm.insertBefore(form, childElement);
+
+    }
+
+  </script>
+
+<% end %>

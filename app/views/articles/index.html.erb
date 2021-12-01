@@ -4,7 +4,7 @@
 
   <% @articles.each do |article| %>
       <div>
-        <%= render partial: 'articles', locals: { article: article } %>
+        <%= render partial: 'articles_to_build', locals: { article: article } %>
       </div>
     <% end %>
 
