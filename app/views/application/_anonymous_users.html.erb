@@ -43,12 +43,10 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Login</strong>
-          </a>
-          <a class="button is-light">
-            S'enregistrer
-          </a>
+
+          <%= link_to "S'enregistrer", signup_path, class: 'button' %>
+          <%= link_to "Se connecter", login_path, class: 'button is-primary' %>
+
         </div>
       </div>
     </div>
