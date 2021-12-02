@@ -1,0 +1,57 @@
+<header>
+
+  <nav class="navbar mt-3" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <strong>Provisori Media</strong>
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Artistes
+      </a>
+
+      <a class="navbar-item">
+        Like a boss
+      </a>
+
+      <a class="navbar-item">
+        Fort/e tu seras
+      </a>
+
+      <div class="field has-addons mt-3">
+        <div class="control">
+          <input class="input" type="text" placeholder="Chercher un article">
+        </div>
+        <div class="control">
+          <a class="button is-dark">
+            Chercher
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="field has-addons mt-3">
+      <%= link_to 'Articles en construction', articles_path(), class: 'button is-primary', role: 'button' %>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <%= link_to('logout', session_path(1), method: :delete, class: 'button') %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </nav>
+  <hr />
+</header>
