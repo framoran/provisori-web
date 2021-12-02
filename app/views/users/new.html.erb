@@ -1,0 +1,50 @@
+<div class="columns mt-5 p-3">
+  <div class="box mt-5 mb-5 column is-three-fifths is-offset-one-fifth">
+    <h1 class="mt-5 has-text-centered title">S'enregistrer</h1>
+    <%= form_for(@user) do |form| %>
+      <% if @user.errors.any? %>
+        <%= render partial: 'model_errors', locals: { model: @user } %>
+      <% end %>
+
+      <div class="field">
+        <%= form.label(:name, class: 'label') %>
+        <div class="control has-icons-left">
+          <%= form.text_field(:name, class: 'input') %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= form.label(:last_name, class: 'label') %>
+        <div class="control has-icons-left">
+          <%= form.text_field(:last_name, class: 'input') %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= form.label :email, class: 'label' %>
+        <div class="control has-icons-left">
+          <%= form.email_field :email, class: 'input', placeholder: 'e.g. david.etanoel@gmail.com' %>
+          <span class="icon is-small is-left">
+             <i class="fas fa-envelope"></i>
+           </span>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= form.label(:password, class: 'label') %>
+        <div class="control has-icons-left">
+          <%= form.password_field(:password, class: 'input') %>
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </div>
+      </div>
+
+       <div class="field">
+         <div class="control has-icons-left">
+           <%= form.submit "S'enregistrer", class: 'button is-primary' %>
+         </div>
+       </div>
+    <% end %>
+  </div>
+</div>
