@@ -1,5 +1,5 @@
-class Article < ApplicationRecord
+class Element < ApplicationRecord
 
-  belongs_to   :articles
+  belongs_to :article
 
 end

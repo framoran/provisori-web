@@ -1,0 +1,35 @@
+<% case element.elements_type
+  when "body" %>
+    <p class="mt-5">
+      <%= element.body %>
+      <%= link_to 'X', element_path(element), class: 'button is-danger is-small', method: :delete %>
+    </p>
+    <%
+  when "subtitle1" %>
+    <h1 class="title mt-5">
+      <%= element.subtitle1 %>
+      <%= link_to 'X', element_path(element), class: 'button is-danger is-small', method: :delete %>
+    </h1> <%
+  when "subtitle2" %>
+    <h2 class="subtitle mt-5">
+      <%= element.subtitle2 %>
+      <%= link_to 'X', element_path(element), class: 'button is-danger is-small', method: :delete %>
+    </h2> <%
+  when "video" %>
+    <video class="mt-5" width="320" height="240" controls>
+      <source src="<%= element.src %>" type="video/mp4">
+        Your browser does not support the video tag.
+    </video> <br/>
+    <%= link_to 'X', element_path(element), class: 'button is-danger is-small', method: :delete %>
+    <%
+    when "image" %>
+    <div class="has-text-centered	">
+      <img class="mt-5" src="<%= element.src %>" alt="<%= element.alt %>" />
+      <%= link_to 'X', element_path(element), class: 'button is-danger is-small', method: :delete %>
+    </div>
+    <br /> <%
+    else
+      "Error"
+    end
+
+%>

@@ -1,0 +1,24 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/************************* Elements from forms ***********************************/
+label{
+  visibility: hidden;
+}
+
+textarea {
+    border: none;
+    outline: none;
+    height:200px;
+    width: 100%;
+}
+
+input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid grey;
+    margin: 0 0 1.6rem 0;
+    width: 100%;
+    font-size: 1.6rem;
+}

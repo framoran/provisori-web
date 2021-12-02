@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   def index
 
-    @articles = Article.all
+    @articles = Article.where("published = false")
 
   end
 
@@ -18,25 +18,54 @@ class ArticlesController < ApplicationController
 
   end
 
+  def edit
+
+    @article = Article.find(params[:id])
+
+  end
+
   def create
 
     @article = Article.new(article_params)
+    @article.published = false
 
     respond_to do |format|
       if @article.save
         # In this format call, the flash message is being passed directly to
         # redirect_to().  It's a caonvenient way of setting a flash notice or
         # alert without referencing the flash Hash explicitly.
-        format.html { redirect_to element_path(@article), notice: 'Tip was successfully created.' }
+        format.html { redirect_to edit_article_path(@article), notice: 'Tip was successfully created.' }
+
       else
         format.html { render :new }
       end
     end
   end
 
+  def update
+
+    @article = Article.find(params[:id])
+
+    if @article.published == 1
+
+      @article.update(published: false)
+
+      redirect_to articles_path
+
+    else
+
+      @article.update(published: true)
+      redirect_to root_path
+
+    end
+
+
+  end
+
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def article_params
-    params.require(:article).permit(:title, :view )
+    params.require(:article).permit(:title, :view)
   end
 
 end
