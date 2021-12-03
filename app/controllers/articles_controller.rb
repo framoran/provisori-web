@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+  before_action :authorization_admin, only: [:index, :new, :edit, :create, :update, :destroy]
+
   def index
 
     @articles = Article.where("published = false")
@@ -34,7 +36,7 @@ class ArticlesController < ApplicationController
         # In this format call, the flash message is being passed directly to
         # redirect_to().  It's a caonvenient way of setting a flash notice or
         # alert without referencing the flash Hash explicitly.
-        format.html { redirect_to edit_article_path(@article), notice: 'Tip was successfully created.' }
+        format.html { redirect_to edit_article_path(@article)}
 
       else
         format.html { render :new }

@@ -22,10 +22,12 @@
       <%= link_to("Lire plus", article_path(article), class:"button is-black") %>
     </div>
     <div>
-      <%= form_for article do |f| %>
+      <% if current_user_role == 'admin' %>
+        <%= form_for article do |f| %>
 
-        <%= f.submit "Retirer l'article", class: 'button is-danger' %>
+          <%= f.submit "Retirer l'article", class: 'button is-danger' %>
 
+        <% end %>
       <% end %>
     </div>
   </div>

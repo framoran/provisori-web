@@ -29,18 +29,19 @@
         <% end %>
 
       </div>
+      <% if current_user_role == 'admin' %>
 
-      <div class="mt-5 is-flex is-justify-content-space-between	">
+        <div class="mt-5 is-flex is-justify-content-space-between	">
 
-        <div class="mt-3 ml-5">
-          <%= link_to 'Editer', edit_article_path(article), class: 'button is-dark' %>
+          <div class="mt-3 ml-5">
+            <%= link_to 'Editer', edit_article_path(article), class: 'button is-dark' %>
+          </div>
+
+          <div class="mt-3 ml-5">
+            <%= link_to 'Annuler', articles_path, class: 'button is-danger' %>
+          </div>
+
         </div>
-
-        <div class="mt-3 ml-5">
-          <%= link_to 'Annuler', articles_path, class: 'button is-danger' %>
-        </div>
-
-      </div>
-
+      <% end %>
     </div>
   </div>
