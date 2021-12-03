@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_125618) do
+ActiveRecord::Schema.define(version: 2021_12_03_073412) do
 
 # Could not dump table "articles" because of following StandardError
 #   Unknown type 'bool' for column 'published'
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_12_01_125618) do
     t.integer "response_game"
     t.datetime "created_at"
     t.datetime "modified_at"
+    t.string "role"
   end
 
   add_foreign_key "elements", "articles"
