@@ -14,7 +14,16 @@
   </head>
 
   <body>
-    <%= render partial: 'anonymous_users' %>
+    <% case current_user_role %>
+    <% when 'admin' %>
+      <%= render partial: 'admin_users' %>
+    <% when 'registered' %>
+      <%= render partial: 'registered_users' %>
+    <% when 'anonymous' %>
+      <%= render partial: 'anonymous_users' %>
+    <% else %>
+      <%= render partial: 'anonymous_users' %>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>
