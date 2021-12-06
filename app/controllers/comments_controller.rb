@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
-  include RolesHelper
 
-  before_action :set_article
   before_action :authorization_at_least_reg
+  before_action :set_article, only: [ :create , :edit, :update ]
 
   def create
 
@@ -14,11 +13,16 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user_id
     @comment.save
 
+    redirect_to article_path(@article.id, anchor: "comment-id#{@comment.id}")
+
   end
 
   def destroy
 
+    @comment = Comment.find(params[:id])
+    @article = @comment.article_id
     @comment.destroy
+
 
   end
 

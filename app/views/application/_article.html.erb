@@ -35,27 +35,25 @@
         <div class="m-3" id="commentList">
           <% if article.comments.present? %>
             <% @article.comments.each do |comment| %>
-
-
-            <article class="media">
-              <figure class="media-left">
-                <p class="image is-64x64">
-                  <img src="https://bulma.io/images/placeholders/128x128.png">
-                </p>
-              </figure>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <strong><%= comment.user.name %> <%= comment.user.last_name %> </strong><%= time_ago_in_words(comment.created_at) %></small>
-                    <br>
-                    <%= comment.body %>
+              <article class="media" id="comment-id<%= comment.id %>">
+                <figure class="media-left">
+                  <p class="image is-64x64">
+                    <img src="https://bulma.io/images/placeholders/128x128.png">
                   </p>
+                </figure>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong><%= comment.user.name %> <%= comment.user.last_name %> </strong><%= time_ago_in_words(comment.created_at) %></small>
+                      <br>
+                      <%= comment.body %>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="media-right">
-                <%= link_to "Supprimer le commentaire", comment_path(comment), class: 'delete', method: :delete %>
-              </div>
-            </article>
+                <div class="media-right">
+                  <%= link_to "Supprimer le commentaire", comment_path(comment), class: 'delete', method: :delete, remote: true %>
+                </div>
+              </article>
             <% end %>
           <% end %>
 
