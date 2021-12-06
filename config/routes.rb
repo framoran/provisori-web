@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :elements
 
   resources :articles do
-    resources :comments, only: [:new, :create]
+    resources :comments
     resources :elements
   end
 

@@ -30,16 +30,18 @@
 
       </div>
 
-      <div class="content">
+      <div class="content mt-5">
         <h3>Commentaires</h3>
         <div class="m-3" id="commentList">
-          <% @article.comments.order(created_at: :asc).each do |comment| %>
-            <blockquote >
-              <p><%= comment.body %></p>
-              <footer>
-                Added by ...
-              </footer>
-            </blockquote>
+          <% if article.comments.present? %>
+            <% article.each do |comment| %>
+              <blockquote >
+                <p><%= comment.body %></p>
+                <footer>
+                  Added by ...
+                </footer>
+              </blockquote>
+            <% end %>
           <% end %>
         </div>
         <% if current_user_role == 'registered' %>

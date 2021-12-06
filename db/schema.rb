@@ -15,6 +15,16 @@ ActiveRecord::Schema.define(version: 2021_12_03_073412) do
 # Could not dump table "articles" because of following StandardError
 #   Unknown type 'bool' for column 'published'
 
+  create_table "comments", force: :cascade do |t|
+    t.string "body"
+    t.integer "user_id"
+    t.integer "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "elements", force: :cascade do |t|
     t.integer "article_id"
     t.string "elements_type", default: "null"
@@ -39,5 +49,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_073412) do
     t.string "role"
   end
 
+  add_foreign_key "comments", "articles"
+  add_foreign_key "comments", "users"
   add_foreign_key "elements", "articles"
 end
