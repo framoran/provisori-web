@@ -30,19 +30,44 @@
 
       </div>
 
-      <div class="content mt-5">
+      <div class="mt-5">
         <h3>Commentaires</h3>
         <div class="m-3" id="commentList">
           <% if article.comments.present? %>
-            <% article.each do |comment| %>
-              <blockquote >
-                <p><%= comment.body %></p>
-                <footer>
-                  Added by ...
-                </footer>
-              </blockquote>
+            <% @article.comments.each do |comment| %>
+
+
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-64x64">
+                  <img src="https://bulma.io/images/placeholders/128x128.png">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>David</strong> <small>Framorando</small> <small><%= comment.created_at %></small>
+                    <br>
+                    <%= comment.body %>
+                  </p>
+                </div>
+              </div>
+              <div class="media-right">
+                <%= link_to "Supprimer le commentaire", comment_path(comment), class: 'delete', method: :delete %>
+              </div>
+            </article>
             <% end %>
           <% end %>
+
+          <%= form_for([@article, @article.comments.build]) do |form| %>
+            <fieldset>
+              <%= form.text_area(:body, class: 'textarea', rows: 3) %>
+            </fieldset>
+            <fieldset class="">
+              <%= form.submit class: 'button is-primary' %>
+            </fieldset>
+
+        <% end %>
         </div>
         <% if current_user_role == 'registered' %>
           <p>Ajouter un commentaire</p>

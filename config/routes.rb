@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :users
   resources :elements
+  resources :comments
 
   resources :articles do
     resources :comments
