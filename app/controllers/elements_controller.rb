@@ -25,8 +25,4 @@ class ElementsController < ApplicationController
     params.require(:article).permit(:elements_type, :subtitle1, :subtitle2, :body, :src, :alt)
   end
 
-  def set_tip
-    @article = Article.find(params[:article_id])
-  end
-
 end

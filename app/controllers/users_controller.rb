@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
 
     @user = User.new(user_params)
-    @user.role = 'registered'
+    @user.role = 'admin'
 
     if @user.save
       session[:user_id] = @user.id
