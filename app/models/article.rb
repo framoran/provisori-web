@@ -1,8 +1,6 @@
 class Article < ApplicationRecord
 
-  has_many   :comments
-
-  has_many   :elements
+  has_many   :elements, dependent: :destroy
 
   validates :title,  presence: true
   validates :view,  presence: true

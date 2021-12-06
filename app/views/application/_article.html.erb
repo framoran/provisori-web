@@ -29,6 +29,24 @@
         <% end %>
 
       </div>
+
+      <div class="content">
+        <h3>Commentaires</h3>
+        <div class="m-3" id="commentList">
+          <% @article.comments.order(created_at: :asc).each do |comment| %>
+            <blockquote >
+              <p><%= comment.body %></p>
+              <footer>
+                Added by ...
+              </footer>
+            </blockquote>
+          <% end %>
+        </div>
+        <% if current_user_role == 'registered' %>
+          <p>Ajouter un commentaire</p>
+        <% end %>
+      </div>
+
       <% if current_user_role == 'admin' %>
 
         <div class="mt-5 is-flex is-justify-content-space-between	">

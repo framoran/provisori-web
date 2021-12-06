@@ -7,27 +7,27 @@
       <% end %>
 
       <div class="field">
-        <%= form.label(:name, class: 'label') %>
+        <%= form.label(:name, 'Prénom', class: 'label') %>
         <div class="control has-icons-left">
           <%= form.text_field(:name, class: 'input') %>
           <span class="icon is-small is-left">
-            <i class="fas fa-id-badge"></i>
+            <i class="fas fa-pen-alt"></i>
           </span>
         </div>
       </div>
 
       <div class="field">
-        <%= form.label(:last_name, class: 'label') %>
+        <%= form.label(:last_name, 'Nom de famille',  class: 'label') %>
         <div class="control has-icons-left">
           <%= form.text_field(:last_name, class: 'input') %>
           <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-pen-alt"></i>
           </span>
         </div>
       </div>
 
       <div class="field">
-        <%= form.label :email, class: 'label' %>
+        <%= form.label :email, 'Email', class: 'label' %>
         <div class="control has-icons-left">
           <%= form.email_field :email, class: 'input', placeholder: 'e.g. david.etanoel@gmail.com' %>
           <span class="icon is-small is-left">
@@ -37,7 +37,7 @@
       </div>
 
       <div class="field">
-        <%= form.label(:password, class: 'label') %>
+        <%= form.label(:password, 'Mot de passe', class: 'label') %>
         <div class="control has-icons-left">
           <%= form.password_field(:password, class: 'input') %>
           <span class="icon is-small is-left">
