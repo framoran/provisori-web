@@ -16,6 +16,12 @@ class CommentsController < ApplicationController
 
   end
 
+  def destroy
+
+    @comment.destroy
+
+  end
+
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.
