@@ -1,4 +1,8 @@
-<%= link_to 'Nouvel article', new_article_path(), class: 'button is-primary', role: 'button' %>
+<% if current_user_role == 'admin' %>
+
+  <%= link_to 'Nouvel article', new_article_path(), class: 'button is-primary ml-3', role: 'button' %>
+
+<% end %>
 
 <div class="grid-systems">
 
