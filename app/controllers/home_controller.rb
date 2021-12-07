@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 
     if params.has_key?(:q)
 
-      @articles = Article.where("group2 = true")
+      @articles = Article.where("published = true AND group#{params[:q]} = '1'")
     else
 
       @articles = Article.where("published = true")
