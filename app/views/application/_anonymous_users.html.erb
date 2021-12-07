@@ -61,8 +61,8 @@
           </div>
           <div>
             <%= link_to "Contact", "/contact", class: 'button is-medium' %>
-            <%= link_to "Se connecter", login_path, class: 'button is-primary is-medium mt-1' %>
-            <%= link_to "S'enregistrer", signup_path, class: 'button is-medium mt-1' %>
+            <%= link_to "Se connecter", login_path, class: 'button is-medium mt-1' %>
+            <%= link_to "S'enregistrer", signup_path, class: 'button is-primary is-medium mt-1' %>
           </div>
         </div>
       </div>
@@ -70,33 +70,3 @@
   </nav>
   <hr />
 </header>
-
-<script>
-
-  document.getElementById('openNav').onclick = function(){
-
-    openNav();
-
-  }
-
-  document.getElementById('openNav2').onclick = function(){
-
-    openNav();
-
-  }
-
-  document.getElementById('closeNav').onclick = function(){
-
-    closeNav();
-
-  }
-
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "300px";
-  }
-
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
-
-</script>
