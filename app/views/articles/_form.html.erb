@@ -13,18 +13,58 @@
     </div>
 
     <div class="media-content"><br>
-      <label class="label" id="article[page]">Veuillez entrer la page de l'article</label>
+      <label class="label" id="article[page]">Sélectionner les vues dans lesquelles l'article apparaitra</label>
 
+      <p class="mt-3">Like a boss</p>
       <div class="select">
-        <select name="article[view]">
-          <option>Artistes</option>
-          <option>Like a boss</option>
-          <option>Fort/e tu seras</option>
+        <select name="article[group1]">
+          <option value="true">Oui</option>
+          <option value="false">Non</option>
+        </select>
+      </div>
+
+      <p class="mt-3">Artistes</p>
+      <div class="select">
+        <select name="article[group2]">
+          <option value="true">Oui</option>
+          <option value="false">Non</option>
+        </select>
+      </div>
+
+      <p class="mt-3">Stories de ouf</p>
+      <div class="select">
+        <select name="article[group3]">
+          <option value="true">Oui</option>
+          <option value="false">Non</option>
+        </select>
+      </div>
+
+      <p class="mt-3">Tinder fails</p>
+      <div class="select">
+        <select name="article[group4]">
+          <option value="true">Oui</option>
+          <option value="false">Non</option>
+        </select>
+      </div>
+
+      <p class="mt-3">Zen tu seras</p>
+      <div class="select">
+        <select name="article[group5]">
+          <option value="true">Oui</option>
+          <option value="false">Non</option>
+        </select>
+      </div>
+
+      <p class="mt-3">Spoiler pour flemmards</p>
+      <div class="select">
+        <select name="article[group6]">
+          <option value="true">Oui</option>
+          <option value="false">Non</option>
         </select>
       </div>
     </div>
 
-    <div class="is-flex is-justify-content-space-between	">
+    <div class="is-flex is-justify-content-space-between mt-3">
 
       <div class="control mt-3">
         <%= form.submit "Créer l'article", class: 'button is-primary' %>

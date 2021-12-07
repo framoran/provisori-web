@@ -2,6 +2,8 @@ class ElementsController < ApplicationController
 
   before_action :set_article
 
+  before_action :authorization_admin
+
   def create
 
     element = Element.new element_params

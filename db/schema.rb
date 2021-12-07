@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_073412) do
+ActiveRecord::Schema.define(version: 2021_12_03_073417) do
 
 # Could not dump table "articles" because of following StandardError
-#   Unknown type 'bool' for column 'published'
+#   Unknown type '' for column 'published'
 
   create_table "comments", force: :cascade do |t|
     t.string "body"

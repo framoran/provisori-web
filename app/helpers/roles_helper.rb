@@ -13,3 +13,15 @@ module RolesHelper
     end
   end
 end
+
+def can_edit?(comments)
+  if !logged_in?
+    return false
+  end
+
+  case(current_user_role)
+  when 'admin' then  true
+  when 'registered' then current_user_id == comments.user.id
+  else false
+  end
+end

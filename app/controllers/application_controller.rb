@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
+  include RolesHelper
 
   helper_method :current_user_role
+  helper_method :current_user_id
+  helper_method :logged_in?
 
   def authorization_admin
     unless current_user_role == 'admin'

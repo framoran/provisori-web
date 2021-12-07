@@ -1,56 +1,102 @@
 <header>
 
   <nav class="navbar mt-3" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="/">
-      <strong>Provisori Media</strong>
-    </a>
-
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item">
-        Artistes
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <strong>PROVISORI Media</strong>
       </a>
-
-      <a class="navbar-item">
-        Like a boss
-      </a>
-
-      <a class="navbar-item">
-        Fort/e tu seras
-      </a>
-
-      <div class="field has-addons mt-5">
-        <div class="control">
-          <input class="input" type="text" placeholder="Chercher un article">
-        </div>
-        <div class="control">
-          <a class="button is-dark">
-            Chercher
-          </a>
-        </div>
-      </div>
 
     </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
 
-          <%= link_to "S'enregistrer", signup_path, class: 'button' %>
-          <%= link_to "Se connecter", login_path, class: 'button is-primary' %>
+        <a href="article?q=1" class="navbar-item">
+          Like a boss
+        </a>
 
+        <a href="article?q=2" class="navbar-item">
+          Artistes
+        </a>
+
+        <a href="article?q=3" class="navbar-item">
+          Stories de ouf
+        </a>
+
+        <a href="article?q=4" class="navbar-item">
+          Tinder fails
+        </a>
+
+        <a href="article?q=5" class="navbar-item">
+          Zen tu seras
+        </a>
+
+        <a href="article?q=6" class="navbar-item">
+          Spoiler pour flemmards
+        </a>
+      </div>
+
+      <div class="navbar-end mr-3">
+        <button class="navbar-item button is-dark mt-3" id = "openNav">
+          <i class="fas fa-search"></i>
+        </button>
+
+        <button class="navbar-item button is-dark mt-3 ml-1" id = "openNav2">
+          <i class="fas fa-bars is-light"></i>
+        </button>
+      </div>
+
+      <div id="mySidenav" class="sidenav">
+        <div class="p-3">
+          <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
+          <div class="field has-addons mt-5">
+            <div class="control">
+              <input class="input is-medium" type="text" placeholder="Chercher un article">
+            </div>
+            <div class="control">
+              <a class="button is-medium">
+                <i class="fas fa-search"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <%= link_to "Contact", "/contact", class: 'button is-medium' %>
+            <%= link_to "S'enregistrer", signup_path, class: 'button is-medium mt-1' %>
+            <%= link_to "Se connecter", login_path, class: 'button is-primary is-medium mt-1' %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </nav>
   <hr />
 </header>
+
+<script>
+
+  document.getElementById('openNav').onclick = function(){
+
+    openNav();
+
+  }
+
+  document.getElementById('openNav2').onclick = function(){
+
+    openNav();
+
+  }
+
+  document.getElementById('closeNav').onclick = function(){
+
+    closeNav();
+
+  }
+
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "300px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
+</script>

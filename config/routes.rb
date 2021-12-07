@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :elements
   end
 
+  get 'article', to:'home#index'
+
   get 'login', to:'sessions#new'
 
   get 'signup', to:'users#new'

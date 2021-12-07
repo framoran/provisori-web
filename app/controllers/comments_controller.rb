@@ -19,9 +19,17 @@ class CommentsController < ApplicationController
 
   def destroy
 
-    @comment = Comment.find(params[:id])
-    @article = @comment.article_id
-    @comment.destroy
+    if can_edit?(@comment)
+
+      @comment = Comment.find(params[:id])
+      @article = @comment.article_id
+      @comment.destroy
+
+    else
+
+      redirect_to root_path
+
+    end
 
 
   end

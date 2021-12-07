@@ -51,7 +51,9 @@
                   </div>
                 </div>
                 <div class="media-right">
-                  <%= link_to "Supprimer le commentaire", comment_path(comment), class: 'delete', method: :delete, remote: true %>
+                  <% if can_edit?(comment) %>
+                    <%= link_to "Supprimer le commentaire", comment_path(comment), class: 'delete', method: :delete, remote: true %>
+                  <% end %>
                 </div>
               </article>
             <% end %>
