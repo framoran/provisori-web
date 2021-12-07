@@ -25,3 +25,11 @@ def can_edit?(comments)
   else false
   end
 end
+
+def user_can_edit(user)
+  case(current_user_role)
+  when 'admin' then  true
+  when 'registered' then current_user_id == user.id
+  else false
+  end
+end
