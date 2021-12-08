@@ -2,6 +2,9 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  before_action :authorization_admin, only: [:index, :destroy]
+
+
   def new
     @user = User.new
   end
