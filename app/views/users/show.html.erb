@@ -4,7 +4,7 @@
     <div class="has-text-centered">
       <figure class="image is-128x128">
         <% if @user.avatar.present? %>
-          <%= image_tag @user.avatar, class: 'is-rounded', alt: "Avatar for #{user.name}" %>
+          <img class="avatar" src="<%= @user.avatar %>", alt: "Avatar for #{@user.name}", class: 'is-rounded'>
         <% else %>
           <%= image_tag default_avatar(@user), class: 'is-rounded', alt: "Avatar for #{@user.name}" %>
         <% end %>
