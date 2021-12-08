@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     if params.has_key?(:a)
 
       @search_term = params[:a]
-      return @articles = Article.title_contains(params[:a])     
+      return @articles = Article.search(params[:a])
 
     end
 
