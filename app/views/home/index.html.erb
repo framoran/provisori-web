@@ -6,10 +6,18 @@
 
 <div class="grid-systems">
 
-  <% @articles.each do |article| %>
-      <div class="col-md-4">
-        <%= render partial: 'articles', locals: { article: article } %>
-      </div>
+  <% if @articles.present? %>
+
+    <% @articles.each do |article| %>
+        <div class="col-md-4">
+          <%= render partial: 'articles', locals: { article: article } %>
+        </div>
+      <% end %>
+
+    <% else %>
+
+      <h1 class="title">Aucun article ne correspond à votre recherche </h1>
+
     <% end %>
 
 </div>

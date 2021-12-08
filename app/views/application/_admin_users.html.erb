@@ -51,14 +51,17 @@
         <div class="p-3">
           <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
           <div class="field has-addons mt-5">
-            <div class="control">
-              <input class="input is-medium" type="text" placeholder="Chercher un article">
-            </div>
-            <div class="control">
-              <a class="button is-medium">
-                <i class="fas fa-search"></i>
-              </a>
-            </div>
+            <%= form_tag home_index_path, method: :get do %>
+              <div class="columns p-3 pr-6">
+                <div class="column is-three-quarters">
+                  <%= label_tag :a, 'Search term', class: 'sr-only' %>
+                  <%= text_field_tag :a, params[:a], class: 'input', placeholder: 'e.g. Ruby classes' %>
+                </div>
+                <div class="column auto">
+                  <%= submit_tag 'Search', class: 'button is-primary' %>
+                </div>
+              </div>
+            <% end %>
           </div>
           <div>
             <%= link_to 'Utilisateurs', users_path(), class: 'button is-medium', role: 'button' %>

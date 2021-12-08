@@ -4,9 +4,10 @@ class HomeController < ApplicationController
 
     if params.has_key?(:a)
 
-      @articles = Article.where("published = true AND group#{params[:q]} = '1'")
+      @search_term = params[:a]
+      return @articles = Article.title_contains(params[:a])     
 
-    end 
+    end
 
     if params.has_key?(:q)
 
