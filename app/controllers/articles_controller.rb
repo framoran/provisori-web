@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
 
-    @articles = Article.where("published = false")
+    @articles = Article.where("published = false").page(params[:page])
 
   end
 

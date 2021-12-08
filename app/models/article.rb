@@ -10,4 +10,6 @@ class Article < ApplicationRecord
   scope :is_published, ->() { where('published = ?', 1) }
   scope :search, ->(term) { title_contains(term).and(is_published()) }
 
+  paginates_per 6
+
 end

@@ -5,3 +5,7 @@
   <%= render partial: 'users', locals: { user: user } %>
 
 <% end %>
+
+<div class="mt-5">
+  <%= paginate @users %>
+</div>

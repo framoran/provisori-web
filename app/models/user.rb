@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  paginates_per 9
+  
   private
 
   def downcase_email

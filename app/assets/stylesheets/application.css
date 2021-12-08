@@ -50,6 +50,47 @@
 
  }
 
+ /************************ Pagination *************************************/
+   .pagination a, .pagination span.current, .pagination span.gap {
+      padding: 10px 20px;
+      border-radius: 5px;
+      line-height: 45px;
+      text-decoration: none;
+      background-color: white;
+      border: 1px solid #DDD;
+  }
+
+  .pagination {
+    display: block;
+    margin: 1.6rem;
+
+      .first{
+          padding : 0;
+          float: none;
+          border: none;
+      }
+      .prev {
+          padding : 0;
+          float: none;
+          border: none;
+      }
+      .page{
+          padding : 0;
+          float: none;
+          border: none;
+      }
+      .next{
+          padding : 0;
+          float: none;
+          border: none;
+      }
+      .last{
+          padding : 0;
+          float: none;
+          border: none;
+      }
+  }
+
  /************************ Sidebar ****************************************/
  .sidenav {
    height: 100%;
