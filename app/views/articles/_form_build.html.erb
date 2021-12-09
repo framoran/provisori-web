@@ -73,6 +73,14 @@
 
       </div>
 
+      <div class="is-flex is-justify-content-space-flex">
+
+        <div class="mt-3  ml-3">
+          <button id="add-podcast" type="button" class="button is-black">+ Ajouter podcast</button>
+        </div>
+
+      </div>
+
       <hr>
 
       <div class="is-flex is-justify-content-space-between	">
@@ -138,6 +146,12 @@
           element_class="mt-5 is-size-6";
           element_name = "src";
           break;
+        case 'podcast':
+            element = 'input';
+            element_placeholder = "Insérer l'URL du podcast";
+            element_class="mt-5 is-size-6";
+            element_name = "src";
+            break;
         default:
           element = 'textarea';
           element_placeholder = 'texte...';
@@ -232,6 +246,12 @@
   document.getElementById('add-image').onclick = function(){
 
     insert("image");
+
+  }
+
+  document.getElementById('add-podcast').onclick = function(){
+
+    insert("podcast");
 
   }
 

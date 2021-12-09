@@ -1,6 +1,6 @@
 class ElementsController < ApplicationController
 
-  before_action :set_article
+  before_action :set_article, only: [:index, :new, :edit, :create, :update]
 
   before_action :authorization_admin
 
@@ -20,7 +20,7 @@ class ElementsController < ApplicationController
 
     @element.destroy
 
-    redirect_to(article_path(@article))
+    redirect_to(edit_article_path(@article))
 
   end
 

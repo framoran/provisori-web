@@ -23,6 +23,14 @@
       <img class="mt-5" src="<%= element.src %>" alt="<%= element.alt %>" />
     </div>
     <br /> <%
+    when "podcast" %>
+        <div class="has-text-centered	">
+          <audio controls>
+            <source src="<%= element.src %>" type="audio/mp3">
+          Your browser does not support the audio element.
+          </audio>
+        </div>
+        <br /> <%
     else
       "Error"
     end

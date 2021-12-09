@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 2021_12_03_073420) do
     t.index ["article_id"], name: "index_elements_on_article_id"
   end
 
+  create_table "game", force: :cascade do |t|
+    t.string "question"
+    t.integer "type_of_question"
+    t.string "src"
+    t.datetime "created_at"
+    t.datetime "modified_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "last_name"
@@ -50,7 +58,20 @@ ActiveRecord::Schema.define(version: 2021_12_03_073420) do
     t.string "avatar"
   end
 
+  create_table "winners", force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "user_id"
+    t.integer "week"
+    t.integer "year"
+    t.datetime "created_at"
+    t.datetime "modified_at"
+    t.index ["article_id"], name: "index_winners_on_article_id"
+    t.index ["user_id"], name: "index_winners_on_user_id"
+  end
+
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "elements", "articles"
+  add_foreign_key "winners", "articles"
+  add_foreign_key "winners", "users"
 end
