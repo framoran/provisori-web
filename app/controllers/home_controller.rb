@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
 
   def index
-
     if params.has_key?(:a)
 
       @search_term = params[:a]
