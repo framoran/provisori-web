@@ -6,10 +6,14 @@ class LikesController < ApplicationController
 
   def create
 
-  end
+    like = Like.new
+    article = Article.find (params[:article_id])
 
-  def set_article
-    @article = Article.find(params[:article_id])
+    like.article = article
+    like.like = true
+    like.user = current_user_id
+    like.save
+
   end
 
 end

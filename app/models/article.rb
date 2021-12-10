@@ -4,6 +4,10 @@ class Article < ApplicationRecord
 
   has_many   :comments, dependent: :destroy
 
+  has_many   :shares, dependent: :destroy
+
+  has_many   :likes, dependent: :destroy
+
   validates :title,  presence: true
 
   scope :title_contains,       ->(term) { where('title LIKE ?', "%#{term}%".downcase) }

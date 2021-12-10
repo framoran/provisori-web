@@ -28,18 +28,23 @@
 
         <% end %>
 
-        <p> <em>Vous avez aimé cet article ? </em></p>
+        <p> <strong>Vous avez aimé cet article ? Partagez: </strong></p>
 
-        <div class="display is-flex mt-1">
+        <div class="display is-flex mt-3">
 
-          <%= link_to "Like", article_likes_path(@article), method: :post %>
-
-          <a href="">
-            <span><i class="fas fa-heart fa-lg"></i></span>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=qualia4.com" target="_blank" class="button is-black">
+            <i class ="fab fa-facebook"></i>
+          </a>
+          <a href="whatsapp://send?u=qualia4.com" target="_blank" class="button is-black ml-2">
+            <i class ="fab fa-whatsapp"></i>
           </a>
 
-          <a class="ml-2">
-            <span><i class="fas fa-share fa-lg"></i> Partager</span>
+          <a href="http://www.twitter.com/share?url=https://qualia4.com" target="_blank" class="button is-black ml-2">
+            <i class ="fab fa-twitter"></i>
+          </a>
+
+          <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://www.website.com." target="_blank" class="button is-black ml-2">
+            <i class ="far fa-envelope"></i>
           </a>
 
         </div>
