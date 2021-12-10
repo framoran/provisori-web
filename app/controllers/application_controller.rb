@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user_role
   helper_method :current_user_id
+  helper_method :current_user
   helper_method :logged_in?
 
   def authorization_admin
@@ -14,6 +15,14 @@ class ApplicationController < ActionController::Base
   def authorization_at_least_reg
     unless current_user_role == 'registered' || current_user_role == 'admin'
       redirect_to root_path
+    end
+  end
+
+  def current_user
+    if logged_in?
+      return @current_user = User.find(session[:user_id])
+    else
+      return false
     end
   end
 

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  put '/post/:id/like', to: 'articles#like', as: 'like'
+
   resources :sessions
   resources :users
   resources :elements
@@ -11,8 +13,6 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
     resources :elements
-    resources :likes
-    resources :shares
   end
 
   get 'article', to:'home#index'

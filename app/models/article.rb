@@ -4,9 +4,11 @@ class Article < ApplicationRecord
 
   has_many   :comments, dependent: :destroy
 
-  has_many   :shares, dependent: :destroy
+  has_many   :likes
 
-  has_many   :likes, dependent: :destroy
+  def liked?(user)
+    !!self.likes.find{|like| like.user_id == user.id}
+  end
 
   validates :title,  presence: true
 

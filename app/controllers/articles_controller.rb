@@ -72,6 +72,14 @@ class ArticlesController < ApplicationController
 
   end
 
+  def like
+
+    @article = Article.find(params[:id])
+    Like.create(user_id: current_user_id, article_id:@article.id, like: true)
+    redirect_to article_path(@article)
+
+  end
+
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def article_params

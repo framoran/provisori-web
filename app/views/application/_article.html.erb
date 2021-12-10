@@ -11,6 +11,15 @@
           <h1 class="title"><%= @article.title %> </h1>
           <p class="subtitle is-6">Thomas Pfefferlé</p>
         </div>
+        <div class="media-right">
+          <em><i class="fas fa-heart fa-1x is-black"></i>
+            <% if @article.likes.count <= 1 %>
+              <%= @article.likes.count %> personne a aimé cet article
+            <% else %>
+              <%= @article.likes.count %> personnes ont aimés cet article
+            <% end %>
+          </em>
+        </div>
       </div>
 
       <br>
@@ -28,7 +37,30 @@
 
         <% end %>
 
-        <p> <strong>Vous avez aimé cet article ? Partagez: </strong></p>
+        <div class="display is-inline-flex">
+
+          <p> <strong>Vous avez aimé cet article ? </strong> </p>
+
+
+          <% if logged_in? %>
+
+            <span class="p-3 mt-2_negative">
+
+              <% if @article.liked?(current_user) %>
+                <i class="fas fa-heart fa-2x"></i>
+              <% else %>
+                <%= link_to raw('<i class="far fa-heart fa-2x is-black"></i>'),
+                  like_path(@article),
+                  method: "put"
+                   %>
+              <% end %>
+
+            <% end %>
+          </span>
+
+        </div>
+
+        <p class="mt-5"> <em>Partagez: </em></p>
 
         <div class="display is-flex mt-3">
 
@@ -79,19 +111,18 @@
               </article>
             <% end %>
           <% end %>
-
+          <p class="mb-3">Ajouter un commentaire</p>
           <%= form_for([@article, @article.comments.build]) do |form| %>
             <fieldset>
               <%= form.text_area(:body, class: 'textarea', rows: 3) %>
             </fieldset>
             <fieldset class="">
-              <%= form.submit class: 'button is-primary' %>
+              <%= form.submit 'Commenter', class: 'button is-primary' %>
             </fieldset>
 
         <% end %>
         </div>
         <% if current_user_role == 'registered' %>
-          <p>Ajouter un commentaire</p>
         <% end %>
       </div>
 
