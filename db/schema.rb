@@ -46,6 +46,26 @@ ActiveRecord::Schema.define(version: 2021_12_03_073420) do
     t.datetime "modified_at"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "user_id"
+    t.boolean "like"
+    t.datetime "created_at"
+    t.datetime "modified_at"
+    t.index ["article_id"], name: "index_likes_on_article_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "shares", force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "user_id"
+    t.boolean "share"
+    t.datetime "created_at"
+    t.datetime "modified_at"
+    t.index ["article_id"], name: "index_shares_on_article_id"
+    t.index ["user_id"], name: "index_shares_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "last_name"
@@ -72,6 +92,10 @@ ActiveRecord::Schema.define(version: 2021_12_03_073420) do
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "elements", "articles"
+  add_foreign_key "likes", "articles"
+  add_foreign_key "likes", "users"
+  add_foreign_key "shares", "articles"
+  add_foreign_key "shares", "users"
   add_foreign_key "winners", "articles"
   add_foreign_key "winners", "users"
 end
