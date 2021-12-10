@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
     resources :elements
+    resources :likes
+    resources :shares
   end
 
   get 'article', to:'home#index'
