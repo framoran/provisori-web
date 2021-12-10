@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :elements
   resources :comments
   resources :home
+  resources :game
 
   resources :articles do
     resources :comments
