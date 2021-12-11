@@ -1,7 +1,6 @@
 class Game < ApplicationRecord
 
-  belongs_to :user
-  
-  validates :body, presence: true
+  validates :response, presence: true
+  validates :type_of_question, presence: true
 
 end

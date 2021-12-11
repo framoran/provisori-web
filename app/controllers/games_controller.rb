@@ -4,10 +4,16 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
-  def new
+  def create
+
   end
 
-  def create
+  def check_response
+
+  end
+
+  def user_params
+    params.require(:user).permit(:response)
   end
 
 end

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   put '/post/:id/like', to: 'articles#like', as: 'like'
 
+  post '/games/check_response', to: 'games#check_response', as: 'check_response'
+
   get 'game', to: 'games#index'
 
   resources :sessions
