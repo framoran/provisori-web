@@ -38,10 +38,11 @@ ActiveRecord::Schema.define(version: 2021_12_03_073420) do
     t.index ["article_id"], name: "index_elements_on_article_id"
   end
 
-  create_table "game", force: :cascade do |t|
+  create_table "games", force: :cascade do |t|
     t.string "question"
     t.integer "type_of_question"
     t.string "src"
+    t.string "response"
     t.datetime "created_at"
     t.datetime "modified_at"
   end
@@ -54,16 +55,6 @@ ActiveRecord::Schema.define(version: 2021_12_03_073420) do
     t.datetime "modified_at"
     t.index ["article_id"], name: "index_likes_on_article_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
-  end
-
-  create_table "shares", force: :cascade do |t|
-    t.integer "article_id"
-    t.integer "user_id"
-    t.boolean "share"
-    t.datetime "created_at"
-    t.datetime "modified_at"
-    t.index ["article_id"], name: "index_shares_on_article_id"
-    t.index ["user_id"], name: "index_shares_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -94,8 +85,6 @@ ActiveRecord::Schema.define(version: 2021_12_03_073420) do
   add_foreign_key "elements", "articles"
   add_foreign_key "likes", "articles"
   add_foreign_key "likes", "users"
-  add_foreign_key "shares", "articles"
-  add_foreign_key "shares", "users"
   add_foreign_key "winners", "articles"
   add_foreign_key "winners", "users"
 end

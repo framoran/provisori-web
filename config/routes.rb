@@ -1,19 +1,17 @@
 Rails.application.routes.draw do
 
-  get 'game/new'
-  get 'game/create'
-  get 'controllergame/new'
-  get 'controllergame/create'
   root to: 'home#index'
 
   put '/post/:id/like', to: 'articles#like', as: 'like'
+
+  get 'game', to: 'games#index'
 
   resources :sessions
   resources :users
   resources :elements
   resources :comments
   resources :home
-  resources :game
+  resources :games
 
   resources :articles do
     resources :comments
