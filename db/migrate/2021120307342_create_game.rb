@@ -1,6 +1,6 @@
 class CreateGame < ActiveRecord::Migration[6.1]
   def change
-    create_table :game do |t|
+    create_table :games do |t|
       t.string :question
       t.integer :type_of_question
       t.string :src
