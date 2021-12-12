@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
 
+  before_action :authorization_admin, only: [ :new, :create, :edit, :destroy]
+
   def index
 
     @enigme = Game.last
@@ -20,7 +22,26 @@ class GamesController < ApplicationController
 
   def create
 
-    7
+    @game = Game.new(game_params)
+    @game.type_of_question = 1
+
+    respond_to do |format|
+      if @game.save
+        # In this format call, the flash message is being passed directly to
+        # redirect_to().  It's a caonvenient way of setting a flash notice or
+        # alert without referencing the flash Hash explicitly.
+        format.html { redirect_to @game, notice: 'La question a bien été créée.' }
+      else
+        format.html { render :new }
+      end
+    end
+
+
+  end
+
+  def new
+
+    @game = Game.new
 
   end
 
@@ -52,7 +73,7 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:response)
+    params.require(:game).permit(:question, :response)
   end
 
 end

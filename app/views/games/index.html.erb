@@ -7,27 +7,11 @@
 
         <h2 class="subtitle is-4 has-text-centered"> <i class="fas fa-hat-wizard mr-3"></i>Enigme de la semaine </h2>
 
-        <% if notice.present? %>
-          <div class="has-text-centered mb-3"><%= notice.html_safe %></div>
-        <% end %>
-
-        <% if @has_found == true %>
-          <div class="has-text-centered">
-            <i class="fas fa-gift fa-2x"></i> Félicitations, vous avez trouvé la bonne réponse ! Reconnecter-vous ce vendredi à partir de 12h pour savoir si vous serez le vainqueur.
-          </div>
+        <% if current_user_role == 'admin' %>
+          <%= render partial: 'enigme_admin', locals: { enigme: @enigme, has_found: @has_found, game: @game } %>
         <% else %>
-          <p class="has-text-centered"><%= @enigme.question %></p>
-          <div class="p5 has-text-centered">
-          <%= form_for @game, :url => { :action => "check_response" }, html: { class: 'width-response has-text-centered' } do |form| %>
-            <fieldset>
-              <%= form.text_area(:response, class: 'textarea', rows: 3) %>
-            </fieldset>
-            <fieldset class="">
-              <%= form.submit 'Répondre', class: 'button is-primary' %>
-            </fieldset>
-          <% end %>
-        </div>
-      <% end %>
+          <%= render partial: 'enigme', locals: { enigme: @enigme, has_found: @has_found, game: @game } %>
+        <% end %>
     </div>
   </div>
 </div>
