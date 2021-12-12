@@ -2,8 +2,7 @@ class GamesController < ApplicationController
 
   def index
 
-    enigme = Game.last
-    @enigme = enigme.question
+    @enigme = Game.last
     @game = Game.new
 
     if session[:user_id].present?
@@ -20,6 +19,8 @@ class GamesController < ApplicationController
   end
 
   def create
+
+    7
 
   end
 
@@ -39,9 +40,9 @@ class GamesController < ApplicationController
         # redirect_to().  It's a caonvenient way of setting a flash notice or
         # alert without referencing the flash Hash explicitly.
         user = User.find(session[:user_id])
-        @has_found = true
         user.response_game = true
-        format.html { redirect_to @game, notice: "Félicitations!" }
+        user.save!
+        format.html { redirect_to @game, notice: "Félicitations! Vous avez trouvé la bonne réponse !" }
       else
         format.html { redirect_to @game, notice: "Essayez encore !" }
       end

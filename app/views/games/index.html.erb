@@ -8,13 +8,15 @@
         <h2 class="subtitle is-4 has-text-centered"> <i class="fas fa-hat-wizard mr-3"></i>Enigme de la semaine </h2>
 
         <% if notice.present? %>
-          <div class="has-text-centered"><%= notice.html_safe %></div>
+          <div class="has-text-centered mb-3"><%= notice.html_safe %></div>
         <% end %>
 
-        <% if @has_found %>
-          <i class="fas fa-gift fa-2x"></i> Félicitations, vous avez trouvé la bonne réponse ! Reconnecter-vous ce vendredi à partir de 12h pour savoir si vous serez le vainqueur
+        <% if @has_found == true %>
+          <div class="has-text-centered">
+            <i class="fas fa-gift fa-2x"></i> Félicitations, vous avez trouvé la bonne réponse ! Reconnecter-vous ce vendredi à partir de 12h pour savoir si vous serez le vainqueur.
+          </div>
         <% else %>
-          <p class="has-text-centered"><% @enigme %></p>
+          <p class="has-text-centered"><%= @enigme.question %></p>
           <div class="p5 has-text-centered">
           <%= form_for @game, :url => { :action => "check_response" }, html: { class: 'width-response has-text-centered' } do |form| %>
             <fieldset>
