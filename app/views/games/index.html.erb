@@ -7,17 +7,25 @@
 
         <h2 class="subtitle is-4 has-text-centered"> <i class="fas fa-hat-wizard mr-3"></i>Enigme de la semaine </h2>
 
-        <p class="has-text-centered">Je suis petit mais grand à la fois, qui suis-je ? </p>
-        <div class="p5 has-text-centered">
-        <%= form_for @game, :url => { :action => "check_response" }, html: { class: 'width-response has-text-centered' } do |form| %>
-          <fieldset>
-            <%= form.text_area(:response, class: 'textarea', rows: 3) %>
-          </fieldset>
-          <fieldset class="">
-            <%= form.submit 'Répondre', class: 'button is-primary' %>
-          </fieldset>
+        <% if notice.present? %>
+          <div class="has-text-centered"><%= notice.html_safe %></div>
         <% end %>
-      </div>
+
+        <% if @has_found %>
+          <i class="fas fa-gift fa-2x"></i> Félicitations, vous avez trouvé la bonne réponse ! Reconnecter-vous ce vendredi à partir de 12h pour savoir si vous serez le vainqueur
+        <% else %>
+          <p class="has-text-centered"><% @enigme %></p>
+          <div class="p5 has-text-centered">
+          <%= form_for @game, :url => { :action => "check_response" }, html: { class: 'width-response has-text-centered' } do |form| %>
+            <fieldset>
+              <%= form.text_area(:response, class: 'textarea', rows: 3) %>
+            </fieldset>
+            <fieldset class="">
+              <%= form.submit 'Répondre', class: 'button is-primary' %>
+            </fieldset>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

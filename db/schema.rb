@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_073420) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
-    t.integer "response_game"
+    t.boolean "response_game"
     t.datetime "created_at"
     t.datetime "modified_at"
     t.string "role"
