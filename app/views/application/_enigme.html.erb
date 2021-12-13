@@ -1,20 +1,26 @@
+<!-- check whether there is an enigme in the database -->
 <% if enigme.present? %>
 
   <% if notice.present? %>
     <div class="has-text-centered mb-3"><%= notice.html_safe %></div>
   <% end %>
 
+  <!-- check whether the winner should be displayed -->
   <% if enigme.is_display == false %>
     <p class="has-text-centered"><%= enigme.question %></p>
     <p class="has-text-centered">Réponse: <em><%= enigme.response %></em></p>
     <p class="has-text-centered"><i class="fas fa-trophy fa-lg mr-1"></i>Le gagnant de la semaine est: <%= @winner.name %> <%= @winner.last_name[0] %>.</p>
 
+  <!-- the enigme should be displayed -->
   <% else %>
 
+    <!-- the user got the correct response -->
     <% if has_found == true %>
       <div class="has-text-centered">
         <i class="fas fa-gift fa-2x"></i> Félicitations, vous avez trouvé la bonne réponse ! Reconnecter-vous ce vendredi à partir de 12h pour savoir si vous serez le vainqueur.
       </div>
+
+    <!-- the user did not get the correct response and can attempt to find it-->
     <% else %>
       <p class="has-text-centered"><%= enigme.question %></p>
       <div class="p5 has-text-centered">
@@ -31,8 +37,9 @@
 
     <% end %>
 
+<!-- there is no enigma in the database -->
 <% else %>
 
-  <p class="has-text-centered">Aucune énigme n'est disponile pour le moment!</p>
+  <p class="has-text-centered">Aucune énigme n'est disponible pour le moment!</p>
 
 <% end %>

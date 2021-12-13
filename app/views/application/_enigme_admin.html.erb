@@ -1,3 +1,4 @@
+<!-- check whether there is an enigme in the database -->
 <% if enigme.present? %>
 
   <p class="has-text-centered"><%= enigme.question %></p>
@@ -6,10 +7,12 @@
     <i class="fas fa-gift fa-lg mr-1"></i><strong><%= @users_found %></strong> personnes ont trouvés la réponse!
   </p>
 
+  <!-- check whether the winner should be displayed -->
   <% if enigme.is_display == false %>
 
     <p><i class="fas fa-trophy fa-lg mr-1"></i>Le gagnant de la semaine est: <%= @winner.name %> <%= @winner.last_name[0] %></p>
 
+  <!-- the enigme should be displayed -->
   <% else %>
 
     <%= link_to "Editer l'énigme", edit_game_path(enigme), class: 'button is-primary is-medium mt-3', role: 'button' %>
@@ -17,10 +20,12 @@
 
   <% end %>
 
+<!-- there is no enigma in the database -->
 <% else %>
 
   <p class="has-text-centered">Aucune énigme n'est disponile pour le moment!</p>
 
 <% end %>
 
-  <%= link_to "Ajouter une énigme", new_game_path(), class: 'button is-info is-medium mt-3', role: 'button' %>
+<!-- there is always the possibility to add an enigma -->
+<%= link_to "Ajouter une énigme", new_game_path(), class: 'button is-info is-medium mt-3', role: 'button' %>
