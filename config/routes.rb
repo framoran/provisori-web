@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :home
   resources :games
 
+
   resources :articles do
     resources :comments
     resources :elements

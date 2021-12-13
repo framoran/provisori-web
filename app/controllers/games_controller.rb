@@ -1,11 +1,13 @@
 class GamesController < ApplicationController
 
-  before_action :authorization_admin, only: [ :new, :create, :edit, :destroy]
+  before_action :authorization_admin, only: [ :new, :create, :edit, :update, :destroy]
 
   def index
 
     @enigme = Game.last
     @game = Game.new
+
+    @users_found = User.count(:response_game)
 
     if session[:user_id].present?
 
@@ -17,6 +19,12 @@ class GamesController < ApplicationController
       @has_found = false
 
     end
+
+  end
+
+  def new
+
+    @game = Game.new
 
   end
 
@@ -39,9 +47,22 @@ class GamesController < ApplicationController
 
   end
 
-  def new
+  def edit
 
-    @game = Game.new
+    @game = Game.last
+
+  end
+
+  def update
+
+    game = Game.last
+    game.update(game_params)
+
+    redirect_to game_path
+
+  end
+
+  def destroy
 
   end
 
@@ -56,7 +77,7 @@ class GamesController < ApplicationController
         return redirect_to @game, notice: "Vous devez être loggué pour pouvoir répondre à l'énigme. <a href='/login'>Se logguer</a>."
       end
 
-      if params[:game][:response].downcase == response.response
+      if params[:game][:response].downcase == response.response.downcase
         # In this format call, the flash message is being passed directly to
         # redirect_to().  It's a caonvenient way of setting a flash notice or
         # alert without referencing the flash Hash explicitly.

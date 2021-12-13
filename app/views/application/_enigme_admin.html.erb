@@ -1,5 +1,8 @@
+<p class="has-text-centered"><%= enigme.question %></p>
+<p class="has-text-centered"><strong>Réponse: </strong><em><%= enigme.response %><em></p>
+
 <p class="mt-5">
-  <i class="fas fa-gift fa-lg mr-1"></i><strong>23</strong> personnes ont trouvés la réponse!
+  <i class="fas fa-gift fa-lg mr-1"></i><strong><%= @users_found %></strong> personnes ont trouvés la réponse!
 </p>
 
 <%= link_to "Editer l'énigme", edit_game_path(enigme), class: 'button is-primary is-medium mt-3', role: 'button' %>

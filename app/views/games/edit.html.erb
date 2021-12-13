@@ -1,7 +1,7 @@
 <div class="columns mt-5 p-3">
   <div class="box mt-5 mb-5 column is-three-fifths is-offset-one-fifth">
     <h1 class="mt-5 has-text-centered title">Entrer une nouvelle question</h1>
-    <%= form_for(@game) do |form| %>
+    <%= form_for @game, url: "/games/#{@game.id}", action: :update do |form| %>
       <% if @game.errors.any? %>
         <%= render partial: 'model_errors', locals: { model: @game } %>
       <% end %>
@@ -19,7 +19,7 @@
       <div class="field">
         <%= form.label :response, 'Réponse', class: 'label' %>
         <div class="control has-icons-left">
-          <%= form.email_field :response, class: 'input', placeholder: 'gladiateurs' %>
+          <%= form.text_field :response, class: 'input', placeholder: 'gladiateurs' %>
           <span class="icon is-small is-left">
              <i class="fas fa-pen"></i>
            </span>

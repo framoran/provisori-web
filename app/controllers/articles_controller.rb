@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 
   before_action :authorization_admin, only: [:index, :new, :edit, :create, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
 
@@ -16,13 +17,9 @@ class ArticlesController < ApplicationController
 
   def show
 
-    @article = Article.find(params[:id])
-
   end
 
   def edit
-
-    @article = Article.find(params[:id])
 
   end
 
@@ -46,8 +43,6 @@ class ArticlesController < ApplicationController
 
   def update
 
-    @article = Article.find(params[:id])
-
     if @article.published == 1
 
       @article.update(published: false)
@@ -66,7 +61,6 @@ class ArticlesController < ApplicationController
 
   def destroy
 
-    @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path
 
@@ -74,10 +68,13 @@ class ArticlesController < ApplicationController
 
   def like
 
-    @article = Article.find(params[:id])
     Like.create(user_id: current_user_id, article_id:@article.id, like: true)
     redirect_to article_path(@article)
 
+  end
+
+  def set_article
+    @article = Article.find(params[:id])
   end
 
 
