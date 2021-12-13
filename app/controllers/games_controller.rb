@@ -38,6 +38,7 @@ class GamesController < ApplicationController
     @game.is_display = true
 
     User.update_all(response_game: false)
+    User.update_all(nb_attempts: 0)
 
     respond_to do |format|
       if @game.save
@@ -77,10 +78,24 @@ class GamesController < ApplicationController
     @game = Game.new
     response = Game.last
 
+    # security => if the game is displaying the winner, it's not possible to answer the question
+    unless response.is_display == true
+      return redirect_to games_path
+    end
+
     respond_to do |format|
 
       unless session[:user_id].present?
         return redirect_to @game, notice: "Vous devez être loggué pour pouvoir répondre à l'énigme. <a href='/login'>Se logguer</a>."
+      end
+
+      user = User.find(session[:user_id])
+      user.nb_attempts = user.nb_attempts + 1
+      user.save!
+
+      # Security => check the number of attempts to prevent from injecting a library programmatically
+      unless user.nb_attempts < 500
+        return redirect_to @game, notice: "Vous avez dépassé le nombre d'essai autorisé (500) pour répondre à l'énigme."
       end
 
       # check if correct response to the game
@@ -88,7 +103,6 @@ class GamesController < ApplicationController
         # In this format call, the flash message is being passed directly to
         # redirect_to().  It's a caonvenient way of setting a flash notice or
         # alert without referencing the flash Hash explicitly.
-        user = User.find(session[:user_id])
         user.response_game = true
         user.save!
         format.html { redirect_to @game, notice: "Félicitations! Vous avez trouvé la bonne réponse !" }
