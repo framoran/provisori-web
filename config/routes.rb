@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   post '/games/check_response', to: 'games#check_response', as: 'check_response'
 
+  post '/games/winner', to: 'games#winner', as: 'winner'
+
   get 'game', to: 'games#index'
 
   resources :sessions

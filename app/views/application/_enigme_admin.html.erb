@@ -1,10 +1,18 @@
-<p class="has-text-centered"><%= enigme.question %></p>
-<p class="has-text-centered"><strong>Réponse: </strong><em><%= enigme.response %><em></p>
+<% if enigme.present? %>
 
-<p class="mt-5">
-  <i class="fas fa-gift fa-lg mr-1"></i><strong><%= @users_found %></strong> personnes ont trouvés la réponse!
-</p>
+  <p class="has-text-centered"><%= enigme.question %></p>
+  <p class="has-text-centered"><strong>Réponse: </strong><em><%= enigme.response %><em></p>
+  <%= link_to "Editer l'énigme", edit_game_path(enigme), class: 'button is-primary is-medium mt-3', role: 'button' %>
 
-<%= link_to "Editer l'énigme", edit_game_path(enigme), class: 'button is-primary is-medium mt-3', role: 'button' %>
-<%= link_to "Ajouter une énigme", new_game_path(), class: 'button is-info is-medium mt-3', role: 'button' %>
-<%= link_to "Faire le tirage au sort", game_path(), class: 'button is-danger is-medium mt-3', role: 'button' %>
+<% else %>
+
+  <p class="has-text-centered">Aucune énigme n'est disponile pour le moment!</p>
+
+<% end %>
+  <p class="mt-5">
+    <i class="fas fa-gift fa-lg mr-1"></i><strong><%= @users_found %></strong> personnes ont trouvés la réponse!
+  </p>
+  <%= @user = User.where("response_game = true").order("RANDOM()").first %>
+
+  <%= link_to "Ajouter une énigme", new_game_path(), class: 'button is-info is-medium mt-3', role: 'button' %>
+  <%= link_to "Faire le tirage au sort", game_path(), class: 'button is-danger is-medium mt-3', role: 'button' %>

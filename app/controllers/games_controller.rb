@@ -93,6 +93,26 @@ class GamesController < ApplicationController
 
   end
 
+  def winner
+
+    @game = Game.last
+    year = Time.now.strftime("%Y").to_i
+    week = Time.now.strftime("%U").to_i
+    user = User.where("response_game = true").order("RANDOM()").first
+
+    winner = Winner.new
+
+    winner.year = year
+    winner.week = week
+    winner.user_id = user.id
+    winner.game_id = @game
+
+    winner.save!
+
+    redirect_to games_path
+
+  end
+
   def game_params
     params.require(:game).permit(:question, :response)
   end

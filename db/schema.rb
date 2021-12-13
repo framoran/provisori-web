@@ -71,13 +71,13 @@ ActiveRecord::Schema.define(version: 2021_12_13_085331) do
   end
 
   create_table "winners", force: :cascade do |t|
-    t.integer "article_id"
+    t.integer "game_id"
     t.integer "user_id"
     t.integer "week"
     t.integer "year"
     t.datetime "created_at"
     t.datetime "modified_at"
-    t.index ["article_id"], name: "index_winners_on_article_id"
+    t.index ["game_id"], name: "index_winners_on_game_id"
     t.index ["user_id"], name: "index_winners_on_user_id"
   end
 
@@ -86,6 +86,6 @@ ActiveRecord::Schema.define(version: 2021_12_13_085331) do
   add_foreign_key "elements", "articles"
   add_foreign_key "likes", "articles"
   add_foreign_key "likes", "users"
-  add_foreign_key "winners", "articles"
+  add_foreign_key "winners", "games"
   add_foreign_key "winners", "users"
 end
