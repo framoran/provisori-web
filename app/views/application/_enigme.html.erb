@@ -4,23 +4,32 @@
     <div class="has-text-centered mb-3"><%= notice.html_safe %></div>
   <% end %>
 
-  <% if has_found == true %>
-    <div class="has-text-centered">
-      <i class="fas fa-gift fa-2x"></i> Félicitations, vous avez trouvé la bonne réponse ! Reconnecter-vous ce vendredi à partir de 12h pour savoir si vous serez le vainqueur.
-    </div>
-  <% else %>
+  <% if enigme.is_display == false %>
     <p class="has-text-centered"><%= enigme.question %></p>
-    <div class="p5 has-text-centered">
-    <%= form_for game, :url => { :action => "check_response" }, html: { class: 'width-response has-text-centered' } do |form| %>
-      <fieldset>
-        <%= form.text_area(:response, class: 'textarea', rows: 3) %>
-      </fieldset>
-      <fieldset class="">
-        <%= form.submit 'Répondre', class: 'button is-primary' %>
-      </fieldset>
+    <p class="has-text-centered">Réponse: <em><%= enigme.response %></em></p>
+    <p class="has-text-centered"><i class="fas fa-trophy fa-lg mr-1"></i>Le gagnant de la semaine est: <%= @winner.name %> <%= @winner.last_name[0] %>.</p>
+
+  <% else %>
+
+    <% if has_found == true %>
+      <div class="has-text-centered">
+        <i class="fas fa-gift fa-2x"></i> Félicitations, vous avez trouvé la bonne réponse ! Reconnecter-vous ce vendredi à partir de 12h pour savoir si vous serez le vainqueur.
+      </div>
+    <% else %>
+      <p class="has-text-centered"><%= enigme.question %></p>
+      <div class="p5 has-text-centered">
+      <%= form_for game, :url => { :action => "check_response" }, html: { class: 'width-response has-text-centered' } do |form| %>
+        <fieldset>
+          <%= form.text_area(:response, class: 'textarea', rows: 3) %>
+        </fieldset>
+        <fieldset class="">
+          <%= form.submit 'Répondre', class: 'button is-primary' %>
+        </fieldset>
+      <% end %>
+    </div>
     <% end %>
-  </div>
-  <% end %>
+
+    <% end %>
 
 <% else %>
 

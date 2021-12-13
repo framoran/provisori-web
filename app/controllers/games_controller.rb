@@ -1,13 +1,16 @@
 class GamesController < ApplicationController
 
-  before_action :authorization_admin, only: [ :new, :create, :edit, :update, :destroy]
+  before_action :authorization_admin, only: [ :new, :create, :edit, :update, :destroy, :winner]
 
   def index
 
     @enigme = Game.last
     @game = Game.new
+    winner = Winner.last
+    @winner = User.find(Winner.last.id)
 
-    @users_found = User.count(:response_game)
+    # how many users got the correct response
+    @users_found = User.where(response_game: true).count
 
     if session[:user_id].present?
 
@@ -32,6 +35,9 @@ class GamesController < ApplicationController
 
     @game = Game.new(game_params)
     @game.type_of_question = 1
+    @game.is_display = true
+
+    User.update_all(response_game: false)
 
     respond_to do |format|
       if @game.save
@@ -77,6 +83,7 @@ class GamesController < ApplicationController
         return redirect_to @game, notice: "Vous devez être loggué pour pouvoir répondre à l'énigme. <a href='/login'>Se logguer</a>."
       end
 
+      # check if correct response to the game
       if params[:game][:response].downcase == response.response.downcase
         # In this format call, the flash message is being passed directly to
         # redirect_to().  It's a caonvenient way of setting a flash notice or
@@ -95,21 +102,38 @@ class GamesController < ApplicationController
 
   def winner
 
-    @game = Game.last
-    year = Time.now.strftime("%Y").to_i
-    week = Time.now.strftime("%U").to_i
+    winner_count = User.where(response_game: true).count
+
+    # if it's Sunday and there is at least a winner
+    unless Time.now.strftime("%u").to_i == 1 && winner_count >= 1
+      return redirect_to games_path
+    end
+
+    game = Game.last
+    game.is_display = false
     user = User.where("response_game = true").order("RANDOM()").first
 
     winner = Winner.new
 
-    winner.year = year
-    winner.week = week
+    winner.year = Time.now.strftime("%Y").to_i
+    winner.week = Time.now.strftime("%U").to_i
     winner.user_id = user.id
-    winner.game_id = @game
+    winner.game_id = game.id
 
-    winner.save!
+    respond_to do |format|
+      if winner.save! && game.save!
+        # In this format call, the flash message is being passed directly to
+        # redirect_to().  It's a caonvenient way of setting a flash notice or
+        # alert without referencing the flash Hash explicitly.
+        format.html { redirect_to games_path, notice: 'Tirage au sort réussi.' }
 
-    redirect_to games_path
+      else
+
+        format.html { redirect_to games_path, notice: 'Erreur inconnue.' }
+
+      end
+
+    end
 
   end
 
