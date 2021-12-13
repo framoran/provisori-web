@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_073420) do
+ActiveRecord::Schema.define(version: 2021_12_13_085331) do
 
 # Could not dump table "articles" because of following StandardError
 #   Unknown type '' for column 'published'
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_073420) do
     t.string "response"
     t.datetime "created_at"
     t.datetime "modified_at"
+    t.boolean "is_display"
   end
 
   create_table "likes", force: :cascade do |t|
