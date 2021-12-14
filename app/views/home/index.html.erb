@@ -1,27 +1,31 @@
-<% if current_user_role == 'admin' %>
+<div class="p-5">
 
-  <%= link_to 'Nouvel article', new_article_path(), class: 'button is-primary ml-3', role: 'button' %>
+  <% if current_user_role == 'admin' %>
 
-<% end %>
+    <%= link_to 'Nouvel article', new_article_path(), class: 'button is-primary mb-3', role: 'button' %>
 
-<div class="grid-systems">
+  <% end %>
 
-  <% if @articles.present? %>
+  <div class="grid-systems">
 
-    <% @articles.each do |article| %>
-        <div class="col-md-4">
-          <%= render partial: 'articles', locals: { article: article } %>
-        </div>
+    <% if @articles.present? %>
+
+      <% @articles.each do |article| %>
+          <div class="col-md-4">
+            <%= render partial: 'articles', locals: { article: article } %>
+          </div>
+        <% end %>
+
+      <% else %>
+
+        <h1 class="title">Aucun article ne correspond à votre recherche... </h1>
+
       <% end %>
 
-    <% else %>
+  </div>
 
-      <h1 class="title">Aucun article ne correspond à votre recherche... </h1>
+  <div class="see-more m-5">
+    <%= paginate @articles %>
+  </div>
 
-    <% end %>
-
-</div>
-
-<div class="see-more m-5">
-  <%= paginate @articles %>
 </div>

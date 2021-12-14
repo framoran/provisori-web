@@ -56,7 +56,6 @@ class ArticlesController < ApplicationController
 
     end
 
-
   end
 
   def destroy

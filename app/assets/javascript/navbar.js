@@ -10,6 +10,12 @@ document.getElementById('openNav2').onclick = function(){
 
 }
 
+document.getElementById('openNav3').onclick = function(){
+
+  openNav();
+
+}
+
 document.getElementById('closeNav').onclick = function(){
 
   closeNav();

@@ -1,10 +1,14 @@
 <header>
 
-  <nav class="navbar mt-3" role="navigation" aria-label="main navigation">
+  <nav class="navbar mt-3 is-flex-wrap-wrap" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
         <strong>PROVISORI Media</strong>
       </a>
+
+      <button class="navbar-item button is-black mt-3 ml-1 menu" id = "openNav3">
+        <i class="fas fa-bars is-light"></i>
+      </button>
 
     </div>
 
@@ -38,36 +42,66 @@
         <a href="/game" class="navbar-item">
           Le Game
         </a>
+
       </div>
 
       <div class="navbar-end mr-3">
-        <button class="navbar-item button is-dark mt-3" id = "openNav">
+        <button class="navbar-item button is-black mt-3" id = "openNav">
           <i class="fas fa-search"></i>
         </button>
 
-        <button class="navbar-item button is-dark mt-3 ml-1" id = "openNav2">
+        <button class="navbar-item button is-black mt-3 ml-1" id = "openNav2">
           <i class="fas fa-bars is-light"></i>
         </button>
       </div>
 
-      <div id="mySidenav" class="sidenav">
-        <div class="p-3">
-          <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
-          <div class="field has-addons mt-5">
-            <div class="control">
-              <input class="input is-medium" type="text" placeholder="Chercher un article">
-            </div>
-            <div class="control">
-              <a class="button is-medium">
-                <i class="fas fa-search"></i>
-              </a>
-            </div>
+    </div>
+    <div id="mySidenav" class="sidenav">
+      <div class="p-3">
+        <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
+        <div class="field has-addons mt-5">
+          <div class="control">
+            <input class="input is-medium" type="text" placeholder="Chercher un article">
           </div>
-          <div>
-            <%= link_to "Contact", "/contact", class: 'button is-medium' %>
-            <%= link_to "Se connecter", login_path, class: 'button is-medium mt-1' %>
-            <%= link_to "S'enregistrer", signup_path, class: 'button is-primary is-medium mt-1' %>
+          <div class="control">
+            <a class="button is-medium">
+              <i class="fas fa-search"></i>
+            </a>
           </div>
+        </div>
+        <div class="sidenav__menu">
+          <a href="/article?q=1" class="navbar-item">
+            Like a boss
+          </a>
+
+          <a href="/article?q=2" class="navbar-item">
+            Artistes
+          </a>
+
+          <a href="/article?q=3" class="navbar-item">
+            Stories de ouf
+          </a>
+
+          <a href="/article?q=4" class="navbar-item">
+            Tinder fails
+          </a>
+
+          <a href="/article?q=5" class="navbar-item">
+            Zen tu seras
+          </a>
+
+          <a href="/article?q=6" class="navbar-item">
+            Spoiler pour flemmards
+          </a>
+
+          <a href="/game" class="navbar-item">
+            Le Game
+          </a>
+        </div>
+        <div>
+          <%= link_to "Contact", "/contact", class: 'button is-medium mt-5' %>
+          <%= link_to "Se connecter", login_path, class: 'button is-medium mt-1' %>
+          <%= link_to "S'enregistrer", signup_path, class: 'button is-primary is-medium mt-1' %>
         </div>
       </div>
     </div>

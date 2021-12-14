@@ -24,9 +24,12 @@
     <% else %>
       <%= render partial: 'anonymous_users' %>
     <% end %>
-    <div class="container">
+    <div class="main-content">
       <%= yield %>
     </div>
+    <footer class="footer">
+      <%= render partial: 'footer' %>
+    </footer>
   </body>
 
   <script src="<%= asset_path 'navbar.js' %>"></script>
