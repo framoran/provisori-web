@@ -1,0 +1,19 @@
+.label-elements {
+  visibility: hidden;
+}
+
+textarea {
+  border: none;
+  outline: none;
+  height: 200px;
+  width: 100%;
+}
+
+input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid grey;
+  margin: 0 0 1.6rem;
+  width: 100%;
+  font-size: 1.6rem;
+}

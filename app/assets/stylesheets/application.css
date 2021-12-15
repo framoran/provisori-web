@@ -1,6 +1,7 @@
 /* ------------------------------
  * General
  ------------------------------ */
+/* SCSS vraiables */
 /* Gestions of different screen sizes */
 /************************ General Format *********************************/
 .time {
@@ -43,6 +44,30 @@
   .width-response {
     width: 50%;
     margin: auto; } }
+.box-article {
+  border: 1px solid grey;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 1.6rem; }
+
+.label-elements {
+  visibility: hidden; }
+
+textarea {
+  border: none;
+  outline: none;
+  height: 200px;
+  width: 100%; }
+
+input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid grey;
+  margin: 0 0 1.6rem;
+  width: 100%;
+  font-size: 1.6rem; }
+
 /***************************** Footer ******************************/
 .footer {
   clear: both;
@@ -53,9 +78,19 @@
 
 .footer__menu {
   margin: 0 1.2rem 0 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
   /* or inline-flex */
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
 
 .footer__menu a {
@@ -63,10 +98,20 @@
 
 .footer__menu a:hover {
   color: #000;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
   border-radius: 5px; }
 
 .footer__socialmedia {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center; }
 
 .footer__socialmedia a {
@@ -74,7 +119,15 @@
   color: #fff; }
 
 .footer__copyright {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   color: #B8B8B8; }
 
@@ -86,38 +139,38 @@
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: #111;
+  background-color: #000;
   overflow-x: hidden;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -moz-transition: 0.5s;
   transition: 0.5s;
   padding-top: 60px; }
-
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s; }
-
-.sidenav a:hover {
-  color: #f1f1f1; }
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px; }
-
-.sidenav .sidenav__menu {
-  margin: 0.2rem 0 0 0; }
-
-.sidenav .sidenav__menu a {
-  color: #fff;
-  font-size: 1rem; }
-
-.sidenav .sidenav__menu a:hover {
-  color: #000; }
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #A8A8A8;
+    display: block;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    -moz-transition: 0.3s;
+    transition: 0.3s; }
+    .sidenav a :hover {
+      color: #f1f1f1; }
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px; }
+  .sidenav .sidenav__menu {
+    margin: 0.2rem 0 0; }
+    .sidenav .sidenav__menu a {
+      color: #fff;
+      font-size: 1rem; }
+    .sidenav .sidenav__menu :hover {
+      color: #000; }
 
 @media screen and (max-height: 450px) {
   .sidenav {
@@ -126,42 +179,41 @@
   .sidenav a {
     font-size: 18px; } }
 /************************ Pagination *************************************/
-.pagination a, .pagination span.current, .pagination span.gap {
+.pagination a,
+.pagination span.current,
+.pagination span.gap {
   padding: 10px 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
   border-radius: 5px;
   line-height: 45px;
   text-decoration: none;
-  background-color: white;
-  border: 1px solid #DDD; }
+  background-color: #fff;
+  border: 1px solid #ddd; }
 
 .pagination {
   display: block;
   margin: 1.6rem; }
-
-.pagination .first {
-  padding: 0;
-  float: none;
-  border: none; }
-
-.pagination .prev {
-  padding: 0;
-  float: none;
-  border: none; }
-
-.pagination .page {
-  padding: 0;
-  float: none;
-  border: none; }
-
-.pagination .next {
-  padding: 0;
-  float: none;
-  border: none; }
-
-.pagination .last {
-  padding: 0;
-  float: none;
-  border: none; }
+  .pagination .first {
+    padding: 0;
+    float: none;
+    border: none; }
+  .pagination .prev {
+    padding: 0;
+    float: none;
+    border: none; }
+  .pagination .page {
+    padding: 0;
+    float: none;
+    border: none; }
+  .pagination .next {
+    padding: 0;
+    float: none;
+    border: none; }
+  .pagination .last {
+    padding: 0;
+    float: none;
+    border: none; }
 
 /*********************** Forms elements **********************************/
 .text_area {
@@ -169,8 +221,20 @@
 
 /****************** Grid system with the flexbox ***********************/
 .grid-systems {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row wrap;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
   margin: 0;
   padding: 0;

@@ -1,44 +1,49 @@
 /************************ General Format *********************************/
+
 .time {
   font-size: 0.9rem;
-  color: #A8A8A8; }
+  color: $gray;
+}
 
 .title {
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+}
 
 .half-page {
-  width: 350px; }
+  width: 350px;
+}
 
 .is-black {
-  color: #000; }
+  color: $black;
+}
 
 .mt-2_negative {
-  margin-top: -15px; }
+  margin-top: -15px;
+}
 
 .mt-3_negative {
-  margin-top: -20px; }
+  margin-top: -20px;
+}
 
 .width-response {
   width: 75%;
-  margin: auto; }
+  margin: auto;
+}
 
 .menu {
-    display: block; }
+  display: block;
+}
 
 .main-content {
   position: relative;
-  min-height: 60vh; }
-
-@include tablet{
-
+  min-height: 60vh;
+}
+@include tablet {
   .half-page {
     width: 500px;
   }
-
 }
-
-@include desktop{
-  
+@include desktop {
   .menu {
     display: none;
   }
@@ -47,5 +52,4 @@
     width: 50%;
     margin: auto;
   }
-
 }

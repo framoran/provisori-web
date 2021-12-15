@@ -1,40 +1,51 @@
 /*********************** Forms elements **********************************/
+
 .text_area {
   height: 300px;
 }
-
 /****************** Grid system with the flexbox ***********************/
+
 .grid-systems {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row wrap;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
   margin: 0;
   padding: 0;
-  width: 100%; }
+  width: 100%;
+}
 
 .grid-system {
   margin: 0.5rem;
-  width: 200px; }
+  width: 200px;
+}
 
 .grid-system-card {
-  height: 500px; }
+  height: 500px;
+}
 
 .grid-system-card-admin {
-  height: 550px; }
-
-@include tablet{
-
+  height: 550px;
+}
+@include tablet {
   .grid-system {
     width: 300px;
     margin: 0.7rem;
   }
-
 }
-
-@include desktop{
-
+@include desktop {
   .grid-system {
     margin: 1.2rem;
   }
-
 }
