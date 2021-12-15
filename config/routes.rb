@@ -2,31 +2,34 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  put '/post/:id/like', to: 'articles#like', as: 'like'
+  scope '/:locale' do
 
-  post '/games/check_response', to: 'games#check_response', as: 'check_response'
+    put '/post/:id/like', to: 'articles#like', as: 'like'
 
-  get '/games/winner', to: 'games#winner', as: 'winner'
+    post '/games/check_response', to: 'games#check_response', as: 'check_response'
 
-  get 'game', to: 'games#index'
+    get '/games/winner', to: 'games#winner', as: 'winner'
 
-  resources :sessions
-  resources :users
-  resources :elements
-  resources :comments
-  resources :home
-  resources :games
+    get 'game', to: 'games#index'
 
-
-  resources :articles do
-    resources :comments
+    resources :sessions
+    resources :users
     resources :elements
+    resources :comments
+    resources :home
+    resources :games
+
+    resources :articles do
+      resources :comments
+      resources :elements
+    end
+
+    get 'article', to:'home#index'
+
+    get 'login', to:'sessions#new'
+
+    get 'signup', to:'users#new'
+
   end
-
-  get 'article', to:'home#index'
-
-  get 'login', to:'sessions#new'
-
-  get 'signup', to:'users#new'
 
 end

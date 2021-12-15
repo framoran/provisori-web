@@ -29,44 +29,44 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  #general links
-  logout: 'Log out'
-  login: 'Log in'
-  register: 'Register'
+fr:
+  logout: 'Se déconnecter'
+  login: 'Se logguer'
+  register: "S'enregistrer"
   likeb: 'Like a boss'
-  artists: 'Artists'
-  stories: 'Stories'
+  artists: 'Artistes'
+  stories: 'Stories de ouf'
   tinder: 'Tinder fails'
-  zen: 'Zen attitude'
-  spoiler: 'Spoiler'
-  game: 'The Game'
-  read_more: 'Read more'
-  search: 'Search for an article'
+  zen: 'Zen tu seras'
+  spoiler: 'Spoiler pour flemmards'
+  game: 'Le Game'
+  read_more: 'Lire plus'
+  search: 'Chercher un article'
 
   #articles
-  like_article: 'person liked this article'
-  like_articles: 'persons liked this article'
-  share: 'Share'
-  comments: 'Comments'
-  comment: 'Add a comment'
-  comment_send: 'Comment'
+  like_article: 'personne a aimé cette article'
+  like_articles: 'personnes ont aimé cette article'
+  share: 'Partagez'
+  comments: 'Commentaires'
+  comment: 'Ajouter un commentaire'
+  comment_send: 'Commenter'
 
-  #the Game
-  enigma: 'Enigma of the week'
-  resp: 'Answer'
+
+  # the Game
+  enigma: Énigme de la semaine'
+  resp: 'Répondre'
 
   # login
-  not_registered: 'No account yet?'
+  not_registered: 'Pas encore de compte ?'
 
   #helpers
   helpers:
     label:
       session:
         email: 'Email'
-        password: 'Password'
+        password: 'Mot de passe'
       user:
         name: 'Nom'
-        last_name: 'Last Name'
+        last_name: 'Nom de famille'
         email: 'Email'
-        password: 'Password'
+        password: 'Mot de passe'

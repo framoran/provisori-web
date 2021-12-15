@@ -16,31 +16,31 @@
       <div class="navbar-start">
 
         <a href="/article?q=1" class="navbar-item">
-          Like a boss
+          <%= I18n.translate('likeb') %>
         </a>
 
         <a href="/article?q=2" class="navbar-item">
-          Artistes
+          <%= I18n.translate('artists') %>
         </a>
 
         <a href="/article?q=3" class="navbar-item">
-          Stories de ouf
+          <%= I18n.translate('stories') %>
         </a>
 
         <a href="/article?q=4" class="navbar-item">
-          Tinder fails
+          <%= I18n.translate('tinder') %>
         </a>
 
         <a href="/article?q=5" class="navbar-item">
-          Zen tu seras
+          <%= I18n.translate('zen') %>
         </a>
 
         <a href="/article?q=6" class="navbar-item">
-          Spoiler pour flemmards
+          <%= I18n.translate('spoiler') %>
         </a>
 
         <a href="/game" class="navbar-item">
-          Le Game
+          <%= I18n.translate('game') %>
         </a>
 
       </div>
@@ -61,7 +61,7 @@
         <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
         <div class="field has-addons mt-5">
           <div class="control">
-            <input class="input is-medium" type="text" placeholder="Chercher un article">
+            <input class="input is-medium" type="text" placeholder="<%= I18n.translate('search') %>">
           </div>
           <div class="control">
             <a class="button is-medium">
@@ -71,38 +71,38 @@
         </div>
         <div class="sidenav__menu">
           <a href="/article?q=1" class="navbar-item">
-            Like a boss
+            <%= I18n.translate('likeb') %>
           </a>
 
           <a href="/article?q=2" class="navbar-item">
-            Artistes
+            <%= I18n.translate('artists') %>
           </a>
 
           <a href="/article?q=3" class="navbar-item">
-            Stories de ouf
+            <%= I18n.translate('stories') %>
           </a>
 
           <a href="/article?q=4" class="navbar-item">
-            Tinder fails
+            <%= I18n.translate('tinder') %>
           </a>
 
           <a href="/article?q=5" class="navbar-item">
-            Zen tu seras
+            <%= I18n.translate('zen') %>
           </a>
 
           <a href="/article?q=6" class="navbar-item">
-            Spoiler pour flemmards
+            <%= I18n.translate('spoiler') %>
           </a>
 
           <a href="/game" class="navbar-item">
-            Le Game
+            <%= I18n.translate('game') %>
           </a>
         </div>
         <div>
           <!-- Contact page needed to be implemented -->
           <%= link_to "Contact", "/", class: 'button is-medium mt-5' %>
           <%= link_to 'Profil',  user_path(current_user_id), class: 'button is-medium mt-1', role: 'button' %>
-          <%= link_to('logout', session_path(1), method: :delete, class: 'button is-primary is-medium mt-1') %>
+          <%= link_to(I18n.translate('logout'), session_path(1), method: :delete, class: 'button is-primary is-medium mt-1') %>
         </div>
       </div>
     </div>

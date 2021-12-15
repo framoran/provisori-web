@@ -1,11 +1,11 @@
 <div class="p-5">
-  <h1 class="title"><i class="fas fa-trophy mr-3"></i>PROVISORI Media le Game</h1>
+  <h1 class="title"><i class="fas fa-trophy mr-3"></i>PROVISORI Media <%= I18n.translate('game') %></h1>
 
   <div class="card has-background-success-light	">
     <div class="card-content">
       <div class="content p-5">
 
-        <h2 class="subtitle is-4 has-text-centered"> <i class="fas fa-hat-wizard mr-3"></i>Enigme de la semaine </h2>
+        <h2 class="subtitle is-4 has-text-centered"> <i class="fas fa-hat-wizard mr-3"></i> <%= I18n.translate('enigma') %> </h2>
 
         <% if current_user_role == 'admin' %>
           <%= render partial: 'enigme_admin', locals: { enigme: @enigme, has_found: @has_found, game: @game } %>

@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
+
   include RolesHelper
+
+  before_action :set_locale
 
   helper_method :current_user_role
   helper_method :current_user_id
   helper_method :current_user
   helper_method :logged_in?
+
 
   def authorization_admin
     unless current_user_role == 'admin'
@@ -44,6 +48,14 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     session[:user_id].present?
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options
+   { locale: I18n.locale }
   end
 
 end

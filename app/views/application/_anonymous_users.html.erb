@@ -15,33 +15,7 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
 
-        <a href="/article?q=1" class="navbar-item">
-          Like a boss
-        </a>
-
-        <a href="/article?q=2" class="navbar-item">
-          Artistes
-        </a>
-
-        <a href="/article?q=3" class="navbar-item">
-          Stories de ouf
-        </a>
-
-        <a href="/article?q=4" class="navbar-item">
-          Tinder fails
-        </a>
-
-        <a href="/article?q=5" class="navbar-item">
-          Zen tu seras
-        </a>
-
-        <a href="/article?q=6" class="navbar-item">
-          Spoiler pour flemmards
-        </a>
-
-        <a href="/game" class="navbar-item">
-          Le Game
-        </a>
+        <%= render partial: 'nav_links' %>
 
       </div>
 
@@ -61,7 +35,7 @@
         <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
         <div class="field has-addons mt-5">
           <div class="control">
-            <input class="input is-medium" type="text" placeholder="Chercher un article">
+            <input class="input is-medium" type="text" placeholder="<%= I18n.translate('search') %>">
           </div>
           <div class="control">
             <a class="button is-medium">
@@ -70,39 +44,13 @@
           </div>
         </div>
         <div class="sidenav__menu">
-          <a href="/article?q=1" class="navbar-item">
-            Like a boss
-          </a>
-
-          <a href="/article?q=2" class="navbar-item">
-            Artistes
-          </a>
-
-          <a href="/article?q=3" class="navbar-item">
-            Stories de ouf
-          </a>
-
-          <a href="/article?q=4" class="navbar-item">
-            Tinder fails
-          </a>
-
-          <a href="/article?q=5" class="navbar-item">
-            Zen tu seras
-          </a>
-
-          <a href="/article?q=6" class="navbar-item">
-            Spoiler pour flemmards
-          </a>
-
-          <a href="/game" class="navbar-item">
-            Le Game
-          </a>
+          <%= render partial: 'nav_links' %>
         </div>
         <div>
           <!-- Contact page needed to be implemented -->
           <%= link_to "Contact", "/", class: 'button is-medium mt-5' %>
-          <%= link_to "Se connecter", login_path, class: 'button is-medium mt-1' %>
-          <%= link_to "S'enregistrer", signup_path, class: 'button is-primary is-medium mt-1' %>
+          <%= link_to I18n.translate('login'), login_path, class: 'button is-medium mt-1' %>
+          <%= link_to I18n.translate('register'), signup_path, class: 'button is-primary is-medium mt-1' %>
         </div>
       </div>
     </div>
