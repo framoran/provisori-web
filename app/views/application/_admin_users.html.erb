@@ -15,33 +15,7 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
 
-        <a href="/article?q=1" class="navbar-item">
-          Like a boss
-        </a>
-
-        <a href="/article?q=2" class="navbar-item">
-          Artistes
-        </a>
-
-        <a href="/article?q=3" class="navbar-item">
-          Stories de ouf
-        </a>
-
-        <a href="/article?q=4" class="navbar-item">
-          Tinder fails
-        </a>
-
-        <a href="/article?q=5" class="navbar-item">
-          Zen tu seras
-        </a>
-
-        <a href="/article?q=6" class="navbar-item">
-          Spoiler pour flemmards
-        </a>
-
-        <a href="/game" class="navbar-item">
-          Le Game
-        </a>
+        <%= render partial: 'nav_links' %>
 
       </div>
 
@@ -70,33 +44,9 @@
           </div>
         </div>
         <div class="sidenav__menu">
-          <a href="/article?q=1" class="navbar-item">
-            Like a boss
-          </a>
 
-          <a href="/article?q=2" class="navbar-item">
-            Artistes
-          </a>
+          <%= render partial: 'nav_links' %>
 
-          <a href="/article?q=3" class="navbar-item">
-            Stories de ouf
-          </a>
-
-          <a href="/article?q=4" class="navbar-item">
-            Tinder fails
-          </a>
-
-          <a href="/article?q=5" class="navbar-item">
-            Zen tu seras
-          </a>
-
-          <a href="/article?q=6" class="navbar-item">
-            Spoiler pour flemmards
-          </a>
-
-          <a href="/game" class="navbar-item">
-            Le Game
-          </a>
         </div>
         <div>
           <%= link_to 'Utilisateurs', users_path(), class: 'button is-medium', role: 'button' %>
