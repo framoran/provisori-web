@@ -44,7 +44,15 @@
 
   </div>
 
-  <div class="footer__copyright">
+  <div class="footer__locale">
+
+    <% I18n.available_locales.each do |locale| %>
+      <%= link_to locale, url_for(locale: locale) %> |
+    <% end %>
+
+  </div>
+
+  <div class="footer__copyright mt-3">
 
     	&copy; 2021 PROVISORIMEDIA
 
