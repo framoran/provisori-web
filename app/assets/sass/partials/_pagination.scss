@@ -1,0 +1,32 @@
+/************************ Pagination *************************************/
+.pagination a, .pagination span.current, .pagination span.gap {
+  padding: 10px 20px;
+  border-radius: 5px;
+  line-height: 45px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #DDD; }
+
+.pagination {
+  display: block;
+  margin: 1.6rem; }
+  .pagination .first {
+    padding: 0;
+    float: none;
+    border: none; }
+  .pagination .prev {
+    padding: 0;
+    float: none;
+    border: none; }
+  .pagination .page {
+    padding: 0;
+    float: none;
+    border: none; }
+  .pagination .next {
+    padding: 0;
+    float: none;
+    border: none; }
+  .pagination .last {
+    padding: 0;
+    float: none;
+    border: none; }

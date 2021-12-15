@@ -1,318 +1,197 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* ------------------------------
+ * General
+ ------------------------------ */
+/* Gestions of different screen sizes */
+/************************ General Format *********************************/
+.time {
+  font-size: 0.9rem;
+  color: #A8A8A8; }
 
- /************************ General Format *********************************/
+.title {
+  font-size: 1.6rem; }
 
- .time{
+.half-page {
+  width: 350px; }
 
-   font-size: 0.9rem;
-   color: #A8A8A8
+.is-black {
+  color: #000; }
 
- }
+.mt-2_negative {
+  margin-top: -15px; }
 
- .title{
-   font-size:1.6rem;
- }
+.mt-3_negative {
+  margin-top: -20px; }
 
- .half-page{
+.width-response {
+  width: 75%;
+  margin: auto; }
 
-   width: 350px;
+.menu {
+  display: block; }
 
- }
+.main-content {
+  position: relative;
+  min-height: 60vh; }
 
- .is-black{
-
-   color: #000;
-
- }
-
- .mt-2_negative{
-
-   margin-top: -15px;
-
- }
-
- .mt-3_negative{
-
-   margin-top: -20px;
-
- }
-
- .width-response{
-
-   width:75%;
-   margin:auto;
-
- }
-
- .main-content{
-   position: relative;
-   min-height: 60vh;
- }
-
- /***************************** Footer ******************************/
-
- .footer{
-   clear: both;
-   position: relative;
-   height: 30vh;
-   background: #000;
-   padding: 1.2rem;
-
- }
-
- .footer__menu{
-
-   margin: 0 1.2rem 0 0;
-   display: flex; /* or inline-flex */
-   justify-content: center;
-   flex-wrap: wrap;
-
- }
-
- .footer__menu a{
-
-   color: #fff;
-
- }
-
- .footer__menu a:hover{
-
-   color: #000;
-   border-radius: 5px;
-
- }
-
- .footer__socialmedia{
-
-   display: flex;
-   justify-content: center;
-
- }
-
- .footer__socialmedia a{
-
-   margin: 1.2rem;
-   color: #fff;
-
- }
-
- .footer__copyright{
-
-   display: flex;
-   justify-content: center;
-   color: #B8B8B8;
-
- }
-
- /*************************** End Footer ****************************/
-
-  .menu{
-      display: block;
-  }
-
- /* Tablet */
- @media only screen and (min-width: 768px) {
-
-   .half-page{
-
-     width: 500px;
-
-   }
-
- }
-
- /* Desktop */
- @media only screen and (min-width: 1024px) {
-
-   .menu{
-
-       display: none;
-
-   }
-
-   .width-response{
-
-     width:50%;
-     margin:auto;
-
-   }
-
- }
-
- /************************ Pagination *************************************/
-   .pagination a, .pagination span.current, .pagination span.gap {
-      padding: 10px 20px;
-      border-radius: 5px;
-      line-height: 45px;
-      text-decoration: none;
-      background-color: white;
-      border: 1px solid #DDD;
-  }
-
-  .pagination {
-    display: block;
-    margin: 1.6rem;
-
-      .first{
-          padding : 0;
-          float: none;
-          border: none;
-      }
-      .prev {
-          padding : 0;
-          float: none;
-          border: none;
-      }
-      .page{
-          padding : 0;
-          float: none;
-          border: none;
-      }
-      .next{
-          padding : 0;
-          float: none;
-          border: none;
-      }
-      .last{
-          padding : 0;
-          float: none;
-          border: none;
-      }
-  }
-
- /************************ Sidebar ****************************************/
- .sidenav {
-   height: 100%;
-   width: 0;
-   position: fixed;
-   z-index: 1;
-   top: 0;
-   right: 0;
-   background-color: #111;
-   overflow-x: hidden;
-   transition: 0.5s;
-   padding-top: 60px;
- }
-
- .sidenav a {
-   padding: 8px 8px 8px 32px;
-   text-decoration: none;
-   font-size: 25px;
-   color: #818181;
-   display: block;
-   transition: 0.3s;
- }
-
- .sidenav a:hover {
-   color: #f1f1f1;
- }
-
- .sidenav .closebtn {
-   position: absolute;
-   top: 0;
-   right: 25px;
-   font-size: 36px;
-   margin-left: 50px;
- }
-
- .sidenav .sidenav__menu{
-
-   margin: -1.6rem 0 0 0;
-
- }
-
- .sidenav .sidenav__menu a{
-
-   color: #fff;
-   font-size: 1rem;
-
- }
-
- .sidenav .sidenav__menu a:hover{
-
-   color: #000;
-
- }
-
- @media screen and (max-height: 450px) {
-   .sidenav {padding-top: 15px;}
-   .sidenav a {font-size: 18px;}
- }
-
- /*********************** Forms elements **********************************/
-
- .text_area{
-
-   height: 300px;
-
- }
-
- /****************** Grid system with the flexbox ***********************/
-.grid-systems{
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    margin: 0;
-    padding:0;
-    width: 100%
-
- }
-
-
-.grid-system{
-
-   margin: 0.5rem;
-   width: 200px;
-
- }
-
-.grid-system-card{
-
-   height: 500px;
-
- }
-
-.grid-system-card-admin{
-
-  height: 550px;
-
-}
-
-/* Tablet */
 @media only screen and (min-width: 768px) {
-
- .grid-system{
-
-   width: 300px;
-
-   margin: 0.7rem;
-
- }
-
-}
-
-/* Desktop */
+  .half-page {
+    width: 500px; } }
 @media only screen and (min-width: 1024px) {
+  .menu {
+    display: none; }
 
-  .grid-system{
+  .width-response {
+    width: 50%;
+    margin: auto; } }
+/***************************** Footer ******************************/
+.footer {
+  clear: both;
+  position: relative;
+  height: 30vh;
+  background: #000;
+  padding: 1.2rem; }
 
-    margin: 1.2rem;
+.footer__menu {
+  margin: 0 1.2rem 0 0;
+  display: flex;
+  /* or inline-flex */
+  justify-content: center;
+  flex-wrap: wrap; }
 
-  }
+.footer__menu a {
+  color: #fff; }
 
-}
+.footer__menu a:hover {
+  color: #000;
+  border-radius: 5px; }
+
+.footer__socialmedia {
+  display: flex;
+  justify-content: center; }
+
+.footer__socialmedia a {
+  margin: 1.2rem;
+  color: #fff; }
+
+.footer__copyright {
+  display: flex;
+  justify-content: center;
+  color: #B8B8B8; }
+
+/************************ Sidebar ****************************************/
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px; }
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s; }
+
+.sidenav a:hover {
+  color: #f1f1f1; }
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px; }
+
+.sidenav .sidenav__menu {
+  margin: 0.2rem 0 0 0; }
+
+.sidenav .sidenav__menu a {
+  color: #fff;
+  font-size: 1rem; }
+
+.sidenav .sidenav__menu a:hover {
+  color: #000; }
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px; }
+
+  .sidenav a {
+    font-size: 18px; } }
+/************************ Pagination *************************************/
+.pagination a, .pagination span.current, .pagination span.gap {
+  padding: 10px 20px;
+  border-radius: 5px;
+  line-height: 45px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #DDD; }
+
+.pagination {
+  display: block;
+  margin: 1.6rem; }
+
+.pagination .first {
+  padding: 0;
+  float: none;
+  border: none; }
+
+.pagination .prev {
+  padding: 0;
+  float: none;
+  border: none; }
+
+.pagination .page {
+  padding: 0;
+  float: none;
+  border: none; }
+
+.pagination .next {
+  padding: 0;
+  float: none;
+  border: none; }
+
+.pagination .last {
+  padding: 0;
+  float: none;
+  border: none; }
+
+/*********************** Forms elements **********************************/
+.text_area {
+  height: 300px; }
+
+/****************** Grid system with the flexbox ***********************/
+.grid-systems {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+.grid-system {
+  margin: 0.5rem;
+  width: 200px; }
+
+.grid-system-card {
+  height: 500px; }
+
+.grid-system-card-admin {
+  height: 550px; }
+
+@media only screen and (min-width: 768px) {
+  .grid-system {
+    width: 300px;
+    margin: 0.7rem; } }
+@media only screen and (min-width: 1024px) {
+  .grid-system {
+    margin: 1.2rem; } }
+
+/*# sourceMappingURL=application.css.map */

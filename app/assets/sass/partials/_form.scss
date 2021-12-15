@@ -1,0 +1,40 @@
+/*********************** Forms elements **********************************/
+.text_area {
+  height: 300px;
+}
+
+/****************** Grid system with the flexbox ***********************/
+.grid-systems {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+.grid-system {
+  margin: 0.5rem;
+  width: 200px; }
+
+.grid-system-card {
+  height: 500px; }
+
+.grid-system-card-admin {
+  height: 550px; }
+
+@include tablet{
+
+  .grid-system {
+    width: 300px;
+    margin: 0.7rem;
+  }
+
+}
+
+@include desktop{
+
+  .grid-system {
+    margin: 1.2rem;
+  }
+
+}
