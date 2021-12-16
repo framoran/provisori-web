@@ -52,7 +52,7 @@ fr:
   comment_send: 'Commenter'
 
   # the Game
-  enigma: Énigme de la semaine'
+  enigma: Énigme de la semaine
   resp: 'Répondre'
   email: 'Email'
   password: 'Mot de passe'

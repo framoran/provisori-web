@@ -86,7 +86,11 @@ class GamesController < ApplicationController
     respond_to do |format|
 
       unless session[:user_id].present?
-        return redirect_to @game, notice: "Vous devez être loggué pour pouvoir répondre à l'énigme. <a href='/login'>Se logguer</a>."
+        if I18n.locale == :fr
+          return redirect_to @game, notice: "Vous devez être loggué pour pouvoir répondre à l'énigme. <a href='/login'>Se logguer</a>"
+        else
+          return redirect_to @game, notice: "You should be connected to participate in the game. <a href='/login'>Login</a>"
+        end
       end
 
       user = User.find(session[:user_id])

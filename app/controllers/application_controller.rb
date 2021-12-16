@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :logged_in?
 
-
   def authorization_admin
     unless current_user_role == 'admin'
       redirect_to root_path
