@@ -1,0 +1,3 @@
+export SECRET_KEY_BASE=5bfdaec8c4d0b1dc18fa8a7cf40b4965a5a061ee341942a1b58b78e991022ad4291530ae932b8e6851a66b3fb722ff50cf247ae84a19d82803f8e1667dda6c01
+export RAILS_SERVE_STATIC_FILES=true
+rails s --environment production

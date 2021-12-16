@@ -12,8 +12,20 @@
 
 ActiveRecord::Schema.define(version: 2021_12_13_162951) do
 
-# Could not dump table "articles" because of following StandardError
-#   Unknown type '' for column 'published'
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.integer "like", default: 0
+    t.boolean "published", default: false
+    t.datetime "created_at"
+    t.datetime "modified_at"
+    t.boolean "group1"
+    t.boolean "group2"
+    t.boolean "group3"
+    t.boolean "group4"
+    t.boolean "group5"
+    t.boolean "group6"
+    t.string "image"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "body"
