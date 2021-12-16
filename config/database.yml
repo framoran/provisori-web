@@ -25,5 +25,5 @@ production:
   encoding: unicode
   database: provisorimedia
   pool: 5
-  username: provisorimedia
-  password: Procyc(1589)
+  username: <%= ENV["DATABASE_NAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
