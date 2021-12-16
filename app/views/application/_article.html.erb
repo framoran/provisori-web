@@ -4,7 +4,7 @@
       <div class="media">
         <div class="media-left">
           <figure class="image is-48x48">
-            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            <img src="https://provisorimedia-elements.s3.amazonaws.com/Thomas.jpg" alt="Placeholder image" class="rounded" >
           </figure>
         </div>
         <div class="media-content"><br>
@@ -14,9 +14,9 @@
         <div class="media-right">
           <em><i class="fas fa-heart fa-1x is-black"></i>
             <% if @article.likes.count <= 1 %>
-              <%= @article.likes.count %> personne a aimé cet article
+              <%= @article.likes.count %> <%= I18n.translate('like_article') %>
             <% else %>
-              <%= @article.likes.count %> personnes ont aimés cet article
+              <%= @article.likes.count %> <%= I18n.translate('likes_article') %>
             <% end %>
           </em>
         </div>

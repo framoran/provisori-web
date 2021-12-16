@@ -46,7 +46,7 @@ en:
 
   #articles
   like_article: 'person liked this article'
-  like_articles: 'persons liked this article'
+  likes_article: 'persons liked this article'
   share: 'Share'
   comments: 'Comments'
   comment: 'Add a comment'
@@ -58,6 +58,8 @@ en:
 
   # login
   not_registered: 'No account yet?'
+  email: 'Email'
+  password: 'Password'
 
   #helpers
   helpers:
@@ -66,7 +68,7 @@ en:
         email: 'Email'
         password: 'Password'
       user:
-        name: 'Nom'
+        name: 'Name'
         last_name: 'Last Name'
         email: 'Email'
         password: 'Password'

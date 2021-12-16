@@ -7,6 +7,15 @@
 
     <h1 class="title"> <i class="fas fa-tools fa-2x"></i> Créer un nouvel article </h1>
 
+    <h3 class="subtitle is-6 mt-5"> <i class="fas fa-image fa-lg"></i> Télécharger une image </h3>
+
+    <fieldset>
+      <%= form.label :image, class: 'label' %>
+      <div class="">
+        <%= form.file_field :image, class: 'input' %>
+      </div>
+    </fieldset>
+
     <div class="media-content"><br>
       <label class="label" id="article[title]">Veuillez entrer le titre de l'article</label>
       <input class="title is-4 input" name="article[title]" placeholder="Titre..."></input>

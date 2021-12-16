@@ -34,6 +34,9 @@
   position: relative;
   min-height: 60vh; }
 
+.rounded {
+  border-radius: 50px; }
+
 @media only screen and (min-width: 768px) {
   .half-page {
     width: 500px; } }

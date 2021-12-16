@@ -9,17 +9,13 @@ class ArticlesController < ApplicationController
 
   end
 
-  def new
-
-    @article = Article.new
-
-  end
-
   def show
 
   end
 
-  def edit
+  def new
+
+    @article = Article.new
 
   end
 
@@ -39,6 +35,10 @@ class ArticlesController < ApplicationController
         format.html { render :new }
       end
     end
+  end
+
+  def edit
+
   end
 
   def update
@@ -79,7 +79,7 @@ class ArticlesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def article_params
-    params.require(:article).permit(:title, :group1, :group2, :group3, :group4, :group5, :group6)
+    params.require(:article).permit(:image, :title, :group1, :group2, :group3, :group4, :group5, :group6)
   end
 
 end

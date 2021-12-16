@@ -38,6 +38,11 @@
   position: relative;
   min-height: 60vh;
 }
+
+.rounded{
+  border-radius: 50px;
+}
+
 @include tablet {
   .half-page {
     width: 500px;

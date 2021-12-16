@@ -31,7 +31,7 @@
 
 fr:
   logout: 'Se déconnecter'
-  login: 'Se logguer'
+  login: 'Se connecter'
   register: "S'enregistrer"
   likeb: 'Like a boss'
   artists: 'Artistes'
@@ -45,16 +45,17 @@ fr:
 
   #articles
   like_article: 'personne a aimé cette article'
-  like_articles: 'personnes ont aimé cette article'
+  likes_article: 'personnes ont aimé cette article'
   share: 'Partagez'
   comments: 'Commentaires'
   comment: 'Ajouter un commentaire'
   comment_send: 'Commenter'
 
-
   # the Game
   enigma: Énigme de la semaine'
   resp: 'Répondre'
+  email: 'Email'
+  password: 'Mot de passe'
 
   # login
   not_registered: 'Pas encore de compte ?'

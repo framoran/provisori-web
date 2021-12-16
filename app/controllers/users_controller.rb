@@ -4,12 +4,12 @@ class UsersController < ApplicationController
 
   before_action :authorization_admin, only: [:index, :destroy]
 
-  def new
-    @user = User.new
-  end
-
   def index
     @users = User.all.page(params[:page])
+  end
+
+  def new
+    @user = User.new
   end
 
   def create
