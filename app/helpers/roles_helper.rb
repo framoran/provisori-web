@@ -21,7 +21,7 @@ def can_edit?(comments)
 
   case(current_user_role)
   when 'admin' then  true
-  when 'registered' then current_user_id == comments.user.id
+  when 'registered' then current_user.id == comments.user.id
   else false
   end
 end
@@ -29,7 +29,7 @@ end
 def user_can_edit(user)
   case(current_user_role)
   when 'admin' then  true
-  when 'registered' then current_user_id == user.id
+  when 'registered' then current_user.id == user.id
   else false
   end
 end

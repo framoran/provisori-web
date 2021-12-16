@@ -67,7 +67,7 @@ class ArticlesController < ApplicationController
 
   def like
 
-    Like.create(user_id: current_user_id, article_id:@article.id, like: true)
+    Like.create(user_id: current_user.id, article_id:@article.id, like: true)
     redirect_to article_path(@article)
 
   end

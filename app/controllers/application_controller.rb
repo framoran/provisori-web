@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   helper_method :current_user_role
-  helper_method :current_user_id
   helper_method :current_user
   helper_method :logged_in?
 
@@ -25,14 +24,6 @@ class ApplicationController < ActionController::Base
   def current_user
     if logged_in?
       return @current_user = User.find(session[:user_id])
-    else
-      return false
-    end
-  end
-
-  def current_user_id
-    if logged_in?
-      @current_user_id = User.find(session[:user_id]).id
     else
       return false
     end

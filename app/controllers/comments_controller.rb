@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
     # Needs to be changed: this always sets the User for a Comment to the first
     # User in the database, _not_ the User that POSTed the Comment.
-    @comment.user_id = current_user_id
+    @comment.user_id = current_user.id
     @comment.save
 
     redirect_to article_path(@article.id, anchor: "comment-id#{@comment.id}")

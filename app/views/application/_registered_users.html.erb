@@ -51,7 +51,7 @@
         <div>
           <!-- Contact page needed to be implemented -->
           <%= link_to "Contact", "/", class: 'button is-medium mt-5' %>
-          <%= link_to 'Profil',  user_path(current_user_id), class: 'button is-medium mt-1', role: 'button' %>
+          <%= link_to 'Profil',  user_path(current_user.id), class: 'button is-medium mt-1', role: 'button' %>
           <%= link_to(I18n.translate('logout'), session_path(1), method: :delete, class: 'button is-primary is-medium mt-1') %>
         </div>
       </div>
