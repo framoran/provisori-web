@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   before_action :authorization_admin, only: [:index, :destroy]
 
+  before_action :authorization_at_least_reg, only: [:edit, :show]
+
   def index
     @users = User.all.page(params[:page])
   end
@@ -31,6 +33,10 @@ class UsersController < ApplicationController
   def edit
 
     @user = User.find(session[:user_id])
+
+    unless user_can_edit(@user)
+      redirect_to root_path
+    end
 
   end
 
