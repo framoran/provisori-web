@@ -72,3 +72,15 @@ en:
         last_name: 'Last Name'
         email: 'Email'
         password: 'Password'
+
+  # model
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'The email has alreay been taken. Try to connect'
+              blank: "Email cannot be empty."
+            password:
+              blank: "The password cannot be blank"

@@ -4,65 +4,81 @@ class LogInsTest < ApplicationSystemTestCase
 
   test 'create a user' do
 
-    visit new_user_path
-    fill_in 'Prénom', with: 'David'
+    visit '/fr/signup'
+    fill_in 'Nom', with: 'David'
     fill_in 'Nom de famille', with: 'Framorando'
     fill_in 'Email', with: 'david.framorando-normal@gmail.com'
     fill_in 'Mot de passe', with: 'Test'
     click_on("commit")
 
     assert_not page.has_content?('Se connecter')
-    assert page.has_content?('logout')
+
+    click_on("openNav")
+
+    assert page.has_content?('Se déconnecter')
 
   end
 
   test 'test login' do
 
-    visit new_user_path
-    fill_in 'Prénom', with: 'David'
+    visit '/fr/signup'
+    fill_in 'Nom', with: 'David'
     fill_in 'Nom de famille', with: 'Framorando'
     fill_in 'Email', with: 'david.framorando-normal@gmail.com'
     fill_in 'Mot de passe', with: 'Test'
     click_on("commit")
-    click_on("logout")
 
-    visit new_session_path
+    click_on("openNav")
+    click_on("Se déconnecter")
+
+    visit '/fr/login'
     fill_in 'email', with: 'david.framorando-normal@gmail.com'
     fill_in 'password', with: 'Test'
     click_on("commit")
-    
-    assert page.has_content?('logout')
+
+    click_on("openNav")
+    assert page.has_content?('Se déconnecter')
 
   end
 
   test 'test cannot use twice email address' do
 
-    visit new_user_path
-    fill_in 'Prénom', with: 'David'
-    fill_in 'Nom de famille', with: 'Framorando'
-    fill_in 'Email', with: 'david.framorando-normal@gmail.com'
-    fill_in 'Mot de passe', with: 'Test'
-    click_on("commit")
-    click_on("logout")
-
-    visit new_user_path
-    fill_in 'Prénom', with: 'David'
+    visit '/fr/signup'
+    fill_in 'Nom', with: 'David'
     fill_in 'Nom de famille', with: 'Framorando'
     fill_in 'Email', with: 'david.framorando-normal@gmail.com'
     fill_in 'Mot de passe', with: 'Test'
     click_on("commit")
 
-    assert page.has_content?('Email has already been taken')
+    click_on("openNav")
+    click_on("Se déconnecter")
+
+    visit '/fr/signup'
+    fill_in 'Nom', with: 'David'
+    fill_in 'Nom de famille', with: 'Framorando'
+    fill_in 'Email', with: 'david.framorando-normal@gmail.com'
+    fill_in 'Mot de passe', with: 'Test'
+    click_on("commit")
+
+    assert page.has_content?('Cet email a déjà été utilisé. Essayer de vous connecter.')
 
   end
 
-  test 'test email and password cannot be blank' do
+  test 'if email is blank -> display error' do
 
-    visit new_user_path
+    visit '/fr/signup'
     click_on("commit")
 
-    assert page.has_content?("Password can't be blank")
-    assert page.has_content?("Email can't be blank")
+    assert page.has_content?("L'email ne peut pas être vide.")
+
+  end
+
+  test 'if password is blank -> display error' do
+
+    visit '/fr/signup'
+    click_on("commit")
+
+    assert page.has_content?("Le mot de passe ne peut pas être vide.")
 
   end
 

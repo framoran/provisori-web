@@ -7,7 +7,9 @@ class GamesController < ApplicationController
     @enigme = Game.last
     @game = Game.new
     winner = Winner.last
-    @winner = User.find(Winner.last.id)
+    if @winner.present?
+      @winner = User.find(Winner.last.id)
+    end
 
     # how many users got the correct response
     @users_found = User.where(response_game: true).count

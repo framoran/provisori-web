@@ -71,3 +71,14 @@ fr:
         last_name: 'Nom de famille'
         email: 'Email'
         password: 'Mot de passe'
+  # model
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "Cet email a déjà été utilisé. Essayer de vous connecter."
+              blank: "L'email ne peut pas être vide."
+            password:
+              blank: "Le mot de passe ne peut pas être vide."

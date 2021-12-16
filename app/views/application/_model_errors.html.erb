@@ -3,7 +3,7 @@
     <% if model.errors.count <= 1 %>
       <p><%= pluralize(model.errors.count, "erreur") %>:</p>
     <% else %>
-      <p><%= pluralize(model.errors.count, "erreura") %>:</p>
+      <p><%= pluralize(model.errors.count, "erreurs") %>:</p>
     <% end %>
     <ul>
     <% model.errors.full_messages.each do |message| %>
