@@ -1,7 +1,7 @@
 <div class="columns mt-5 p-3">
   <div class="box mt-5 mb-5 column is-three-fifths is-offset-one-fifth">
     <h1 class="mt-5 has-text-centered title">Entrer une nouvelle question</h1>
-    <%= form_for @game, url: "/games/#{@game.id}", action: :update do |form| %>
+    <%= form_for @game, url: "/fr/games/#{@game.id}", action: :update do |form| %>
       <% if @game.errors.any? %>
         <%= render partial: 'model_errors', locals: { model: @game } %>
       <% end %>

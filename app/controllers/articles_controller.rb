@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
   before_action :authorization_admin, only: [:index, :new, :edit, :create, :update, :destroy]
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :like]
 
   def index
 
@@ -67,7 +67,7 @@ class ArticlesController < ApplicationController
 
   def like
 
-    Like.create(user_id: current_user.id, article_id:@article.id, like: true)
+    Like.create(user_id: current_user.id, article_id: @article.id, like: true)
     redirect_to article_path(@article)
 
   end
