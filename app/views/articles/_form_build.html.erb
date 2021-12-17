@@ -143,8 +143,8 @@
         case 'image':
           element = 'input';
           element_placeholder = "Insérer l'URL de l'image";
-          element_class="mt-5 is-size-6";
-          element_name = "src";
+          element_class="input mt-5 is-size-6";
+          element_name = "imgart";
           break;
         case 'podcast':
             element = 'input';
@@ -162,6 +162,7 @@
 
       const form = document.createElement("form");
       form.className = "media-content";
+      form.enctype = "mutipart/form-data";
       form.action = "/fr/articles/<%= params[:id] %>/elements";
       form.method = "post";
 
@@ -184,11 +185,24 @@
       alt.className = element_class;
       alt.placeholder = "Insérer un descriptif à l'image";
 
-      var body = document.createElement(element);
-      body.name  = "article["+element_name+"]";
-      body.className = element_class;
-      body.placeholder = element_placeholder;
-      body.appendChild(document.createTextNode(element_placeholder));
+      if (type_of_element == 'image'){
+
+        var body = document.createElement(element);
+        body.type = "file"
+        body.name  = "article["+element_name+"]";
+        body.className = element_class;
+        body.placeholder = element_placeholder;
+        body.appendChild(document.createTextNode(element_placeholder));
+
+      }else {
+
+        var body = document.createElement(element);
+        body.name  = "article["+element_name+"]";
+        body.className = element_class;
+        body.placeholder = element_placeholder;
+        body.appendChild(document.createTextNode(element_placeholder));
+
+      }
 
       form.appendChild(hidden_input);
       form.appendChild(hidden_input_type);

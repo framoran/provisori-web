@@ -26,7 +26,7 @@ class ElementsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def element_params
-    params.require(:article).permit(:elements_type, :subtitle1, :subtitle2, :body, :src, :alt)
+    params.require(:article).permit(:imgart, :elements_type, :subtitle1, :subtitle2, :body, :src, :alt)
   end
 
   def set_article
