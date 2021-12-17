@@ -11,6 +11,8 @@ class ArticlesController < ApplicationController
 
   def show
 
+    @comments = @article.comments.order("created_at DESC")
+
   end
 
   def new
