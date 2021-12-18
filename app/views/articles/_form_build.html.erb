@@ -138,7 +138,7 @@
           element = 'input';
           element_placeholder = "Insérer l'URL de la vidéo";
           element_class="mt-5 is-size-6";
-          element_name = "src";
+          element_name = "imgart";
           break;
         case 'image':
           element = 'input';
@@ -150,7 +150,7 @@
             element = 'input';
             element_placeholder = "Insérer l'URL du podcast";
             element_class="mt-5 is-size-6";
-            element_name = "src";
+            element_name = "imgart";
             break;
         default:
           element = 'textarea';
@@ -162,7 +162,7 @@
 
       const form = document.createElement("form");
       form.className = "media-content";
-      form.enctype = "mutipart/form-data";
+      form.enctype = "multipart/form-data";
       form.action = "/fr/articles/<%= params[:id] %>/elements";
       form.method = "post";
 
@@ -185,10 +185,11 @@
       alt.className = element_class;
       alt.placeholder = "Insérer un descriptif à l'image";
 
-      if (type_of_element == 'image'){
+      if (type_of_element == 'image' || type_of_element == 'video' || type_of_element == 'podcast'){
 
         var body = document.createElement(element);
-        body.type = "file"
+        body.type = "file";
+        body.id = "article_imgart";
         body.name  = "article["+element_name+"]";
         body.className = element_class;
         body.placeholder = element_placeholder;
@@ -222,6 +223,7 @@
         save_btn.textContent = "Sauvegardé";
         save = false;
       };
+
       save_btn.className = "button is-danger";
       form.appendChild(save_btn);
 

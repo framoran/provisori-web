@@ -16,22 +16,24 @@
       <%= link_to 'X', element_path(element), class: 'button is-danger is-small', method: :delete %>
     </h2> <%
   when "video" %>
-    <video class="mt-5" width="320" height="240" controls>
-      <source src="<%= element.src %>" type="video/mp4">
-        Your browser does not support the video tag.
-    </video> <br/>
+    <div class="has-text-centered	">
+      <video class="mt-5" width="320" height="240" controls>
+        <source src="<%= element.imgart %>" type="video/mp4">
+          Your browser does not support the video tag.
+      </video> <br/>
+      </div>
     <%= link_to 'X', element_path(element), class: 'button is-danger is-small', method: :delete %>
     <%
   when "image" %>
     <div class="has-text-centered	">
-      <img class="mt-5" src="<%= element.src %>" alt="<%= element.alt %>" />
+      <img class="mt-5" src="<%= element.imgart %>" alt="<%= element.alt %>" />
       <%= link_to 'X', element_path(element), class: 'button is-danger is-small', method: :delete %>
     </div>
     <br /> <%
   when "podcast" %>
-      <div class="has-text-centered	">
+      <div class="has-text-centered	mt-5">
         <audio controls>
-          <source src="<%= element.src %>" type="audio/mp3">
+          <source src="<%= element.imgart %>" type="audio/mp3">
         Your browser does not support the audio element.
         </audio>
         <%= link_to 'X', element_path(element), class: 'button is-danger is-small', method: :delete %>
