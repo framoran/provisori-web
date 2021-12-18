@@ -24,6 +24,13 @@
       </div>
     <%= link_to 'X', element_path(element), class: 'button is-danger is-small', method: :delete %>
     <%
+  when "video-youtube" %>
+    <div class="has-text-centered	">
+      <iframe width="320" height="240" src="<%= element.src %>">
+      </iframe>
+    </div>
+    <%= link_to 'X', element_path(element), class: 'button is-danger is-small', method: :delete %>
+    <%
   when "image" %>
     <div class="has-text-centered	">
       <img class="mt-5" src="<%= element.imgart %>" alt="<%= element.alt %>" />

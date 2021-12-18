@@ -68,7 +68,7 @@
         </div>
 
         <div class="mt-3  ml-3">
-          <button id="add-video" type="button" class="button is-black">+ Ajouter video</button>
+          <button id="add-podcast" type="button" class="button is-black">+ Ajouter podcast</button>
         </div>
 
       </div>
@@ -76,7 +76,11 @@
       <div class="is-flex is-justify-content-space-flex">
 
         <div class="mt-3  ml-3">
-          <button id="add-podcast" type="button" class="button is-black">+ Ajouter podcast</button>
+          <button id="add-video" type="button" class="button is-black">+ Ajouter vidéo</button>
+        </div>
+
+        <div class="mt-3  ml-3">
+          <button id="add-video-youtube" type="button" class="button is-black">+ Ajouter vidéo youtube</button>
         </div>
 
       </div>
@@ -134,12 +138,18 @@
           element_class="mt-5 subtitle";
           element_name = type_of_element;
           break;
-        case 'video':
+        case 'video-youtube':
           element = 'input';
           element_placeholder = "Insérer l'URL de la vidéo";
           element_class="mt-5 is-size-6";
-          element_name = "imgart";
+          element_name = "src";
           break;
+        case 'video':
+            element = 'input';
+            element_placeholder = "Insérer l'URL de la vidéo";
+            element_class="mt-5 is-size-6";
+            element_name = "imgart";
+            break;
         case 'image':
           element = 'input';
           element_placeholder = "Insérer l'URL de l'image";
@@ -256,6 +266,12 @@
   document.getElementById('add-video').onclick = function(){
 
     insert("video");
+
+  }
+
+  document.getElementById('add-video-youtube').onclick = function(){
+
+    insert("video-youtube");
 
   }
 

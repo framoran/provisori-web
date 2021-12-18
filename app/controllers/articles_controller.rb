@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
 
   def update
 
-    if @article.published == 1
+    if @article.published == true
 
       @article.update(published: false)
 
@@ -54,6 +54,7 @@ class ArticlesController < ApplicationController
     else
 
       @article.update(published: true)
+
       redirect_to root_path
 
     end

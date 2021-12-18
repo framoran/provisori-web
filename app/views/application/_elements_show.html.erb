@@ -19,7 +19,12 @@
           Your browser does not support the video tag.
       </video> <br/>
     </div>
-
+    <%
+    when "video-youtube" %>
+      <div class="has-text-centered	">
+        <iframe width="320" height="240" src="<%= element.src %>">
+        </iframe>
+      </div>
     <%
     when "image" %>
     <div class="has-text-centered	">
