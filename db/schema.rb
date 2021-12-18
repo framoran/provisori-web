@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_17_130556) do
+ActiveRecord::Schema.define(version: 2021_12_18_090541) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_12_17_130556) do
     t.boolean "group5"
     t.boolean "group6"
     t.string "image"
+    t.string "alt"
   end
 
   create_table "comments", force: :cascade do |t|

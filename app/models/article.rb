@@ -8,6 +8,10 @@ class Article < ApplicationRecord
 
   validates :title,  presence: true
 
+  validates :image,  presence: true
+
+  validates :alt,  presence: true
+
   mount_uploader :image, ImageUploader
 
   scope :title_contains,       ->(term) { where('title LIKE ?', "%#{term}%".downcase) }
