@@ -68,21 +68,22 @@ class ArticlesController < ApplicationController
 
   end
 
-  def like
+  private
 
-    Like.create(user_id: current_user.id, article_id: @article.id, like: true)
-    redirect_to article_path(@article)
+    def like
 
-  end
+      Like.create(user_id: current_user.id, article_id: @article.id, like: true)
+      redirect_to article_path(@article)
 
-  def set_article
-    @article = Article.find(params[:id])
-  end
+    end
 
+    def set_article
+      @article = Article.find(params[:id])
+    end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def article_params
-    params.require(:article).permit(:alt, :image, :title, :group1, :group2, :group3, :group4, :group5, :group6)
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def article_params
+      params.require(:article).permit(:alt, :image, :title, :group1, :group2, :group3, :group4, :group5, :group6)
+    end
 
 end
