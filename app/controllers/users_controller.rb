@@ -10,6 +10,14 @@ class UsersController < ApplicationController
     @users = User.all.page(params[:page])
   end
 
+  def show
+
+    unless user_can_edit(@user)
+      redirect_to root_path
+    end
+
+  end
+
   def new
     @user = User.new
   end
@@ -31,8 +39,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-
-    @user = User.find(session[:user_id])
 
     unless user_can_edit(@user)
       redirect_to root_path
