@@ -68,14 +68,15 @@ class ArticlesController < ApplicationController
 
   end
 
+
+  def like
+
+    Like.create(user_id: current_user.id, article_id: @article.id, like: true)
+    redirect_to article_path(@article)
+
+  end
+
   private
-
-    def like
-
-      Like.create(user_id: current_user.id, article_id: @article.id, like: true)
-      redirect_to article_path(@article)
-
-    end
 
     def set_article
       @article = Article.find(params[:id])

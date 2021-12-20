@@ -50,12 +50,14 @@ fr:
   comments: 'Commentaires'
   comment: 'Ajouter un commentaire'
   comment_send: 'Commenter'
+  liked: 'Vous avez aimé cet article ?'
 
   # the Game
   enigma: Énigme de la semaine
   resp: 'Répondre'
   email: 'Email'
   password: 'Mot de passe'
+  winner: 'Félicitations, vous avez trouvé la bonne réponse ! Reconnecter-vous ce vendredi à partir de 12h pour savoir si vous serez le vainqueur.'
 
   # login
   not_registered: 'Pas encore de compte ?'
@@ -90,6 +92,9 @@ fr:
               blank: 'Veuillez insérer une image'
             alt:
               blank: 'Veuillez insérer un descriptif'
+      messages:
+        record_invalid: 'Impossible de sauvegarder les données'
+
   # datetime
   datetime:
     distance_in_words:

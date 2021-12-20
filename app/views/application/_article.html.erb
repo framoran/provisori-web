@@ -39,7 +39,7 @@
 
         <div class="display is-inline-flex mt-5">
 
-          <p> <strong>Vous avez aimé cet article ? </strong> </p>
+          <p> <strong><%= I18n.translate('liked') %> </strong> </p>
 
 
           <% if logged_in? %>
@@ -60,7 +60,7 @@
 
         </div>
 
-        <p class="mt-5"> <em>Partagez: </em></p>
+        <p class="mt-5"> <em><%= I18n.translate('share') %>: </em></p>
 
         <div class="display is-flex mt-3">
 
@@ -84,7 +84,7 @@
       </div>
 
       <div class="mt-5">
-        <h3>Commentaires</h3>
+        <h3><%= I18n.translate('comments') %> </h3>
         <div class="m-3" id="commentList">
           <% if article.comments.present? %>
             <% @comments.each do |comment| %>
@@ -111,13 +111,13 @@
               </article>
             <% end %>
           <% end %>
-          <p class="mb-3">Ajouter un commentaire</p>
+          <p class="mb-3"><%= I18n.translate('comment') %> </p>
           <%= form_for([@article, @article.comments.build]) do |form| %>
             <fieldset>
               <%= form.text_area(:body, class: 'textarea', rows: 3) %>
             </fieldset>
             <fieldset class="">
-              <%= form.submit 'Commenter', class: 'button is-primary mt-3' %>
+              <%= form.submit I18n.translate('comment_send'), class: 'button is-primary mt-3' %>
             </fieldset>
         <% end %>
         </div>

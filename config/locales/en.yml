@@ -51,10 +51,14 @@ en:
   comments: 'Comments'
   comment: 'Add a comment'
   comment_send: 'Comment'
+  liked: 'Did you like this article ?'
 
   #the Game
   enigma: 'Enigma of the week'
   resp: 'Answer'
+  email: 'Email'
+  password: 'Password'
+  winner: 'Congratulations, you have found the right answer! Reconnect this Friday from 12 p.m. to find out if you will be the winner.'
 
   # login
   not_registered: 'No account yet?'
@@ -84,3 +88,5 @@ en:
               blank: "Email cannot be empty."
             password:
               blank: "The password cannot be blank"
+        messages:
+          record_invalid: 'Impossible to save data'
