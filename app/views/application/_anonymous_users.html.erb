@@ -34,13 +34,23 @@
       <div class="p-3">
         <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
         <div class="field has-addons mt-5">
+
           <div class="control">
-            <input class="input is-medium" type="text" placeholder="<%= I18n.translate('search') %>">
-          </div>
-          <div class="control">
-            <a class="button is-medium">
-              <i class="fas fa-search"></i>
-            </a>
+
+              <%= form_tag 'article', method: :get do %>
+                <div class="is-inline-flex">
+                  <div class="control">
+                    <%= label_tag :a, 'Search term', class: 'input is-hidden' %>
+                    <%= text_field_tag :a, params[:a], class: 'input', placeholder: 'e.g. Sport' %>
+                  </div>
+                  <div>
+                    <button class='button'>
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              <% end %>
+
           </div>
         </div>
         <div class="sidenav__menu mt-3_negative mb-3">
