@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
   def show
 
     @comments = @article.comments.order("created_at DESC")
+    @original_url = request.original_url
 
   end
 

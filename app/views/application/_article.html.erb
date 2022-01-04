@@ -62,22 +62,23 @@
 
         </div>
 
+        urls <%= @originals_url %>
         <p class="mt-5"> <em><%= I18n.translate('share') %>: </em></p>
 
         <div class="display is-flex mt-3">
 
-          <a href="https://www.facebook.com/sharer/sharer.php?u=qualia4.com" target="_blank" class="button is-black">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=<%= @original_url %>" target="_blank" class="button is-black">
             <i class ="fab fa-facebook"></i>
           </a>
-          <a href="whatsapp://send?u=qualia4.com" target="_blank" class="button is-black ml-2">
+          <a href="whatsapp://send?u=<%= @original_url %>" target="_blank" class="button is-black ml-2">
             <i class ="fab fa-whatsapp"></i>
           </a>
 
-          <a href="http://www.twitter.com/share?url=https://qualia4.com" target="_blank" class="button is-black ml-2">
+          <a href="http://www.twitter.com/share?url=<%= @original_url %>" target="_blank" class="button is-black ml-2">
             <i class ="fab fa-twitter"></i>
           </a>
 
-          <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://www.website.com." target="_blank" class="button is-black ml-2">
+          <a href="mailto:?subject=ProvisoriMedia&amp;body=ProvisoriMedia <%= @original_url %>" target="_blank" class="button is-black ml-2">
             <i class ="far fa-envelope"></i>
           </a>
 
