@@ -71,7 +71,15 @@ class ArticlesController < ApplicationController
 
   def like
 
-    Like.create(user_id: current_user.id, article_id: @article.id, like: true)
+    # check whether like exists
+    @like = Like.where(user_id: current_user.id, article_id: @article.id)
+
+    if @like.present?
+      Like.last.destroy
+    else
+      Like.create(user_id: current_user.id, article_id: @article.id, like: true)
+    end
+
     redirect_to article_path(@article)
 
   end

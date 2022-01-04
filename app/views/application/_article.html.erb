@@ -47,7 +47,10 @@
             <span class="p-3 mt-2_negative">
 
               <% if @article.liked?(current_user) %>
-                <i class="fas fa-heart fa-2x"></i>
+                <%= link_to raw('<i class="fas fa-heart fa-2x"></i>'),
+                  like_path(@article),
+                  method: "put"
+                   %>
               <% else %>
                 <%= link_to raw('<i class="far fa-heart fa-2x is-black"></i>'),
                   like_path(@article),
