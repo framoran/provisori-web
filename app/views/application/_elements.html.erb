@@ -26,7 +26,9 @@
     <%
   when "video-youtube" %>
     <div class="has-text-centered	">
-      <iframe width="320" height="240" src="<%= element.src %>">
+      <% $src = element.src.sub('/watch?v=', "/embed/") %>
+
+      <iframe width="320" height="240" src="<%= $src %>">
       </iframe>
     </div>
     <%= link_to 'X', element_path(element), class: 'button is-danger is-small', method: :delete %>
