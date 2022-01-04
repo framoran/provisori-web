@@ -19,9 +19,10 @@ class CommentsController < ApplicationController
 
   def destroy
 
+    @comment = Comment.find(params[:id])
+
     if can_edit?(@comment)
 
-      @comment = Comment.find(params[:id])
       @article = @comment.article_id
       @comment.destroy
 
