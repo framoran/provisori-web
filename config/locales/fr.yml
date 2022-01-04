@@ -42,6 +42,8 @@ fr:
   game: 'Le Game'
   read_more: 'Lire plus'
   search: 'Chercher un article'
+  no_articles: 'Aucun article ne correspond à votre recherche... '
+  no_enigma: "Aucune énigme n'est disponible pour le moment!"
 
   #articles
   like_article: 'personne a aimé cette article'

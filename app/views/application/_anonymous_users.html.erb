@@ -37,7 +37,7 @@
 
           <div class="control">
 
-              <%= form_tag 'article', method: :get do %>
+              <%= form_tag "/#{I18n.locale}/article", method: :get do %>
                 <div class="is-inline-flex">
                   <div class="control">
                     <%= label_tag :a, 'Search term', class: 'input is-hidden' %>

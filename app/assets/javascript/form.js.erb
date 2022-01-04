@@ -1,0 +1,184 @@
+save = false;
+
+function insert(type_of_element){
+
+  if (save){
+
+    alert("Vous devez d'abord sauvegarder votre travail");
+
+  }else{
+
+    save = true;
+
+    switch (type_of_element) {
+      case 'body':
+        element = 'textarea';
+        element_placeholder = 'texte...';
+        element_class="mt-5 body";
+        element_name = type_of_element;
+        break;
+      case 'subtitle1':
+        element = 'input';
+        element_placeholder = 'Sous-titre 1';
+        element_class="mt-5 title";
+        element_name = type_of_element;
+        break;
+      case 'subtitle2':
+        element = 'input';
+        element_placeholder = 'Sous-titre 2';
+        element_class="mt-5 subtitle";
+        element_name = type_of_element;
+        break;
+      case 'video-youtube':
+        element = 'input';
+        element_placeholder = "Insérer l'URL de la vidéo";
+        element_class="mt-5 is-size-6";
+        element_name = "src";
+        break;
+      case 'video':
+          element = 'input';
+          element_placeholder = "Insérer l'URL de la vidéo";
+          element_class="mt-5 is-size-6";
+          element_name = "imgart";
+          break;
+      case 'image':
+        element = 'input';
+        element_placeholder = "Insérer l'URL de l'image";
+        element_class="input mt-5 is-size-6";
+        element_name = "imgart";
+        break;
+      case 'podcast':
+          element = 'input';
+          element_placeholder = "Insérer l'URL du podcast";
+          element_class="mt-5 is-size-6";
+          element_name = "imgart";
+          break;
+      default:
+        element = 'textarea';
+        element_placeholder = 'texte...';
+        element_class="mt-5 body";
+    }
+
+    article_id = document.getElementById("article_id").innerHTML;
+    console.log(article_id);
+
+    const childElement = document.getElementById("childElement");
+
+    const form = document.createElement("form");
+    form.className = "media-content";
+    form.enctype = "multipart/form-data";
+    form.action = "/fr/articles/"+article_id+"/elements";
+    form.method = "post";
+
+    var AUTH_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    var hidden_input = document.createElement("input");
+    hidden_input.name="authenticity_token";
+    hidden_input.type="hidden";
+    hidden_input.value=AUTH_TOKEN;
+
+    var hidden_input_type = document.createElement("input");
+    hidden_input_type.name="article[elements_type]";
+    hidden_input_type.type="hidden";
+    hidden_input_type.value=type_of_element;
+
+    var label = document.createElement("label");
+    label.className = "label-elements";
+    label.id  = "article["+type_of_element+"]";
+
+    var alt = document.createElement(element);
+    alt.name  = "article[alt]";
+    alt.className = element_class;
+    alt.placeholder = "Insérer un descriptif à l'image";
+
+    if (type_of_element == 'image' || type_of_element == 'video' || type_of_element == 'podcast'){
+
+      var body = document.createElement(element);
+      body.type = "file";
+      body.id = "article_imgart";
+      body.name  = "article["+element_name+"]";
+      body.className = element_class;
+      body.placeholder = element_placeholder;
+      body.appendChild(document.createTextNode(element_placeholder));
+
+    }else {
+
+      var body = document.createElement(element);
+      body.name  = "article["+element_name+"]";
+      body.className = element_class;
+      body.placeholder = element_placeholder;
+      body.appendChild(document.createTextNode(element_placeholder));
+
+    }
+
+    form.appendChild(hidden_input);
+    form.appendChild(hidden_input_type);
+    form.appendChild(label);
+
+    if(type_of_element == "image"){
+      form.appendChild(alt);
+    }
+
+    form.appendChild(body);
+
+    var save_btn = document.createElement("button");
+    save_btn.textContent = "Sauvegarder";
+    save_btn.type = "Submit";
+    save_btn.onclick = function(){
+      save_btn.className = "button is-primary";
+      save_btn.textContent = "Sauvegardé";
+      save = false;
+    };
+
+    save_btn.className = "button is-danger";
+    form.appendChild(save_btn);
+
+    let parentForm = document.getElementById("childElement").parentNode;
+
+    parentForm.insertBefore(form, childElement);
+
+  }
+
+}
+
+document.getElementById('add').onclick = function(){
+
+  insert("body");
+
+}
+
+document.getElementById('add-subtitle1').onclick = function(){
+
+  insert("subtitle1");
+
+}
+
+document.getElementById('add-subtitle2').onclick = function(){
+
+  insert("subtitle2");
+
+}
+
+document.getElementById('add-video').onclick = function(){
+
+  insert("video");
+
+}
+
+document.getElementById('add-video-youtube').onclick = function(){
+
+  insert("video-youtube");
+
+}
+
+document.getElementById('add-image').onclick = function(){
+
+  insert("image");
+
+}
+
+document.getElementById('add-podcast').onclick = function(){
+
+  insert("podcast");
+
+}

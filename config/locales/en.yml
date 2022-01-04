@@ -43,6 +43,7 @@ en:
   game: 'The Game'
   read_more: 'Read more'
   search: 'Search for an article'
+  no_articles: 'No articles match your search...'
 
   #articles
   like_article: 'person liked this article'
@@ -59,6 +60,7 @@ en:
   email: 'Email'
   password: 'Password'
   winner: 'Congratulations, you have found the right answer! Reconnect this Friday from 12 p.m. to find out if you will be the winner.'
+  no_enigma: 'No enigma is available at the moment!'
 
   # login
   not_registered: 'No account yet?'
