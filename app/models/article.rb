@@ -10,10 +10,9 @@ class Article < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  scope :title_contains,       ->(term) { where( 'title Like ?', "%#{term}%".downcase ) }
-  scope :title_contains_capital,       ->(term) { where( 'title LIKE ?', "%#{term}%" ) }
+  scope :title_contains,       ->(term) { where( 'lower(title) LIKE ?', "%#{term}%".downcase ) }
   scope :is_published, ->() { where('published = ?', true) }
-  scope :search, ->(term) { is_published().and(title_contains(term).or(title_contains_capital(term))) }
+  scope :search, ->(term) { is_published().and(title_contains(term)) }
 
   def liked?(user)
     !!self.likes.find{|like| like.user_id == user.id}
