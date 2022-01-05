@@ -24,14 +24,14 @@
 
       <br>
       <%= link_to("Construire", edit_article_path(article), class:"button is-black") %>
-    </div>
-    <% if current_user_role == 'admin' %>
-      <%= form_for article do |f| %>
-        <%= f.submit "Publier l'article", class: 'button is-info' %>
+      <% if current_user_role == 'admin' %>
+        <%= form_for article do |f| %>
+          <%= f.submit "Publier l'article", class: 'button is-info' %>
+        <% end %>
+
+        <%= link_to "Supprimer l'article", article_path(article), class: 'button is-danger is-fullwidth mt-3_negative', method: :delete %>
+
       <% end %>
-
-      <%= link_to "Supprimer l'article", article_path(article), class: 'button is-danger is-fullwidth mt-3_negative', method: :delete %>
-
-    <% end %>
+    </div>    
   </div>
 </div>

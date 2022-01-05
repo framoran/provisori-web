@@ -136,7 +136,7 @@ class GamesController < ApplicationController
 
     # if it's Sunday and there is at least a winner
     unless Time.now.strftime("%u").to_i == 1 && winner_count >= 1
-      return redirect_to games_path
+      return redirect_to games_path, error: 1
     end
 
     game = Game.last
