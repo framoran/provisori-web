@@ -47,16 +47,31 @@ class UsersController < ApplicationController
   end
 
   def update
-
     respond_to do |format|
       if user_can_edit(@user) && @user.update(user_params)
         # In this format call, the flash message is being passed directly to
         # redirect_to().  It's a caonvenient way of setting a flash notice or
         # alert without referencing the flash Hash explicitly.
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: "L'utilisateur e été mis à jour!" }
       else
         format.html { render :edit }
       end
+    end
+
+  end
+
+  def destroy
+
+    respond_to do |format|
+
+      if @user.destroy
+        format.html { redirect_to @user, notice: "L'utilisateur a été supprimé !" }
+
+      else
+        format.html { redirect_to @user, notice: "L'utilisateur n'a pas pu être supprimé !" }
+
+      end
+
     end
 
   end

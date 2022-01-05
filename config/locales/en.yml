@@ -66,6 +66,8 @@ en:
   not_registered: 'No account yet?'
   email: 'Email'
   password: 'Password'
+  error: 'Error'
+  errors: 'Errors'
 
   #helpers
   helpers:

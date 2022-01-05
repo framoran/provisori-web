@@ -1,3 +1,9 @@
+<% if notice != nil %>
+  <div class="ml-3">
+    <p class="notification is-info"><%= notice %></p>
+  </div>
+<% end %>
+
 <h1 class="title has-text-centered"> Tous les utilisateurs </h1>
 
 <% @users.each do |user| %>

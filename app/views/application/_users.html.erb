@@ -17,7 +17,7 @@
 
       <div class="mt-5">
 
-        <%= link_to 'Editer', edit_user_path(current_user.id), class: 'button is-medium is-primary', role: 'button' %>
+        <%= link_to 'Editer', edit_user_path(user.id), class: 'button is-medium is-primary', role: 'button' %>
 
         <% if user.role != 'admin' %>
 

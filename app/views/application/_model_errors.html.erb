@@ -1,9 +1,9 @@
 <% if model.errors.any? %>
   <div class="alert alert-danger" role="alert">
     <% if model.errors.count <= 1 %>
-      <p><%= pluralize(model.errors.count, "erreur") %>:</p>
+      <p><%= pluralize(model.errors.count, I18n.translate('error')) %>:</p>
     <% else %>
-      <p><%= pluralize(model.errors.count, "erreurs") %>:</p>
+      <p><%= pluralize(model.errors.count, I18n.translate('errors')) %>:</p>
     <% end %>
     <ul>
     <% model.errors.full_messages.each do |message| %>

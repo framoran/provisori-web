@@ -63,6 +63,8 @@ fr:
 
   # login
   not_registered: 'Pas encore de compte ?'
+  error: 'Erreur'
+  errors: 'Erreurs'
 
   #helpers
   helpers:
