@@ -1,5 +1,10 @@
-<div class="card grid-system">
-  <div class="card grid-system-card">
+  <% if current_user_role == 'admin' %>
+    <div class="card grid-system-admin">
+      <div class="card grid-system-card-admin">
+  <% else %>
+    <div class="card grid-system">
+      <div class="card grid-system-card">
+  <% end %>
     <div class="card-image">
       <figure class="image is-4by3">
         <% if article.image.present? %>
@@ -32,6 +37,6 @@
         <%= link_to "Supprimer l'article", article_path(article), class: 'button is-danger is-fullwidth mt-3_negative', method: :delete %>
 
       <% end %>
-    </div>    
+    </div>
   </div>
 </div>
