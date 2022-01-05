@@ -29,6 +29,7 @@
 
       <br>
       <%= link_to("Construire", edit_article_path(article), class:"button is-black") %>
+      <br>
       <% if current_user_role == 'admin' %>
         <%= form_for article do |f| %>
           <%= f.submit "Publier l'article", class: 'button is-info' %>
