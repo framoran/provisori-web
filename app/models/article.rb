@@ -11,7 +11,7 @@ class Article < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   scope :title_contains,       ->(term) { where('title LIKE ?', "%#{term}%".downcase) }
-  scope :is_published, ->() { where('published = ?', 1) }
+  scope :is_published, ->() { where('published = ?', true) }
   scope :search, ->(term) { title_contains(term).and(is_published()) }
 
   def liked?(user)
