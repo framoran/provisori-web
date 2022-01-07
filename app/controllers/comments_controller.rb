@@ -1,9 +1,16 @@
 class CommentsController < ApplicationController
 
-  before_action :authorization_at_least_reg
+  before_action :authorization_at_least_reg, only: [ :edit, :update ]
   before_action :set_article, only: [ :create , :edit, :update ]
 
   def create
+
+
+    unless current_user_role == 'registered' || current_user_role == 'admin'
+
+      return redirect_to article_path(@article.id), notice: "Vous devez être loggué pour pouvoir commenter un article. <a href='/fr/login'>Se logguer</a>"
+
+    end
 
     @comment = Comment.new(comment_params)
     @comment.article = @article

@@ -1,4 +1,9 @@
-<div class="half-page">
+<div class="half-page mt-3">
+  <% if notice != nil %>
+    <div>
+      <p class="notification is-info is-light"><%= notice.html_safe %></p>
+    </div>
+  <% end %>
   <div class="card">
     <div class="card-content">
       <div class="mt-5">
