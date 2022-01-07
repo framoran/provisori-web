@@ -60,11 +60,15 @@ fr:
   email: 'Email'
   password: 'Mot de passe'
   winner: 'Félicitations, vous avez trouvé la bonne réponse ! Reconnecter-vous ce vendredi à partir de 12h pour savoir si vous serez le vainqueur.'
+  error_game: "Vous devez être loggué pour pouvoir répondre à l'énigme."
 
   # login
   not_registered: 'Pas encore de compte ?'
   error: 'Erreur'
   errors: 'Erreurs'
+
+  # comment
+  error: 'Vous devez être loggué pour pouvoir commenter un article.'
 
   #helpers
   helpers:

@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 
     unless current_user_role == 'registered' || current_user_role == 'admin'
 
-      return redirect_to article_path(@article.id), notice: "Vous devez être loggué pour pouvoir commenter un article. <a href='/fr/login'>Se logguer</a>"
+      return redirect_to article_path(@article.id), notice: "#{I18n.translate('error')} <a href='/fr/login'>#{I18n.translate('login')}</a>"
 
     end
 
