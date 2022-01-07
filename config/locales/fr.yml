@@ -98,6 +98,7 @@ fr:
             last_name:
               blank: "Le nom de famille ne peut pas être vide"
             username:
+              taken: "Le nom d'utilisateur est déjà pris. Essayer de vous connecter."
               blank: "Le nom d'utilisateur"
         article:
           attributes:

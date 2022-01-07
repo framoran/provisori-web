@@ -102,6 +102,7 @@ en:
             last_name:
               blank: "The last name cannot be blank"
             username:
+              taken: "The username has already been taken. Try to connect."
               blank: "The username cannot be blank"
         messages:
           record_invalid: 'Impossible to save data'

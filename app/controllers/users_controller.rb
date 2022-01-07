@@ -31,7 +31,11 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path
+      if params[:v] == 'game'
+        redirect_to game
+      else
+        redirect_to root_path
+      end
     else
       respond_to do |format|
         format.html { render action: "new" }
