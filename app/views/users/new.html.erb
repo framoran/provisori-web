@@ -27,6 +27,16 @@
       </div>
 
       <div class="field">
+        <%= form.label(:username, class: 'label') %>
+        <div class="control has-icons-left">
+          <%= form.text_field(:username, class: 'input') %>
+          <span class="icon is-small is-left">
+            <i class="fas fa-pen-alt"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="field">
         <%= form.label :email, class: 'label' %>
         <div class="control has-icons-left">
           <%= form.email_field :email, class: 'input', placeholder: 'e.g. david.etanoel@gmail.com' %>

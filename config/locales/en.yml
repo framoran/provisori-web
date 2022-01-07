@@ -68,10 +68,10 @@ en:
   email: 'Email'
   password: 'Password'
   error: 'Error'
-  errors: 'Errors'
+  error_plural: 'Errors'
 
   # comment
-  error: 'You should be connected to comment an article.'
+  error_comment: 'You should be connected to comment an article.'
 
   #helpers
   helpers:
@@ -84,6 +84,7 @@ en:
         last_name: 'Last Name'
         email: 'Email'
         password: 'Password'
+        username: 'Username'
 
   # model
   activerecord:
@@ -96,5 +97,11 @@ en:
               blank: "Email cannot be empty."
             password:
               blank: "The password cannot be blank"
+            name:
+              blank: "The name cannot be blank"
+            last_name:
+              blank: "The last name cannot be blank"
+            username:
+              blank: "The username cannot be blank"
         messages:
           record_invalid: 'Impossible to save data'

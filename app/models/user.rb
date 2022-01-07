@@ -11,6 +11,12 @@ class User < ApplicationRecord
   validates :email, presence: true,
                     uniqueness: true
 
+  validates :username, presence: true, uniqueness: true
+
+  validates :password, presence: true
+  validates :name, presence: true
+  validates :last_name, presence: true
+
   before_validation :downcase_email
 
   mount_uploader :avatar, AvatarUploader

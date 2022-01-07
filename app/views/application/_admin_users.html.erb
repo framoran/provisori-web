@@ -59,7 +59,7 @@
 
         </div>
         <div>
-          <%= link_to 'Utilisateurs', users_path(), class: 'button is-medium', role: 'button' %>
+          <%= link_to 'Utilisateurs', "/#{I18n.locale}/users_all", class: 'button is-medium', role: 'button' %>
           <%= link_to 'Profil', user_path(current_user.id), class: 'button is-medium mt-1', role: 'button' %>
           <%= link_to 'Articles en construction', articles_path(), class: 'button is-medium mt-1', role: 'button' %>
           <%= link_to 'Game de la semaine', games_path(), class: 'button is-medium mt-1', role: 'button' %>

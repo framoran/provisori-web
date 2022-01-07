@@ -65,10 +65,10 @@ fr:
   # login
   not_registered: 'Pas encore de compte ?'
   error: 'Erreur'
-  errors: 'Erreurs'
+  error_plural: 'Erreurs'
 
   # comment
-  error: 'Vous devez être loggué pour pouvoir commenter un article.'
+  error_comment: 'Vous devez être loggué pour pouvoir commenter un article.'
 
   #helpers
   helpers:
@@ -81,6 +81,7 @@ fr:
         last_name: 'Nom de famille'
         email: 'Email'
         password: 'Mot de passe'
+        username: "Nom d'utilisateur"
   # model
   activerecord:
     errors:
@@ -92,6 +93,12 @@ fr:
               blank: "L'email ne peut pas être vide."
             password:
               blank: "Le mot de passe ne peut pas être vide."
+            name:
+              blank: "Nom nom ne peut pas être vide"
+            last_name:
+              blank: "Le nom de famille ne peut pas être vide"
+            username:
+              blank: "Le nom d'utilisateur"
         article:
           attributes:
             title:

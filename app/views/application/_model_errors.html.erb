@@ -3,7 +3,7 @@
     <% if model.errors.count <= 1 %>
       <p><%= pluralize(model.errors.count, I18n.translate('error')) %>:</p>
     <% else %>
-      <p><%= pluralize(model.errors.count, I18n.translate('errors')) %>:</p>
+      <p><%= pluralize(model.errors.count, I18n.translate('error_plural')) %>:</p>
     <% end %>
     <ul>
     <% model.errors.full_messages.each do |message| %>

@@ -2,12 +2,14 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  before_action :authorization_admin, only: [:index, :destroy]
+  before_action :authorization_admin, only: [:all, :destroy]
 
   before_action :authorization_at_least_reg, only: [:edit, :show]
 
   def index
-    @users = User.all.page(params[:page])
+
+    redirect_to new_user_path
+
   end
 
   def show
@@ -32,7 +34,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       respond_to do |format|
-        format.html { render :new }
+        format.html { render action: "new" }
       end
     end
 
@@ -76,6 +78,10 @@ class UsersController < ApplicationController
 
   end
 
+  def all
+    @users = User.all.page(params[:page])
+  end
+
   private
 
     def set_user
@@ -84,7 +90,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:avatar, :name, :last_name, :email, :password)
+      params.require(:user).permit(:avatar, :name, :last_name, :username, :email, :password)
     end
 
 end

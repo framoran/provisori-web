@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
     get 'signup', to:'users#new'
 
+    get 'users_all', to:'users#all'
+
   end
 
 end
