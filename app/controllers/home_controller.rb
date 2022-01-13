@@ -7,17 +7,17 @@ class HomeController < ApplicationController
     if params.has_key?(:a)
 
       @search_term = params[:a]
-      return @articles = Article.search(params[:a]).page(params[:page])
+      return @articles = Article.search(params[:a]).page(params[:page]).order("created_at DESC")
 
     end
 
     if params.has_key?(:q)
 
-      @articles = Article.where("published = true AND group#{params[:q]} = '1'").page(params[:page])
+      @articles = Article.where("published = true AND group#{params[:q]} = '1'").page(params[:page]).order("created_at DESC")
 
     else
 
-      @articles = Article.where("published = true").page(params[:page])
+      @articles = Article.where("published = true").page(params[:page]).order("created_at DESC")
 
     end
 

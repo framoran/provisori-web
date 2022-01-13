@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 
   def index
 
-    @articles = Article.where("published = false").page(params[:page])
+    @articles = Article.where("published = false").page(params[:page]).order("created_at DESC")
 
   end
 
