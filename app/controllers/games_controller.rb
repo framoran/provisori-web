@@ -105,7 +105,7 @@ class GamesController < ApplicationController
       end
 
       # check if correct response to the game
-      if params[:game][:response].downcase == response.response.downcase
+      if params[:game][:response].downcase.include? response.response.downcase
         # In this format call, the flash message is being passed directly to
         # redirect_to().  It's a caonvenient way of setting a flash notice or
         # alert without referencing the flash Hash explicitly.
@@ -132,8 +132,8 @@ class GamesController < ApplicationController
 
     winner_count = User.where(response_game: true).count
 
-    # if it's Sunday and there is at least a winner
-    unless Time.now.strftime("%u").to_i == 1 && winner_count >= 1
+    # if there is at least a winner
+    unless winner_count >= 1
       return redirect_to games_path, error: 1
     end
 
