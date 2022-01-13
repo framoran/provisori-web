@@ -43,9 +43,20 @@
   border-radius: 50px;
 }
 
+@include mobile{
+  .menu {
+    position: absolute;
+    right: 10px;
+  }
+}
+
 @include tablet {
   .half-page {
     width: 500px;
+  }
+  .menu {
+    position: absolute;
+    right: 10px;
   }
 }
 @include desktop {

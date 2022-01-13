@@ -37,9 +37,17 @@
 .rounded {
   border-radius: 50px; }
 
+@media only screen and (max-width: 768px) {
+  .menu {
+    position: absolute;
+    right: 10px; } }
 @media only screen and (min-width: 768px) {
   .half-page {
-    width: 500px; } }
+    width: 500px; }
+
+  .menu {
+    position: absolute;
+    right: 10px; } }
 @media only screen and (min-width: 1024px) {
   .menu {
     display: none; }
@@ -75,7 +83,7 @@ input {
 .footer {
   clear: both;
   position: relative;
-  height: 30vh;
+  height: 100%;
   background: #000;
   padding: 1.2rem; }
   .footer .footer__menu {
@@ -243,7 +251,7 @@ input {
 
 .grid-system {
   margin: 0.5rem;
-  width: 200px; }
+  width: 350px; }
 
 .grid-system-admin {
   margin: 0.5rem;
@@ -255,9 +263,13 @@ input {
 .grid-system-card-admin {
   height: 100%; }
 
+@media only screen and (max-width: 768px) {
+  .grid-system {
+    margin: 0.5rem;
+    width: 400px; } }
 @media only screen and (min-width: 768px) {
   .grid-system {
-    width: 300px;
+    width: 350px;
     margin: 0.7rem; } }
 @media only screen and (min-width: 1024px) {
   .grid-system {

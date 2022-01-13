@@ -28,7 +28,7 @@
 
 .grid-system {
   margin: 0.5rem;
-  width: 200px;
+  width: 350px;
 }
 
 .grid-system-admin{
@@ -44,9 +44,16 @@
   height: 100%;
 }
 
+@include mobile{
+  .grid-system {
+    margin: 0.5rem;
+    width: 400px;
+  }
+}
+
 @include tablet {
   .grid-system {
-    width: 300px;
+    width: 350px;
     margin: 0.7rem;
   }
 }
