@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  before_action :set_default_session_game
+  before_action :set_default_session
 
   def index
 

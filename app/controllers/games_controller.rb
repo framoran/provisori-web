@@ -134,6 +134,7 @@ class GamesController < ApplicationController
 
     # if there is at least a winner
     unless winner_count >= 1
+      flash[:alert] = "Tirage au sort non possible. Aucun utilisateur n'a trouvé la bonne réponse!"
       return redirect_to games_path, error: 1
     end
 

@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authorization_admin, only: [:index, :new, :edit, :create, :update, :destroy]
   before_action :set_article, only: [:show, :edit, :update, :destroy, :like]
 
-  before_action :set_default_session_game
+  before_action :set_default_session
 
   def index
 

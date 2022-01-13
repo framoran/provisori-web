@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
     session[:user_id].present?
   end
 
-  def set_default_session_game
+  def set_default_session
     session[:url] = 'root'
   end
 
@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
     case
     when session[:url] == 'game' then url = game_path
     when session[:url] != 'root' && session[:url].present? then url = session[:url]
-    else url = game_path
+    else url = root_path
     end
 
     return url
