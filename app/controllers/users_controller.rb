@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def new
 
     @user = User.new
-    
+
   end
 
   def create
@@ -33,10 +33,12 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      if session[:game]
+      if session[:url] == 'game'
         redirect_to game_path
-      else
+      elsif session[:url] == 'root'
         redirect_to root_path
+      else
+        redirect_to session[:url]
       end
     else
       respond_to do |format|

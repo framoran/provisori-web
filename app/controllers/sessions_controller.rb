@@ -15,10 +15,12 @@ class SessionsController < ApplicationController
      render 'new'
     else
      session[:user_id] = user.id
-     if session[:game]
+     if session[:url] == 'game'
        redirect_to game_path
-     else
+     elsif session[:url] == 'root'
        redirect_to root_path
+     else
+       redirect_to session[:url]
      end
     end
 

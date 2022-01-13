@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_default_session_game
-    session[:game] = false
+    session[:url] = 'root'
   end
 
   def set_locale
@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_session_game
-    session[:game] = true
+    session[:url] = 'game'
   end
 
 end

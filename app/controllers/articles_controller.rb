@@ -16,6 +16,8 @@ class ArticlesController < ApplicationController
     @comments = @article.comments.order("created_at DESC")
     @original_url = request.original_url
 
+    session[:url] = @original_url
+
   end
 
   def new
