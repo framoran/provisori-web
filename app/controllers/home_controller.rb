@@ -1,6 +1,9 @@
 class HomeController < ApplicationController
 
+  before_action :set_default_session_game
+
   def index
+
     if params.has_key?(:a)
 
       @search_term = params[:a]

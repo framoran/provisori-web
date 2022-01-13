@@ -2,6 +2,8 @@ class GamesController < ApplicationController
 
   before_action :authorization_admin, only: [ :new, :create, :edit, :update, :destroy, :winner]
 
+  before_action :set_session_game
+
   def index
 
     @enigme = Game.last
@@ -95,7 +97,7 @@ class GamesController < ApplicationController
 
       user = User.find(session[:user_id])
       user.nb_attempts = user.nb_attempts + 1
-      user.save!
+      user.save!(:validate => false)
 
       # Security => check the number of attempts to prevent from injecting a library programmatically
       unless user.nb_attempts < 500
@@ -108,7 +110,7 @@ class GamesController < ApplicationController
         # redirect_to().  It's a caonvenient way of setting a flash notice or
         # alert without referencing the flash Hash explicitly.
         user.response_game = true
-        user.save!
+        user.save!(:validate => false)
         if I18n.locale == :fr
           format.html { redirect_to @game, notice: "Félicitations! Vous avez trouvé la bonne réponse !" }
         else

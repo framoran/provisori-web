@@ -36,8 +36,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def default_url_options
+   { locale: I18n.locale }
+  end
+
   def logged_in?
     session[:user_id].present?
+  end
+
+  def set_default_session_game
+    session[:game] = false
   end
 
   def set_locale
@@ -48,8 +56,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def default_url_options
-   { locale: I18n.locale }
+  def set_session_game
+    session[:game] = true
   end
 
 end

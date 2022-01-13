@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
 
   def create
 
-
     unless current_user_role == 'registered' || current_user_role == 'admin'
 
       return redirect_to article_path(@article.id), notice: "#{I18n.translate('error_comment')} <a href='/fr/login'>#{I18n.translate('login')}</a>"

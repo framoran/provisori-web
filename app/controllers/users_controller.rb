@@ -31,8 +31,8 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      if params[:v] == 'game'
-        redirect_to game
+      if session[:game]
+        redirect_to game_path
       else
         redirect_to root_path
       end
