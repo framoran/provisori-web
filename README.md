@@ -9,7 +9,7 @@ The website will be entirely in French as the audience is for French users but f
 ## Changes from the initial project proposal
 <ol>
  <li>
-The project has several changes from the initial project proposal. These changes come from the Customer (my friend journalist) who decided to have article with different content directly integrated inside (paragraph, video, podcasts etc…). Indeed, he asked me a WordPress like builder for his articles, which I found challenging to integrate but interesting for the evaluation purpose. I decided to create a form builder with JavaScript in order that the Journalist can add as many videos, podcasts, paragraph he would like, then save the work. This is inspired by https://www.konbini.com/fr/. This is a major change because instead of displaying articles, videos, images as separate articles, everything is displayed as one single article. To do this, I use two models:
+    The project has several changes from the initial project proposal. These changes come from the Customer (my friend journalist) who decided to have article with different content directly integrated inside (paragraph, video, podcasts etc…). Indeed, he asked me a WordPress like builder for his articles, which I found challenging to integrate but interesting for the evaluation purpose. I decided to create a form builder with JavaScript in order that the Journalist can add as many videos, podcasts, paragraph he would like, then save the work. This is inspired by https://www.konbini.com/fr/. This is a major change because instead of displaying articles, videos, images as separate articles, everything is displayed as one single article. To do this, I use two models:
 
    ## Articles
    ### Attributes:
