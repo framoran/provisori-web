@@ -7,6 +7,7 @@ class LogInsTest < ApplicationSystemTestCase
     visit '/fr/signup'
     fill_in 'Nom', with: 'David'
     fill_in 'Nom de famille', with: 'Framorando'
+    fill_in "Nom d'utilisateur", with: 'framoran-35'
     fill_in 'Email', with: 'david.framorando-normal@gmail.com'
     fill_in 'Mot de passe', with: 'Test'
     click_on("commit")
@@ -24,6 +25,7 @@ class LogInsTest < ApplicationSystemTestCase
     visit '/fr/signup'
     fill_in 'Nom', with: 'David'
     fill_in 'Nom de famille', with: 'Framorando'
+    fill_in "Nom d'utilisateur", with: 'framoran-35'
     fill_in 'Email', with: 'david.framorando-normal@gmail.com'
     fill_in 'Mot de passe', with: 'Test'
     click_on("commit")
@@ -46,6 +48,7 @@ class LogInsTest < ApplicationSystemTestCase
     visit '/fr/signup'
     fill_in 'Nom', with: 'David'
     fill_in 'Nom de famille', with: 'Framorando'
+    fill_in "Nom d'utilisateur", with: 'framoran'
     fill_in 'Email', with: 'david.framorando-normal@gmail.com'
     fill_in 'Mot de passe', with: 'Test'
     click_on("commit")
@@ -56,11 +59,37 @@ class LogInsTest < ApplicationSystemTestCase
     visit '/fr/signup'
     fill_in 'Nom', with: 'David'
     fill_in 'Nom de famille', with: 'Framorando'
+    fill_in "Nom d'utilisateur", with: 'framoran-35'
     fill_in 'Email', with: 'david.framorando-normal@gmail.com'
     fill_in 'Mot de passe', with: 'Test'
     click_on("commit")
 
     assert page.has_content?('Cet email a déjà été utilisé. Essayer de vous connecter.')
+
+  end
+
+  test 'test cannot use twice username' do
+
+    visit '/fr/signup'
+    fill_in 'Nom', with: 'David'
+    fill_in 'Nom de famille', with: 'Framorando'
+    fill_in "Nom d'utilisateur", with: 'framoran'
+    fill_in 'Email', with: 'david.framorando-1@gmail.com'
+    fill_in 'Mot de passe', with: 'Test'
+    click_on("commit")
+
+    click_on("openNav")
+    click_on("Se déconnecter")
+
+    visit '/fr/signup'
+    fill_in 'Nom', with: 'David'
+    fill_in 'Nom de famille', with: 'Framorando'
+    fill_in "Nom d'utilisateur", with: 'framoran'
+    fill_in 'Email', with: 'david.framorando-2@gmail.com'
+    fill_in 'Mot de passe', with: 'Test'
+    click_on("commit")
+
+    assert page.has_content?("Le nom d'utilisateur est déjà pris. Essayer de vous connecter.")
 
   end
 

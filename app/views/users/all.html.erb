@@ -1,7 +1,9 @@
-<% if notice != nil %>
-  <div class="ml-3">
-    <p class="notification is-info is-light"><%= notice %></p>
-  </div>
+<% if flash.any? %>
+  <% flash.each do |name, message| %>
+    <div class="ml-3">
+      <p class="notification is-info is-light"><%= message %></p>
+    </div>
+  <% end %>
 <% end %>
 
 <h1 class="title has-text-centered"> Tous les utilisateurs </h1>

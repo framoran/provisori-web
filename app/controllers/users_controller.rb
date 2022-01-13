@@ -33,13 +33,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      if session[:url] == 'game'
-        redirect_to game_path
-      elsif session[:url] == 'root'
-        redirect_to root_path
-      else
-        redirect_to session[:url]
-      end
+      redirect_to show_url
     else
       respond_to do |format|
         format.html { render action: "new" }
@@ -72,17 +66,15 @@ class UsersController < ApplicationController
 
   def destroy
 
-    respond_to do |format|
-
       if @user.destroy
-        format.html { redirect_to @user, notice: "L'utilisateur a été supprimé !" }
+
+        redirect_to '/fr/users_all', notice: "L'utilisateur a été supprimé !"
 
       else
-        format.html { redirect_to @user, notice: "L'utilisateur n'a pas pu être supprimé !" }
+
+        redirect_to '/fr/users_all', notice: "L'utilisateur n'a pas pu être supprimé !"
 
       end
-
-    end
 
   end
 

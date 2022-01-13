@@ -24,7 +24,7 @@ class GameTest < ApplicationSystemTestCase
     fill_in 'game_response', with: 'Test'
     click_on("commit")
 
-    assert page.has_content?('Se logguer')
+    assert page.has_content?('Se connecter')
 
   end
 
@@ -58,13 +58,14 @@ class GameTest < ApplicationSystemTestCase
     visit '/fr/signup'
     fill_in 'Nom', with: 'David'
     fill_in 'Nom de famille', with: 'Framorando'
+    fill_in "Nom d'utilisateur", with: 'framoran'
     fill_in 'Email', with: 'david.framorando-normal@gmail.com'
     fill_in 'Mot de passe', with: 'Test'
     click_on("commit")
 
     visit '/fr/games/'
 
-    fill_in 'game_response',   with: "test88"  #locate text field by id attribute
+    fill_in 'game_response',   with: "wrong_resp88"  #locate text field by id attribute
 
     click_on("commit")
 
@@ -84,6 +85,7 @@ class GameTest < ApplicationSystemTestCase
     visit '/fr/signup'
     fill_in 'Nom', with: 'David'
     fill_in 'Nom de famille', with: 'Framorando'
+    fill_in "Nom d'utilisateur", with: 'framoran'
     fill_in 'Email', with: 'david.framorando-normal@gmail.com'
     fill_in 'Mot de passe', with: 'Test'
     click_on("commit")

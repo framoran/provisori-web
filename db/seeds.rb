@@ -8,3 +8,4 @@
 
 User.create!(email: 'admin@extensionschool.ch', password: 'test', name: 'Admin', last_name: 'EPFL', role: 'admin', username: 'admin')
 User.create!(email: 'normal@extensionschool.ch', password: 'test', name: 'Normal', last_name: 'EPFL', role: 'registered', username: 'normal')
+User.create!(email: 'normal2@extensionschool.ch', password: 'test', name: 'Normal', last_name: 'EPFL', role: 'registered', username: 'normal2')
