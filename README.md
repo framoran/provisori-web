@@ -3,6 +3,18 @@
 ## Server
 The project has been deployed to production on Heroku. This is the link: https://thawing-mountain-42006.herokuapp.com/
 
+## Seed data
+For the localhost test of the platform there are 3 users:
+* Admin: email : admin@extensionschool.ch and password : test
+* Normal user: email : normal@extensionschool.ch and password : test
+* Normal user 2 : email: normal2@extensionschool.ch and password : test
+
+## Custom CSS
+Most of the project is built with Bulma which is a small CSS framework that gives strong cohence between views. However, for the evaluation purpose I used custom CSS and I used SASS as requested. All the code can be found in app/assets/sass. There are partials and the main scss file application.scss
+
+## Javascript
+As described below I used Custom Javascript to build an interactive article builder. This JavaScript can be found in app/assets/javascript/form.js.erb
+
 ## Language
 The website will be entirely in French as the audience is for French users but for evaluation purpose I translated the website in english. The question of the game however will appear in the language that the admin wants (if he decides to do an enigma in french, it will be in french). This means that it is possible to have everything in english but for a normal user except the question. <strong> For the admin user part, everything is in French as the admin user is a French speaker.</strong>.
 
