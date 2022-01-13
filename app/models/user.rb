@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :email, presence: true,
                     uniqueness: true
 
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, :on=>:create
 
   validates :password, presence: true, :on=>:create
   validates :name, presence: true

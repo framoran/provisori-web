@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      if user_can_edit(@user) && @user.update(user_params)
+      if user_can_edit(@user) && @user.update(user_params_update)
         # In this format call, the flash message is being passed directly to
         # redirect_to().  It's a caonvenient way of setting a flash notice or
         # alert without referencing the flash Hash explicitly.
@@ -86,6 +86,11 @@ class UsersController < ApplicationController
 
     def set_user
       @user = User.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_params_update
+      params.require(:user).permit(:avatar, :name, :last_name, :email, :password)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
