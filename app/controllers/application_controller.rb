@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
     case
     when session[:url] == 'game' then url = game_path
     when session[:url] != 'root' && session[:url].present? then url = session[:url]
-    else url = root_path
+    else url = "/#{I18n.locale}/home"
     end
 
     return url

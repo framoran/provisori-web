@@ -139,6 +139,8 @@ input {
     -ms-flex-pack: center;
     justify-content: center;
     color: #B8B8B8; }
+    .footer .footer__copyright a {
+      color: #fff; }
 
 /************************ Sidebar ****************************************/
 .sidenav {

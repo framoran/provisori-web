@@ -10,11 +10,11 @@
 
     <!-- Facebook, Twitter and Instagram pages, needed to be created -->
 
-    <a href=""><i class="fab fa-facebook-f fa-2x"></i></a>
+    <a href="#"><i class="fab fa-facebook-f fa-2x"></i></a>
 
-    <a href=""><i class="fab fa-instagram fa-2x"></i></a>
+    <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
 
-    <a href=""><i class="fab fa-twitter fa-2x"></i></a>
+    <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
 
   </div>
 
@@ -28,7 +28,9 @@
 
   <div class="footer__copyright mt-3">
 
-    	&copy; 2021 PROVISORIMEDIA
+    <%= link_to "/#{I18n.locale }/home" do %>
+      &copy; 2021 PROVISORIMEDIA
+    <% end %>
 
   </div>
 
