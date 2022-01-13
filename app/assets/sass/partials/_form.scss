@@ -44,16 +44,21 @@
   height: 100%;
 }
 
+
+@function get-vw($target) {
+  $vw-context: (1000*.01) * 1px;
+  @return ($target/$vw-context) * 1vw;
+}
+
 @include mobile{
   .grid-system {
     margin: 0.5rem;
-    width: 400px;
+    width: 75vw;
   }
 }
 
 @include tablet {
   .grid-system {
-    width: 350px;
     margin: 0.7rem;
   }
 }
