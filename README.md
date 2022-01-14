@@ -11,6 +11,7 @@ For the localhost test of the platform there are 3 users:
 * Admin: email : admin@extensionschool.ch and password : test
 * Normal user: email : normal@extensionschool.ch and password : test
 * Normal user 2 : email: normal2@extensionschool.ch and password : test
+* Important: the admin user cannot suppress any admin users -> thompfeff@hotmail.com & admin@extensionschool.ch cannot be suppressed by the admin in the heroku app for instance.
 
 ## Custom CSS
 Most of the project is built with Bulma which is a small CSS framework that gives strong cohence between views. However, for the evaluation purpose I used custom CSS and I used SASS as requested. All the code can be found in app/assets/sass. There are partials and the main scss file application.scss
@@ -42,9 +43,9 @@ The website will be entirely in French as the audience is for French users but f
    * t.timestamp created_at
    * t.timestamp modified_at
    #### Associations:
-   * has_many elements, as: :elements
-   * has_many comments, as: :response
-   * has_many :like, as: :votable
+   * has_many elements
+   * has_many comments
+   * has_many likes
    ### Elements:
    * t.references article
    * t.string elements_type
