@@ -14,7 +14,7 @@
       <p class="mt-3"><strong>Nom:</strong> <em><%= user.name %></em>
       <p class="mt-3"><strong>Nom de famille:</strong> <em><%= user.last_name %></em>
       <p class="mt-3"><strong>Email:</strong> <em><%= user.email %></em>
-
+        <p class="mt-3"><strong>Nom d'utilisateur:</strong> <em><%= user.username %></em>
       <div class="mt-5">
 
         <%= link_to 'Editer', edit_user_path(user.id), class: 'button is-medium is-primary', role: 'button' %>
