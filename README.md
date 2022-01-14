@@ -22,6 +22,9 @@ As described below I used Custom Javascript to build an interactive article buil
 ## Language
 The website will be entirely in French as the audience is for French users but for evaluation purpose I translated the website in english. The question of the game however will appear in the language that the admin wants (if he decides to do an enigma in french, it will be in french). This means that it is possible to have everything in english but for a normal user except the question. <strong> For the admin user part, everything is in French as the admin user is a French speaker.</strong>.
 
+## Loading time
+Important! When you will try to upload a video or podcast that is heavy you will need to wait until the loading is finished to add the next thing. Otherwise, it will not be uploaded. I will add in future a loading screen or an animation but I need to discuss with the journalist to see whether we keep the system like this or we change it in order to have asynchronously loading of several files simultaneously.
+
 ## Changes from the initial project proposal
 <ol>
  <li>
