@@ -94,23 +94,29 @@
           <%= link_to "Aperçu", article_path(article), class: 'button is-black' %>
         </div>
 
+        <div class="mt-3 ml-5">
           <%= form_for article do |f| %>
             <% if @article.published %>
-              <div class="mt-3 ml-5">
-                <%= f.submit "Retirer l'article", class: 'button is-danger' %>
-              </div>
-              <div class="mt-3 ml-5">
-                <%= link_to 'Annuler', "/#{I18n.locale }/home", class: 'button is-info' %>
-              </div>
+              <%= f.submit "Retirer l'article", class: 'button is-danger' %>
             <% else %>
-              <div class="mt-3 ml-5">
-                <%= f.submit "Publier l'article", class: 'button is-primary' %>
-              </div>
-              <div class="mt-3 ml-5">
-                <%= link_to 'Annuler', articles_path, class: 'button is-info' %>
-              </div>
+              <%= f.submit "Publier l'article", class: 'button is-primary' %>
             <% end %>
           <% end %>
+        </div>
+
+        <div class="mt-3 ml-5">
+
+          <% if @article.published %>
+
+            <%= link_to 'Annuler', "/#{I18n.locale }/home", class: 'button is-info' %>
+
+          <% else %>
+
+            <%= link_to 'Annuler', articles_path, class: 'button is-info' %>
+
+          <% end %>
+
+        </div>
 
       </div>
 
