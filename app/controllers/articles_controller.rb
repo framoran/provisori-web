@@ -78,7 +78,6 @@ class ArticlesController < ApplicationController
 
   end
 
-
   def like
 
     # check whether like exists
