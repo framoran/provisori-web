@@ -1,22 +1,22 @@
-document.getElementById('openNav').onclick = function(){
+document.getElementById('openNav').onclick = function() {
 
   openNav();
 
 }
 
-document.getElementById('openNav2').onclick = function(){
+document.getElementById('openNav2').onclick = function() {
 
   openNav();
 
 }
 
-document.getElementById('openNav3').onclick = function(){
+document.getElementById('openNav3').onclick = function() {
 
   openNav();
 
 }
 
-document.getElementById('closeNav').onclick = function(){
+document.getElementById('closeNav').onclick = function() {
 
   closeNav();
 

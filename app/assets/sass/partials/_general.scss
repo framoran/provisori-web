@@ -1,5 +1,4 @@
 /************************ General Format *********************************/
-
 .time {
   font-size: 0.9rem;
   color: $gray;
@@ -39,21 +38,20 @@
   min-height: 70vh;
 }
 
-.rounded{
+.rounded {
   border-radius: 50px;
 }
-
-@include mobile{
+@include mobile {
   .menu {
     position: absolute;
     right: 10px;
   }
 }
-
 @include tablet {
   .half-page {
     width: 500px;
   }
+
   .menu {
     position: absolute;
     right: 10px;

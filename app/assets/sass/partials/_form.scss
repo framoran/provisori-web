@@ -1,10 +1,8 @@
 /*********************** Forms elements **********************************/
-
 .text_area {
   height: 300px;
 }
 /****************** Grid system with the flexbox ***********************/
-
 .grid-systems {
   display: -webkit-box;
   display: -webkit-flex;
@@ -14,13 +12,13 @@
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-flow: row wrap;
-     -moz-box-orient: horizontal;
-     -moz-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
   -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -31,7 +29,7 @@
   width: 350px;
 }
 
-.grid-system-admin{
+.grid-system-admin {
   margin: 0.5rem;
   width: 300px;
 }
@@ -43,20 +41,16 @@
 .grid-system-card-admin {
   height: 100%;
 }
-
-
 @function get-vw($target) {
   $vw-context: (1000*.01) * 1px;
   @return ($target/$vw-context) * 1vw;
 }
-
-@include mobile{
+@include mobile {
   .grid-system {
     margin: 0.5rem;
     width: 75vw;
   }
 }
-
 @include tablet {
   .grid-system {
     margin: 0.7rem;

@@ -1,11 +1,12 @@
 /************************ Pagination *************************************/
+
 .pagination a,
 .pagination span.current,
 .pagination span.gap {
   padding: 10px 20px;
   -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   line-height: 45px;
   text-decoration: none;
   background-color: $white;
