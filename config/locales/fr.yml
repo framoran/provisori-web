@@ -68,7 +68,14 @@ fr:
   error_plural: 'Erreurs'
 
   #edit user
+  modify_data: 'Modifier ses données'
   modify: 'Non modifiable'
+  username: "Nom d'utilisateur"
+  save_user: 'Mettre à jour'
+  profil: 'Profile'
+  edit_user: 'Editer'
+  name: 'Nom'
+  family_name: 'Nom de famille'
 
   # comment
   error_comment: 'Vous devez être loggué pour pouvoir commenter un article.'

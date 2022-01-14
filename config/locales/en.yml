@@ -71,7 +71,14 @@ en:
   error_plural: 'Errors'
 
   #edit user
+  modify_data: 'Edit profile'
   modify: 'Unchangeable'
+  username: "Username"
+  save_user: 'Update user'
+  profil: 'Profil'
+  edit_user: 'Edit'
+  name: 'Name'
+  family_name: 'Last name'
 
   # comment
   error_comment: 'You should be connected to comment an article.'

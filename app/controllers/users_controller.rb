@@ -58,7 +58,16 @@ class UsersController < ApplicationController
         # In this format call, the flash message is being passed directly to
         # redirect_to().  It's a caonvenient way of setting a flash notice or
         # alert without referencing the flash Hash explicitly.
-        format.html { redirect_to @user, notice: "L'utilisateur e été mis à jour!" }
+
+        if I18n.locale == :fr
+
+          format.html { redirect_to @user, notice: "Les informations ont été mises à jour!" }
+
+        else
+
+          format.html { redirect_to @user, notice: "The account has been updated!" }
+
+        end
       else
         format.html { render :edit }
       end

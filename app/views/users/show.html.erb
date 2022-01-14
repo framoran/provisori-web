@@ -5,7 +5,7 @@
 <% end %>
 <div class="columns mt-5 p-5">
   <div class="box mt-5 mb-5 column is-three-fifths is-offset-one-fifth">
-    <h1 class="mt-5 has-text-centered title">Profil</h1>
+    <h1 class="mt-5 has-text-centered title"><%= I18n.translate('profil') %></h1>
     <div class="has-text-centered">
       <figure class="image is-128x128">
         <% if @user.avatar.present? %>
@@ -16,14 +16,14 @@
       </figure>
     </div>
     <div class="p-3">
-      <p class="mt-3"><strong>Nom:</strong> <em><%= @user.name %></em>
-      <p class="mt-3"><strong>Nom de famille:</strong> <em><%= @user.last_name %></em>
+      <p class="mt-3"><strong><%= I18n.translate('name') %>:</strong> <em><%= @user.name %></em>
+      <p class="mt-3"><strong><%= I18n.translate('family_name') %>:</strong> <em><%= @user.last_name %></em>
       <p class="mt-3"><strong>Email:</strong> <em><%= @user.email %></em>
-      <p class="mt-3"><strong>Nom d'utilisateur:</strong> <em><%= @user.username %></em>
+      <p class="mt-3"><strong><%= I18n.translate('username') %>:</strong> <em><%= @user.username %></em>
 
       <div class="mt-5">
 
-        <%= link_to 'Editer', edit_user_path(@user.id), class: 'button is-medium is-primary', role: 'button' %>
+        <%= link_to I18n.translate('edit_user'), edit_user_path(@user.id), class: 'button is-medium is-primary', role: 'button' %>
 
       </div>
 
