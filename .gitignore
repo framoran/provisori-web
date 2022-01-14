@@ -41,5 +41,7 @@ yarn-debug.log*
 
 public/uploads/*
 
+.sass-cache/*
+
 # Ignore application configuration
 /config/application.yml
