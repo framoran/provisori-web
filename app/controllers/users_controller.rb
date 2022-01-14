@@ -28,6 +28,8 @@ class UsersController < ApplicationController
 
   def create
 
+    flash[:alert] = nil
+
     @user = User.new(user_params)
     @user.role = 'registered'
 

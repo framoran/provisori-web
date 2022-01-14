@@ -91,17 +91,21 @@
       <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between	">
 
         <div class="mt-3 ml-5">
-          <%= link_to "Aperçu", article_path(article), class: 'button is-info' %>
+          <%= link_to "Aperçu", article_path(article), class: 'button is-black' %>
         </div>
 
         <div class="mt-3 ml-5">
           <%= form_for article do |f| %>
-            <%= f.submit "Publier l'article", class: 'button is-primary' %>
+            <% if @article.published %>
+              <%= f.submit "Retirer l'article", class: 'button is-danger' %>
+            <% else %>
+              <%= f.submit "Publier l'article", class: 'button is-primary' %>
+            <% end %>
           <% end %>
         </div>
 
         <div class="mt-3 ml-5">
-          <%= link_to 'Annuler', articles_path, class: 'button is-danger' %>
+          <%= link_to 'Annuler', articles_path, class: 'button is-info' %>
         </div>
 
       </div>

@@ -13,6 +13,11 @@ class ArticlesController < ApplicationController
 
   def show
 
+    # if non admin and unpublished
+    unless current_user_role == 'admin' || @article.published
+      redirect_to root_path
+    end
+
     @comments = @article.comments.order("created_at DESC")
     @original_url = request.original_url
 

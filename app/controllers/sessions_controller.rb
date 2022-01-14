@@ -11,12 +11,21 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email].downcase)
 
     if(user.nil? || !user.authenticate(params[:password]))
-     flash[:alert] = "Email or password is invalid.  Please try again"
+
+      if I18n.locale == :fr
+        flash[:alert] = "Email ou mot de passe non valide."
+      else
+        flash[:alert] = "Email or password is invalid.  Please try again"
+      end
+
      render 'new'
     else
+
+     flash[:alert] = nil
+
      session[:user_id] = user.id
 
-     redirect_to show_url     
+     redirect_to show_url
 
     end
 

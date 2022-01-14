@@ -2,7 +2,11 @@
   <h1 class="title"><i class="fas fa-trophy mr-3"></i>PROVISORI Media <%= I18n.translate('game') %></h1>
   <% if flash.any? %>
     <% flash.each do |name, message| %>
-        <p class="notification is-info is-light"><%= message.html_safe %></p>
+      <% unless message.nil? %>
+        <p class="notification is-info is-light">
+            <%= message.html_safe %>
+        </p>
+      <% end %>
     <% end %>
   <% end %>
     <div class="card has-background-success-light	">
