@@ -3,7 +3,7 @@
 
   <p class="has-text-centered"><%= enigme.question %></p>
   <p class="has-text-centered"><strong>Réponse: </strong><em><%= enigme.response %><em></p>
-  <p class="mt-5">
+  <p class="mt-5 has-text-centered">
     <i class="fas fa-gift fa-lg mr-1"></i><strong><%= @users_found %></strong> personnes ont trouvés la réponse!
   </p>
 
@@ -17,7 +17,7 @@
         Le gagnant de la semaine est: <%= @winner.username %>.
       </p>
     <% end %>
-    
+
   <!-- the enigme should be displayed -->
   <% else %>
 

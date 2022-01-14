@@ -70,6 +70,9 @@ en:
   error: 'Error'
   error_plural: 'Errors'
 
+  #edit user
+  modify: 'Unchangeable'
+
   # comment
   error_comment: 'You should be connected to comment an article.'
 

@@ -67,6 +67,9 @@ fr:
   error: 'Erreur'
   error_plural: 'Erreurs'
 
+  #edit user
+  modify: 'Non modifiable'
+
   # comment
   error_comment: 'Vous devez être loggué pour pouvoir commenter un article.'
 

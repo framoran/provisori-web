@@ -43,6 +43,8 @@
         </div>
       </div>
 
+      <p class="mt-3"><strong>Nom d'utilisateur:</strong> <em><%= @user.username %></em><%= I18n.translate('modify') %>
+
        <div class="field">
          <div class="control has-icons-left">
            <%= form.submit "Sauvegarder", class: 'button is-primary' %>
