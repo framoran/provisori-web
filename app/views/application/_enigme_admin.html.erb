@@ -10,8 +10,14 @@
   <!-- check whether the winner should be displayed -->
   <% if enigme.is_display == false %>
 
-    <p><i class="fas fa-trophy fa-lg mr-1"></i>Le gagnant de la semaine est: <%= @winner.name %> <%= @winner.last_name[0] %></p>
-
+    <% if @winner.present? %>
+      <p class="has-text-centered">
+        <i class="fas fa-trophy fa-lg mr-1">
+        </i>
+        Le gagnant de la semaine est: <%= @winner.username %>.
+      </p>
+    <% end %>
+    
   <!-- the enigme should be displayed -->
   <% else %>
 
