@@ -5,8 +5,11 @@
   <% if enigme.is_display == false %>
     <p class="has-text-centered"><%= enigme.question %></p>
     <p class="has-text-centered">Réponse: <em><%= enigme.response %></em></p>
-    <p class="has-text-centered"><i class="fas fa-trophy fa-lg mr-1"></i>Le gagnant de la semaine est: <%= @winner.username %>.</p>
-
+    <p class="has-text-centered"><i class="fas fa-trophy fa-lg mr-1">
+    <% if @winner.username.present? %>
+      </i>Le gagnant de la semaine est: <%= @winner.username %>.</p>
+    <% end %>
+    
   <!-- the enigme should be displayed -->
   <% else %>
 
