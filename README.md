@@ -1,5 +1,8 @@
 # Notes for the evaluation purpose
 
+## Install
+It is possible that you need to install webpacker to run the application. To do this -> run bundle exec rails webpacker:install
+
 ## Server
 The project has been deployed to production on Heroku. This is the link: https://thawing-mountain-42006.herokuapp.com/
 
