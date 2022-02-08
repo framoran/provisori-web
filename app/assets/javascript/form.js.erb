@@ -141,6 +141,96 @@ function insert(type_of_element){
 
 }
 
+/* Remote action */
+var count_add = 0;
+var count_delete = 0;
+
+/* CHANGE SECTION -> XX person likes this article */
+let count = document.getElementById('count').innerText;
+
+if (document.getElementById('add_i')){
+  var add = document.getElementById("add_i");
+  document.getElementById('add_i').onclick = function(){
+
+    if (count_add == 0){
+
+      add.classList.remove('far');
+      add.classList.add('fas');
+      count_add = 1;
+
+      count ++;
+      document.getElementById('count').innerHTML = count
+
+    }else{
+
+      add.classList.remove('fas');
+      add.classList.add('far');
+      count_add = 0;
+
+      count --;
+      document.getElementById('count').innerHTML = count
+
+    }
+
+    var text = '';
+
+    if (count > 1){
+
+      text = 'personnes ont aimés cette article';
+      document.getElementById('like_article').innerHTML = text;
+
+    }else{
+
+      text = 'personne a aimé cette article';
+      document.getElementById('like_article').innerHTML = text;
+
+    }
+  }
+}
+
+if (document.getElementById('delete_i')){
+  var delete_i = document.getElementById("delete_i");
+  document.getElementById('delete_i').onclick = function(){
+
+    if (count_delete == 0){
+
+      delete_i.classList.remove('fas');
+      delete_i.classList.add('far');
+      count_delete = 1;
+
+      count --;
+      document.getElementById('count').innerHTML = count
+
+    }else{
+
+      delete_i.classList.remove('far');
+      delete_i.classList.add('fas');
+      count_delete = 0;
+
+      count ++;
+      document.getElementById('count').innerHTML = count
+
+    }
+
+    var text = '';
+
+    if (count > 1){
+
+      text = 'personnes ont aimés cet article';
+      alert(count)
+      document.getElementById('like_article').innerHTML = text;
+
+    }else{
+
+      text = 'personne a aimé cet article';
+      alert(count)
+      document.getElementById('like_article').innerHTML = text;
+
+    }
+
+  }
+}
+
 document.getElementById('add').onclick = function(){
 
   insert("body");

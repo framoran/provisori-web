@@ -19,9 +19,9 @@
         <div class="media-right">
           <em><i class="fas fa-heart fa-1x is-black"></i>
             <% if @article.likes.count <= 1 %>
-              <%= @article.likes.count %> <%= I18n.translate('like_article') %>
+              <span id="count"><%= @article.likes.count %></span> <span id="like_article"><%= I18n.translate('like_article') %></span>
             <% else %>
-              <%= @article.likes.count %> <%= I18n.translate('likes_article') %>
+              <span id="count"><%= @article.likes.count %></span> <span id="like_article"><%= I18n.translate('likes_article') %></span>
             <% end %>
           </em>
         </div>
@@ -43,7 +43,7 @@
 
         <div class="display is-inline-flex mt-5">
 
-          <p> <strong><%= I18n.translate('liked') %> </strong> </p>
+          <p id="like"> <strong><%= I18n.translate('liked') %> </strong> </p>
 
 
           <% if logged_in? %>
@@ -51,15 +51,13 @@
             <span class="p-3 mt-2_negative">
 
               <% if @article.liked?(current_user) %>
-                <%= link_to raw('<i class="fas fa-heart fa-2x"></i>'),
-                  like_path(@article),
-                  method: "put"
-                   %>
+                   <%= link_to like_path(@article), method: "put", :remote => true do %>
+                      <i id="delete_i" class="fas fa-heart fa-2x"></i>
+                   <% end %>
               <% else %>
-                <%= link_to raw('<i class="far fa-heart fa-2x is-black"></i>'),
-                  like_path(@article),
-                  method: "put"
-                   %>
+                  <%= link_to like_path(@article), method: "put", :remote => true do %>
+                      <i id="add_i" class="far fa-heart fa-2x"></i>
+                  <% end %>
               <% end %>
 
             <% end %>

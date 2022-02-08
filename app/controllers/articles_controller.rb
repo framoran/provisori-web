@@ -89,8 +89,6 @@ class ArticlesController < ApplicationController
       Like.create(user_id: current_user.id, article_id: @article.id, like: true)
     end
 
-    redirect_to article_path(@article)
-
   end
 
   private

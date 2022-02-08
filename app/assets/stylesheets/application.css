@@ -4,6 +4,9 @@
 /* SCSS vraiables */
 /* Gestions of different screen sizes */
 /************************ General Format *********************************/
+html {
+  scroll-behavior: smooth; }
+
 .time {
   font-size: 0.9rem;
   color: #A8A8A8; }

@@ -1,4 +1,9 @@
 /************************ General Format *********************************/
+
+html {
+  scroll-behavior: smooth;
+}
+
 .time {
   font-size: 0.9rem;
   color: $gray;
