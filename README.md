@@ -4,14 +4,7 @@
 It is possible that you need to install webpacker to run the application. To do this -> run bundle exec rails webpacker:install
 
 ## Server
-The project has been deployed to production on Heroku. This is the link: https://thawing-mountain-42006.herokuapp.com/
-
-## Seed data
-For the localhost test of the platform there are 3 users:
-* Admin: email : admin@extensionschool.ch and password : test
-* Normal user: email : normal@extensionschool.ch and password : test
-* Normal user 2 : email: normal2@extensionschool.ch and password : test
-* Important: the admin user cannot suppress any admin users -> thompfeff@hotmail.com & admin@extensionschool.ch cannot be suppressed by the admin in the heroku app for instance.
+The project has been deployed to production here: https://provisori.com
 
 ## Custom CSS
 Most of the project is built with Bulma which is a small CSS framework that gives strong cohence between views. However, for the evaluation purpose I used custom CSS and I used SASS as requested. All the code can be found in app/assets/sass. There are partials and the main scss file application.scss
@@ -78,13 +71,7 @@ Important! When you will try to upload a video or podcast that is heavy you will
 #### Also
 * The social network buttons (facebook, instagram etc...) in the footer do not link to anything for now. This is because the journalist has not created them yet.
 
-# Capstone project proposal outline
-
-## Project name
-
-### Provisori media (https://provisori.media) - not working for now because it needs to be bought
-
-## Application purpose
+# What is the project about?
 
 * Application global description
 
@@ -443,8 +430,8 @@ Here is the list of the pages that I imagined for now:
   </li>
   <br />
   <li>
-    Deployment server:
+    Deployment:
       <ul>
-        <li>Heroku will used as deployment service.</li>
+        <li>The website is live on <a href="provisori.com">Provisori.com</a>.</li>
       </ul>
   </li>
